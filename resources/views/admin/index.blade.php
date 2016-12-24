@@ -1,0 +1,159 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="row">
+    
+    <div class="col-md-6">
+        <div class="panel panel-danger">
+            <div class="panel-heading">Tags Panel</div>
+            <div class="panel-body">
+                
+                <form class="form-controll" action="" method="post">
+                {{ csrf_field() }}
+                    <div class="form-group{{ $errors->has('tag_name') ? ' has-error' : '' }}">
+                        <label for="tag" class="control-label">Tag name</label>
+
+                        <div class="">
+                            <input id="tag" type="text" class="form-control" name="tag_name" placeholder="enter new tag" required autofocus>
+
+                            @if ($errors->has('tag_name'))
+                                <span class="help-block">
+                                    <strong style="color: red;">{{ $errors->first('tag_name') }}</strong>
+                                </span>
+                            @endif
+
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Create new tags" class="btn btn-danger">
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-danger">
+            <div class="panel-heading">Tag Jual</div>
+            <div class="panel-body">
+                
+                <form class="form-controll" action="/admin/tag-jual" method="post">
+                {{csrf_field()}}
+                    <div class="form-group{{ $errors->has('tag_jual') ? ' has-error' : '' }}">
+                        <label for="Uknown" class="control-label">Tag Jual</label>
+
+                        <div class="">
+                            <input id="tag" type="text" class="form-control" name="tag_jual" placeholder="new tags jual" required autofocus>
+
+                            @if ($errors->has('tag_jual'))
+                                <span class="help-block">
+                                    <strong style="color: red;">{{ $errors->first('tag_jual') }}</strong>
+                                </span>
+                            @endif
+
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="tambah" class="btn btn-danger">
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+    @include('admin.flash')
+        <table class="table table-condensed">
+            <th class="warning">Tags Daftar</th>
+            @foreach($tags as $tag)
+                <tr class="success">
+                    <td class="info">
+                        
+                        <form class="form-controll" action="/admin/{{$tag->id}}/update" method="post">
+                        {{ csrf_field() }}
+                            <div class="form-inline">
+                            {{ $tag->name }}
+                            <div class="pull-right">
+                                <input id="tag" type="text" class="form-control input-sm" name="tag_edit" value="{{ old('tag_name') }}" placeholder="edit" required autofocus>
+                                <div class="form-group">
+                                    <input type="submit" name="" value="edit" class="btn btn-primary input-sm">
+                                    <a class="btn btn-danger input-sm" href="/admin/{{$tag->id}}/destroy">delete</a>
+                                </div>
+                            </div>
+                            </div>
+                        </form>
+
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
+
+    <!-- Tags Juals -->
+
+    <div class="col-md-6">
+    @include('admin.flash')
+        <table class="table table-condensed">
+            <th class="warning">Tags Jual</th>
+            @foreach($jtags as $jtag)
+                <tr class="success">
+                    <td class="info">
+                        
+                        <form class="form-controll" action="/admin/tag-jual/{{$jtag->id}}/update" method="post">
+                        {{ csrf_field() }}
+                            <div class="form-inline">
+                            {{ $jtag->name }}
+                            <div class="pull-right">
+                                <input id="tag" type="text" class="form-control input-sm" name="jtag_edit" value="{{ old('jtag_name') }}" placeholder="edit" required autofocus>
+                                <div class="form-group">
+                                    <input type="submit" name="" value="edit" class="btn btn-primary input-sm">
+                                    <a class="btn btn-danger input-sm" href="/admin/tag-jual/{{$jtag->id}}/destroy">delete</a>
+                                </div>
+                            </div>
+                            </div>
+                        </form>
+
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-condensed">
+            <th class="warning">Id</th>
+            <th class="warning">Username</th>
+            <th class="warning">Email</th>
+            <th class="warning">Joined</th>
+            @foreach($users as $user)
+                <tr class="success">
+                    <td class="info">
+                        {{ $user->id }}
+                    </td>
+
+                    <td class="info">
+                        {{ $user->name }}
+                    </td>
+
+                    <td class="info">
+                        {{ $user->email }}
+                    </td>
+
+                    <td class="info">
+                        {{ $user->created_at }}
+                    </td>
+
+                </tr>
+            @endforeach
+        </table>
+    </div>
+</div>
+@endsection
