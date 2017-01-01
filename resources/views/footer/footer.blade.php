@@ -4,7 +4,7 @@
       <div class="col-md-6">
         <div class="media">
           <a href="" class="pull-left">
-              <img src="/img/adm/adm.jpg" class="img-responsive img-circle" style="height: 50px; width: 50px;">
+              <img src="/img/adm/adm.jpg" alt="fidia.com" class="img-responsive img-circle" style="height: 50px; width: 50px;">
           </a>
           <div class="media-body">
               <div class="media-heading">
@@ -16,9 +16,10 @@
       <div class="col-md-6">
         <div class="text-center">
           <ul>
-            <li class="fotli">Facebok</li>
-            <li class="fotli">Forum</li>
-            <li class="fotli">Twitter</li>
+            <li class="fotli"><a href="">Facebook</a></li>
+            <li class="fotli"><a href="/threads">Forum</a></li>
+            <li class="fotli"><a href="/fjb">Fjb</a></li>
+            <li class="fotli"><a href="/member">Member</a></li>
           </ul>
         </div>
       </div>

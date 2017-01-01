@@ -14,7 +14,7 @@ class JCommentController extends Controller
     public function store(JcommentRequest $request, $slug){
     	$jual = Jual::whereSlug($slug)->first();
     	if (!$jual) {
-    		return redirect()->to('/barang-di-jual');
+    		return redirect()->to('/fjb');
     	}//dd($request->body);
     				$id   = $jual->id;
             $slug = str_slug($request->title);
@@ -40,12 +40,12 @@ class JCommentController extends Controller
     public function edit($id){
         $comment = Jcomment::whereId($id)->first();
         if (!$comment) {
-            return redirect('/barang-di-jual');
+            return redirect('/fjb');
         }
         if (Auth::user()->id == $comment->user_id) {
             return view('jcomments.edit', compact('comment'));
         }else{
-            return redirect('/barang-di-jual');
+            return redirect('/fjb');
         }
     }
 
@@ -53,7 +53,7 @@ class JCommentController extends Controller
         //dd($id);
         $comment = Jcomment::whereId($id)->first();
         if (!$comment) {
-            return redirect('/barang-di-jual');
+            return redirect('/fjb');
         }
         if (Auth::user()->id == $comment->user_id) {
         		$id = $comment->jual_id;
@@ -75,7 +75,7 @@ class JCommentController extends Controller
                 'jual_id'   => $comment->jual_id,
             ]);
             //$request->session()->flash('status', 'Commentar anda telah di update');
-            return redirect()->to("/barang-di-jual/{$comment->jual->slug}");
+            return redirect()->to("/fjb/{$comment->jual->slug}");
         }else{
             return redirect('/');
         }

@@ -7,8 +7,8 @@
         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 800px; height: 356px; overflow: hidden;">
             @foreach($jual->galery()->get() as $img)
               <div data-p="144.50">
-                  <img data-u="image" src="{{ asset('/img/fjb/'.$img->img ) }}" class="img-responsive" />
-                  <img data-u="thumb" src="{{ asset('/img/fjb/'.$img->img ) }}" class="img-responsive" />
+                  <img data-u="image" src="{{ asset('/img/fjb/'.$img->img ) }}" alt="{{$jual->tag->name}}" class="img-responsive" />
+                  <img data-u="thumb" src="{{ asset('/img/fjb/'.$img->img ) }}" alt="{{$jual->tag->name}}" class="img-responsive" />
               </div>
             @endforeach
         </div>

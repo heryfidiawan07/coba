@@ -11,7 +11,7 @@
 <!-- galery -->    
             @foreach($jualsphoto->galery as $galery)
                 <div data-p="112.50">
-                    <img src="{{ asset('/img/fjb/'.$galery->img ) }}">
+                    <img src="{{ asset('/img/fjb/'.$galery->img ) }}" alt="fidia.com">
                 </div>
             @endforeach
 <!-- galery -->

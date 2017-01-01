@@ -49,5 +49,10 @@ class UserController extends Controller
         }
     }
     
+    public function member(){
+        $members = User::paginate(15);
+        return view('user.member', compact('members'));
+    }
+            
 
 }

@@ -6,8 +6,8 @@
         <div class="col-md-6">
             <div class="media">
                 <span class="pull-left">
-                    <img width="150px" src="{{$user->getAvatar()}}" class="media-object" onerror="this.style.display='none'">
-                    <img width="150px" src="{{asset('/img/users/'.$user->getAvatar() )}}" class="media-object" onerror="this.style.display='none'">
+                    <img width="150px" src="{{$user->getAvatar()}}" class="img-responsive" alt="{{$user->getName()}}" onerror="this.style.display='none'">
+                    <img width="150px" src="{{asset('/img/users/'.$user->getAvatar() )}}" alt="{{$user->getName()}}" class="img-responsive" onerror="this.style.display='none'">
                 </span>
                 <div class="media-body">
                     <h5 class="media-heading"> {{$user->getName()}} </h5>
@@ -17,9 +17,9 @@
         </div>
 
         <div class="col-md-6">
-            <div class="alert alert-success">
-                @if(Auth::check())
-                    @if(Auth::user()->id == $user->id)
+            @if(Auth::check())
+                @if(Auth::user()->id == $user->id)
+                    <div class="alert alert-success">
                         <form class="form-inline" action="/edit-name/{{$user->id}}" method="post">
                         {{csrf_field()}}
                             <div class="form-group {{ $errors->has('edit_name') ? ' has-error' : '' }} ">
@@ -41,9 +41,9 @@
                             </div>
                             <button class="btn btn-warning btn-sm" type="submit">Edit img</button>
                         </form>
-                    @endif
+                    </div>
                 @endif
-            </div>
+            @endif
         </div>
     </div>
 </div>
@@ -63,17 +63,45 @@
         @foreach($threads as $thread)
             <div class="media">
                 <a href="/{{$thread->user->getName()}}" class="pull-left">
-                    <img src=" {{$thread->user->getAvatar()}} " alt="" class="media-object img-circle" onerror="this.style.display='none'">
-                    <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+                    <img src=" {{$thread->user->getAvatar()}} " alt="{{$thread->user->getName()}}" class="img-responsive img-circle" onerror="this.style.display='none'">
+                    <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" alt="{{$thread->user->getName()}}" class="img-responsive img-circle" onerror="this.style.display='none'">
                 </a>
                 <div class="media-body">
-                    <div class="media-heading"><a href="/threads/{{$thread->slug}} ">{{$thread->title}}</a> ({{$thread->tag->name}}<a href=""></a>) </div>
-                    <p> {{$thread->created_at->diffForHumans()}} by <a href="/{{$thread->user->getName()}}"> {{$thread->user->getName()}} </a> </p>
+                    <div class="media-heading"><a href="/threads/{{$thread->slug}} ">{{$thread->title}}</a> | {{$thread->tag->name}}<a href=""></a></div>
+                    <p> <small>{{$thread->created_at->diffForHumans()}}</small> by <a href="/{{$thread->user->getName()}}"> {{$thread->user->getName()}} </a> </p>
                 </div>
+                <div class="panel-footer"><a href="/threads/{{$thread->slug}} ">{{$thread->countComments()}} comment</a></div>
             </div>
             <hr>
         @endforeach
         {{$threads->links()}}
+    </div>
+</div>
+    
+<div class="row">
+    <div class="col-md-3">
+        @include('news.jtags')
+    </div>
+    <div class="col-md-9">
+        @if(!$juals->count())
+            <p class="lead">Tidak ada threads di sini</p>
+            <hr>
+        @endif
+        @foreach($juals as $jual)
+            <div class="media">
+                <a href="/{{$jual->user->getName()}}" class="pull-left">
+                    <img src=" {{$jual->user->getAvatar()}} " alt="{{$jual->user->getName()}}" class="img-circle img-responsive" onerror="this.style.display='none'">
+                    <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" alt="{{$jual->user->getName()}}" class="img-circle img-responsive" onerror="this.style.display='none'">
+                </a>
+                <div class="media-body">
+                    <div class="media-heading"><a href="/jual/{{$jual->slug}} ">{{$jual->title}}</a> | {{$jual->tag->name}}<a href=""></a></div>
+                    <p> <small>{{$jual->created_at->diffForHumans()}}</small> by <a href="/{{$jual->user->getName()}}"> {{$jual->user->getName()}} </a> </p>
+                </div>
+                <div class="panel-footer"><a href="/fjb/{{$jual->slug}} ">{{$jual->countComments()}} comment</a></div>
+            </div>
+            <hr>
+        @endforeach
+        {{$juals->links()}}
     </div>
     
 </div>

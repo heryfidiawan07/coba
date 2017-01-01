@@ -76,5 +76,12 @@ class User extends Authenticatable
         }
     }
     
+    public function tulisan(){
+        return $this->threads->count();
+    }
+    
+    public function fjb(){
+        return $this->juals->count();
+    }       
     
 }

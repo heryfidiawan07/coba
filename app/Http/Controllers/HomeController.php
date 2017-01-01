@@ -53,12 +53,14 @@ class HomeController extends Controller
     public function user($name){
         $user    = User::whereName($name)->first();
         $tags    = Tag::all();
-        $threads = Thread::where('user_id', $user->id)->latest()->paginate(10);
+        $jtags   = TagJual::all();
         if (!$user) {
             return redirect('/');
         }
+        $threads = Thread::where('user_id', $user->id)->latest()->paginate(10);
+        $juals   = Jual::where('user_id', $user->id)->latest()->paginate(10);
         //dd($user->id);
-        return view('user.index', compact('user', 'threads', 'tags'));
+        return view('user.index', compact('user', 'threads', 'tags', 'juals', 'jtags'));
     }
     
     public function welcome(){

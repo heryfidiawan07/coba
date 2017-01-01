@@ -15,15 +15,15 @@ use App\Http\Requests\JualRequest;
 
 class JualController extends Controller
 {		
-		public function __construct(){
-			$this->middleware('auth', ['except' => ['index', 'show', 'tag']]);
-		}
-		
-		public function index(){
-			$jtags = TagJual::all();
-      $juals = Jual::latest()->paginate(10);
-			return view('fjb.index', compact('juals', 'jtags'));
-		}		
+	public function __construct(){
+		$this->middleware('auth', ['except' => ['index', 'show', 'tag']]);
+	}
+	
+	public function index(){
+		$jtags = TagJual::all();
+        $juals = Jual::latest()->paginate(10);
+		return view('fjb.index', compact('juals', 'jtags'));
+	}		
 
     public function create(){
     	$jtags = TagJual::all();
@@ -31,63 +31,62 @@ class JualController extends Controller
     }
 
     public function show($slug){
-      $jual = Jual::whereSlug($slug)->first();
-      if(!$jual){
-        return redirect()->to('/barang-di-jual');
-      }
-    	$jcomments = $jual->jcomments;
-
-    	return view('fjb.show', compact('jual', 'jcomments'));
+        $jual = Jual::whereSlug($slug)->first();
+        if(!$jual){
+            return redirect()->to('/fjb');
+        }
+    	   $jcomments = $jual->jcomments;
+    	   return view('fjb.show', compact('jual', 'jcomments'));
     }
     
     public function store(JualRequest $request){
-      if (count($request->file('img')) <= 4) {
-        $slug = str_slug($request->title);
-          $jual = Auth::user()->juals()->create([
-            'title'     => $request->title,
-            'deskripsi' => $request->deskripsi,
-            'slug'      => $slug,
-            'tag_id'    => $request->tag_id,
-          ]);
-        $time = date('Y-m-d H:i:s');
-        $files = $request->file('img');
+        if (count($request->file('img')) <= 4) {
+            $slug = str_slug($request->title);
+            $jual = Auth::user()->juals()->create([
+                'title'     => $request->title,
+                'deskripsi' => $request->deskripsi,
+                'slug'      => $slug,
+                'tag_id'    => $request->tag_id,
+            ]);
+            $time  = date('Y-m-d H:i:s');
+            $files = $request->file('img');
             if (!empty($files)) {
             	foreach ($files as $file) {
-            		$fileName = $jual->user_id.'-'.$jual->id.'-'.$time.'-'.$file->getClientOriginalName();
+                	$fileName = $jual->user_id.'-'.$jual->id.'-'.$time.'-'.$file->getClientOriginalName();
 
-                $path = $file->getRealPath();
-                $img  = Image::make($path)->resize(250, 200);
-                $img->save(public_path("img/fjb/". $fileName));
+                    $path = $file->getRealPath();
+                    $img  = Image::make($path)->resize(250, 200);
+                    $img->save(public_path("img/fjb/". $fileName));
 
-                $galeries = new Galery;
-                $galeries->img     = $fileName;
-                $galeries->jual_id = $jual->id;
-                $galeries->save();
+                    $galeries = new Galery;
+                    $galeries->img     = $fileName;
+                    $galeries->jual_id = $jual->id;
+                    $galeries->save();
             	} 
-              return redirect()->to("/barang-di-jual/{$slug}");
             }
-      }else{
-        return back()->with('message', 'max 4 files');
+            return redirect()->to("/fjb/{$slug}");
+        }else{
+            return back()->with('message', 'max 4 files');
       }
     }
 
     public function edit($slug){
         $jual = Jual::whereSlug($slug)->first();
         if (!$jual) {
-            return redirect()->to('/barang-di-jual');
+            return redirect()->to('/fjb');
         }
         if (Auth::user()->id == $jual->user_id){
             $jtags = TagJual::all();
             return view('fjb.edit', compact('jual', 'jtags'));
         }else{
-            return redirect()->to('/barang-di-jual/{slug}');
+            return redirect()->to('/fjb/{slug}');
         }
     }
 
     public function update(EditJual $request, $slug){
         $jual = Jual::whereSlug($slug)->first();
         if (!$jual) {
-            return redirect()->to('/barang-di-jual');
+            return redirect()->to('/fjb');
         }
         $jml = 4 - count($jual->galery);
         if (count($request->file('img')) > $jml) {
@@ -116,10 +115,10 @@ class JualController extends Controller
                           $galery->save();
                     }
                 }
-              return redirect()->to("/barang-di-jual/". $slug);  
+              return redirect()->to("/fjb/". $slug);  
             }else{
                 $request->session()->flash('status', 'Apa yang anda lakukan');
-                return redirect()->to('/barang-di-jual');
+                return redirect()->to('/fjb');
             }
         }
     }
@@ -127,7 +126,7 @@ class JualController extends Controller
     public function tag($slug){ 
         $tag = TagJual::whereSlug($slug)->first();
         if (!$tag) {
-            return redirect()->to('/barang-di-jual');
+            return redirect()->to('/fjb');
         }
         $jtags = TagJual::all();
         $juals = Jual::where('tag_id',$tag->id)->latest()->paginate(10); //eroorrrrrr============

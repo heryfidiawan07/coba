@@ -14,7 +14,7 @@
                     <div class="form-group {{ $errors->has('imgcomment') ? ' has-error' : '' }} ">
                     <div class="alert alert-info">
                         @if($comment->img)
-                            <img src="{{ asset('/img/comments/'.$comment->img)  }}" style="max-height:100px;max-width:150px;">
+                            <img src="{{ asset('/img/comments/'.$comment->img)  }}" alt="{{$comment->thread->title}}" style="max-height:100px;max-width:150px;">
                             <a href="/comment/{{$comment->id}}/delete" class="btn btn-warning btn-sm">delete</a>
                         @endif
                         @if(!$comment->img)

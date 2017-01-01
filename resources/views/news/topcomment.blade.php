@@ -1,7 +1,7 @@
 <div class="marketing">
 
   @if($hotsthreads->count())
-      <h4 class="text-center">Threads Top Comment</h4>
+      <h4 class="text-center">top threads</h4>
       <hr>
   @endif
 
@@ -9,8 +9,8 @@
     <div class="col-md-3">
       <div class="media">
         <a href="/{{$hotsthread->user->getName()}}" class="pull-left">
-            <img src=" {{$hotsthread->user->getAvatar()}} " alt="" class="media-object img-circle" onerror="this.style.display='none'">
-            <img src="{{asset('/img/users/'.$hotsthread->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+            <img src=" {{$hotsthread->user->getAvatar()}} " alt="{{$hotsthread->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
+            <img src="{{asset('/img/users/'.$hotsthread->user->getAvatar() )}}" alt="{{$hotsthread->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
         </a>        
         <a href="/{{$hotsthread->user->getName()}}"> {{$hotsthread->user->getName()}} </a><br>
         <small class="pull-right">{{$hotsthread->created_at->diffForHumans()}}</small>

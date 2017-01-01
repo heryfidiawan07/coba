@@ -12,7 +12,7 @@ class Thread extends Model
 {	
     use Searchable;
 
-    public function searchable(){
+    public function searchableAs(){
         return 'threads';
     }
     

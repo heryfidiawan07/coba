@@ -1,5 +1,5 @@
 @if(Auth::check())
-	<a href="/barang-di-jual/mythreads" class="btn btn-danger btn-sm" style="color: white !important;">Iklan saya</a>
+	<a href="/fjb/mythreads" class="btn btn-danger btn-sm" style="color: white !important;">My FJB</a>
   <br><br>
 @endif
 

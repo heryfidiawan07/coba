@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => 'no-reply@fidia.com',
-        'name' => 'No-Reply',
+        'name'    => 'fidia.com',
     ],
 
     /*

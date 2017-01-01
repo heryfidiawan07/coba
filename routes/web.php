@@ -15,16 +15,17 @@ Route::post('/admin/tag-jual/{id}/update', 'AdminController@tagJualUpdate');
 Route::get('/admin/{id}/destroy', 'AdminController@tagDestroy');
 Route::get('/admin/tag-jual/{id}/destroy', 'AdminController@tagJualDestroy');
 //========== end admin panel ========
-Route::get('/search/threads', 'SearchController@index');
+Route::get('/search', 'SearchController@index');
 
 Route::get('/', 'HomeController@index');
+Route::get('/member', 'UserController@member');
 
 Route::get('/threads/mythreads', 'ThreadController@mine');
 
-Route::get('/barang-di-jual/mythreads', 'JualController@minejual');
+Route::get('/fjb/mythreads', 'JualController@minejual');
 
 Route::get('/threads/create', 'ThreadController@create');//->name('threads.create');// untuk apa belum tau
-Route::post('/threads/create', 'ThreadController@store');
+Route::post('/threads/{slug}', 'ThreadController@store');
 
 Route::get('/threads', 'ThreadController@index');
 Route::get('/threads/{slug}', 'ThreadController@show');
@@ -43,18 +44,18 @@ Route::post('/comment/{id}/edit', 'CommentController@update');
 
 Route::get('/comment/{id}/delete', 'ImageController@deleteimgcomment');
 //==== Jual Barang ======
-Route::get('/barang-di-jual/create', 'JualController@create');
-Route::post('/barang-di-jual/{slug} ', 'JualController@store');
+Route::get('/fjb/create', 'JualController@create');
+Route::post('/fjb/{slug} ', 'JualController@store');
 
-Route::get('/barang-di-jual', 'JualController@index');
-Route::get('/barang-di-jual/{slug} ', 'JualController@show');
+Route::get('/fjb', 'JualController@index');
+Route::get('/fjb/{slug} ', 'JualController@show');
 
-Route::get('/barang-di-jual/{slug}/edit', 'JualController@edit');
-Route::post('/barang-di-jual/{slug}/edit', 'JualController@update');
+Route::get('/fjb/{slug}/edit', 'JualController@edit');
+Route::post('/fjb/{slug}/edit', 'JualController@update');
 
 Route::get('/kategory/{slug}', 'JualController@tag');
 
-Route::get('/barang-di-jual/{id}/delete', 'ImageController@destroy');
+Route::get('/fjb/{id}/delete', 'ImageController@destroy');
 
 Route::post('/commentar/{slug}','JCommentController@store');
 

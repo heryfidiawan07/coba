@@ -13,11 +13,11 @@ class Jual extends Model
 {   
     use Searchable;
 
-    public function searchable(){
+    public function searchableAs(){
         return 'juals';
     }
 
-    protected $fillable = ['title', 'tag_id', 'deskripsi', 'slug'];
+    protected $fillable = ['title', 'deskripsi', 'tag_id', 'slug'];
 
     public function user(){
     	return $this->belongsTo(User::class);

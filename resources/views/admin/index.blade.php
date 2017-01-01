@@ -5,7 +5,7 @@
     
     <div class="col-md-6">
         <div class="panel panel-danger">
-            <div class="panel-heading">Tags Panel</div>
+            <div class="panel-heading">Tags Threads</div>
             <div class="panel-body">
                 
                 <form class="form-controll" action="" method="post">
@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" value="Create new tags" class="btn btn-danger">
+                            <input type="submit" value="create tag threads" class="btn btn-danger">
                         </div>
                     </div>
                 </form>
@@ -35,13 +35,13 @@
     </div>
     <div class="col-md-6">
         <div class="panel panel-danger">
-            <div class="panel-heading">Tag Jual</div>
+            <div class="panel-heading">Tag FJB</div>
             <div class="panel-body">
                 
                 <form class="form-controll" action="/admin/tag-jual" method="post">
                 {{csrf_field()}}
                     <div class="form-group{{ $errors->has('tag_jual') ? ' has-error' : '' }}">
-                        <label for="Uknown" class="control-label">Tag Jual</label>
+                        <label for="Uknown" class="control-label">Tag name</label>
 
                         <div class="">
                             <input id="tag" type="text" class="form-control" name="tag_jual" placeholder="new tags jual" required autofocus>
@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" value="tambah" class="btn btn-danger">
+                            <input type="submit" value="create tag fjb" class="btn btn-danger">
                         </div>
                     </div>
                 </form>
@@ -70,7 +70,7 @@
     <div class="col-md-6">
     @include('admin.flash')
         <table class="table table-condensed">
-            <th class="warning">Tags Daftar</th>
+            <th class="warning">Tags Threads</th>
             @foreach($tags as $tag)
                 <tr class="success">
                     <td class="info">
@@ -100,7 +100,7 @@
     <div class="col-md-6">
     @include('admin.flash')
         <table class="table table-condensed">
-            <th class="warning">Tags Jual</th>
+            <th class="warning">Tags FJB</th>
             @foreach($jtags as $jtag)
                 <tr class="success">
                     <td class="info">

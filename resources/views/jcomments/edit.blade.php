@@ -5,7 +5,7 @@
     <div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading"><p>Edit comment :</p>
-                <a href="/barang-di-jual/{{$comment->jual->slug}}">{{$comment->jual->title}}</a>
+                <a href="/fjb/{{$comment->jual->slug}}">{{$comment->jual->title}}</a>
             </div>
             <div class="panel-body">
                 <form id="upload" action="/commentar/{{$comment->id}}/edit" method="post" enctype="multipart/form-data">
@@ -17,7 +17,7 @@
                     <div class="form-group {{ $errors->has('imgcomment') ? ' has-error' : '' }} ">
                         <div class="alert alert-info">
                             @if($comment->img)
-                                <img src="{{ asset('/img/comments/'.$comment->img)  }}" style="width: 100px;">
+                                <img src="{{ asset('/img/comments/'.$comment->img)  }}" alt="{{$comment->jual->title}}" style="width: 100px;">
                                 <a href="/commentar/{{$comment->id}}/delete" class="btn btn-warning btn-sm">delete</a>
                             @endif
                             @if(!$comment->img)

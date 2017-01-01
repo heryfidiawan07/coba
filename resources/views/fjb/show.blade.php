@@ -21,15 +21,15 @@
                 <div class="media" style="margin-left: 20px;">
                     <div class="media">
                         <a href="/{{$jcomment->user->getName()}}" class="pull-left">
-                          <img src=" {{$jcomment->user->getAvatar()}} " alt="" class="media-object img-circle" onerror="this.style.display='none'">
-                          <img src="{{asset('/img/users/'.$jcomment->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+                          <img src=" {{$jcomment->user->getAvatar()}} " alt="{{$jcomment->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
+                          <img src="{{asset('/img/users/'.$jcomment->user->getAvatar() )}}" alt="{{$jcomment->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
                         </a>
                         <a href="/{{$jcomment->user->name}}">{{$jcomment->user->getName()}}</a>
                         <small> &horbar; {{$jcomment->created_at->diffForHumans()}}</small>
                     <div class="media">
                         <p> {{$jcomment->body}} </p>
                         @if($jcomment->img)
-                            <img class="img-rounded img-responsive" src="{{ asset('/img/comments/'.$jcomment->img)  }}">
+                            <img class="img-rounded img-responsive" src="{{ asset('/img/comments/'.$jcomment->img)  }}" alt="{{$jcomment->user->name}}">
                         @endif
                     </div>
                         @if(Auth::check())
@@ -74,14 +74,14 @@
                 <div class="media">
                     <a href="/{{$jual->user->getName()}}" class="pull-left">
                       <img src="{{$jual->user->getAvatar()}}" alt="{{$jual->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
-                      <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+                      <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" alt="{{$jual->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
                     </a>        
                     <a href="/{{$jual->user->name}}"> {{$jual->user->getName()}} </a>
                     <small class="pull-right"> {{$jual->created_at->diffForHumans()}} </small>
                 </div>
             @if(Auth::check())
                 @if($jual->user_id == Auth::user()->id)
-                    <small><a class="pull-right" href="/barang-di-jual/{{$jual->slug}}/edit">Edit</a></small>
+                    <small><a class="pull-right" href="/fjb/{{$jual->slug}}/edit">Edit</a></small>
                     <!-- //tidak bissa jika begini /threads/{slug}/edit -->
                 @endif
             @endif

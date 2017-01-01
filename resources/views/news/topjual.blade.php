@@ -1,7 +1,7 @@
 <div class="marketing">
 
   @if($topjuals->count())
-      <h4 class="text-center">Top Comment From FJB</h4>
+      <h4 class="text-center">top fjb</h4>
       <hr>
   @endif
 
@@ -9,8 +9,8 @@
     <div class="col-md-3">
       <div class="media">
         <a href="/{{$topjual->user->getName()}}" class="pull-left">
-            <img src=" {{$topjual->user->getAvatar()}} " alt="" class="media-object img-circle" onerror="this.style.display='none'">
-            <img src="{{asset('/img/users/'.$topjual->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+            <img src=" {{$topjual->user->getAvatar()}} " alt="{{$topjual->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
+            <img src="{{asset('/img/users/'.$topjual->user->getAvatar() )}}" alt="{{$topjual->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
         </a>        
         <a href="/{{$topjual->user->getName()}}"> {{$topjual->user->getName()}} </a><br>
         <small class="pull-right">{{$topjual->created_at->diffForHumans()}}</small>
@@ -23,13 +23,13 @@
             <div class="carousel-inner" role="listbox">
               @if(count($topjual->galery) >= 1)
                 <div class="item active">
-                  <img src="{{ asset('/img/fjb/'.$topjual->getNameImg()->img ) }}">
+                  <img src="{{ asset('/img/fjb/'.$topjual->getNameImg()->img ) }}" alt="{{$topjual->tag->name}}" class="img-rounded img-responsive">
                 </div>
               @endif
               @if(count($topjual->galery) > 1)
                 @foreach($topjual->galery as $galery)
                     <div class="item">
-                        <img src="{{ asset('/img/fjb/'.$galery->img ) }}" class="img-rounded img-responsive">
+                        <img src="{{ asset('/img/fjb/'.$galery->img ) }}" alt="{{$topjual->tag->name}}" class="img-rounded img-responsive">
                     </div>
                 @endforeach
               @endif
@@ -40,9 +40,9 @@
           @endif
           </div>
 
-      <a href="/barang-di-jual/{{$topjual->slug}} ">{{$topjual->title}}</a>
+      <a href="/fjb/{{$topjual->slug}} ">{{$topjual->title}}</a>
       <p>{{$topjual->deskripsi}}</p>
-      <div class="panel-footer"><a href="/barang-di-jual/{{$topjual->slug}} ">{{$topjual->countComments()}} comment</a></div>
+      <div class="panel-footer"><a href="/fjb/{{$topjual->slug}} ">{{$topjual->countComments()}} comment</a></div>
     </div>
   @endforeach
 

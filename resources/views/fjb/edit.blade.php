@@ -5,7 +5,7 @@
     <div class="col-md-6">
     <div class="panel panel-default" style="padding-left: 20px; padding-right: 20px;">
         <div class="panel-heading text-center">
-            <h3>Edit Jual <small><a href="/barang-di-jual/{{$jual->slug}} ">{{$jual->title}}</a></small></h3>
+            <h3>Edit || <small><a href="/fjb/{{$jual->slug}} ">{{$jual->title}}</a></small></h3>
         </div>
 
         <form action="" method="post" enctype="multipart/form-data">
@@ -41,10 +41,11 @@
             @if(count($jual->galery) > 0)
                 <div class="alert alert-info">
                     @foreach($jual->galery as $galery)
-                        <img src="{{ asset('/img/fjb/'.$galery->img)  }}" style="max-height:100px;max-width:150px;">
-                        <a href="/barang-di-jual/{{$galery->id}}/delete" class="btn btn-warning btn-sm">delete</a>
+                        <img src="{{ asset('/img/fjb/'.$galery->img)  }}" alt="{{$jual->title}}" style="max-height:100px;max-width:150px;">
+                        <a href="/fjb/{{$galery->id}}/delete" class="btn btn-warning btn-sm">delete</a>
                         <br>
                     @endforeach
+                    <span class="help-block"><i>max 4 file</i></span>
                 </div>
             @endif
             @if(count($jual->galery) < 4)

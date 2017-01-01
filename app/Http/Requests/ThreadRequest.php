@@ -27,7 +27,7 @@ class ThreadRequest extends FormRequest
             'title'     => 'required|min:3|max:255',
             'tag_id'    => 'required',
             'img'       => 'image:jpg,png,gif|max:2500',
-            'body'      => 'required|min:3'
+            'body'      => 'required|min:3|max:255'
         ];
     }
 }
