@@ -4,11 +4,11 @@
       <div class="col-md-6">
         <div class="media">
           <a href="" class="pull-left">
-              <img src="/img/adm/adm.jpg" alt="fidia.com" class="img-responsive img-circle">
+              <img src="/img/adm/adm.jpg" alt="fidawa.com" class="img-responsive img-circle">
           </a>
           <div class="media-body">
               <div class="media-heading">
-                <h5>Founder : Hery Fidiawan </h5>
+                <h6>Founder : Hery Fidiawan </h6>
               </div>
           </div>
         </div>
@@ -24,6 +24,7 @@
         </div>
       </div>
     </div>
-    <footer style="margin-left: 60px;"><cite title="Source Title">All rights reserved. Yes, all of them.</cite></footer>
-    <p class="text-center" style="font-size: 14px; color: #636b6f;"> &copy; fidawa 2016 - 2017.</p>
+    <br>
+    <footer><cite title="Source Title">All rights reserved. Yes, all of them.</cite></footer>
+    <p class="text-center"> &copy; fidawa 2016 - 2017.</p>
   </blockquote>

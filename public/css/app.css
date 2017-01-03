@@ -1,3 +1,12 @@
+blockquote a {
+	font-size: 12px;
+}
+blockquote p {
+	font-size: 12px;
+}
+blockquote cite {
+	font-size: 12px;
+}
 .lii .btn {
 	margin-top: 10px;
 	background-color: black;
