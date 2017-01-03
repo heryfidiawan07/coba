@@ -4,11 +4,11 @@
       <div class="col-md-6">
         <div class="media">
           <a href="" class="pull-left">
-              <img src="/img/adm/adm.jpg" alt="fidia.com" class="img-responsive img-circle" style="height: 50px; width: 50px;">
+              <img src="/img/adm/adm.jpg" alt="fidia.com" class="img-responsive img-circle">
           </a>
           <div class="media-body">
               <div class="media-heading">
-                <h5 style="color: #636b6f;">Founder : Hery Fidiawan </h5>
+                <h5>Founder : Hery Fidiawan </h5>
               </div>
           </div>
         </div>
@@ -16,7 +16,7 @@
       <div class="col-md-6">
         <div class="text-center">
           <ul>
-            <li class="fotli"><a href="">Facebook</a></li>
+            <li class="fotli"><a href="/facebook">Facebook</a></li>
             <li class="fotli"><a href="/threads">Forum</a></li>
             <li class="fotli"><a href="/fjb">Fjb</a></li>
             <li class="fotli"><a href="/member">Member</a></li>
@@ -24,6 +24,6 @@
         </div>
       </div>
     </div>
-    <footer style="margin-left: 60px;">Tempat diskusi dan sharing gratis <cite title="Source Title">fidia.com</cite></footer>
-    <p class="text-center" style="font-size: 14px; color: #636b6f;"> &copy; fidia.com 2016</p>
+    <footer style="margin-left: 60px;"><cite title="Source Title">All rights reserved. Yes, all of them.</cite></footer>
+    <p class="text-center" style="font-size: 14px; color: #636b6f;"> &copy; fidawa 2016 - 2017.</p>
   </blockquote>

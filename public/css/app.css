@@ -1,3 +1,10 @@
+.subplus .fotli a {
+	margin-top: 10px;
+	background-color: black;
+	color: white !important;
+	min-width: 70px;
+	padding: 5px 5px;
+}
 .fotli {
 	display: inline-block;
 	margin-top: 10px;
@@ -9,8 +16,11 @@
 .img-circle {
 	width: 50px !important;
 }
+.fotli a:hover {
+	color: unset !important;
+}
 .fotli a {
-	color: unset;
+	color: unset !important;
 }
 div.container a {
   color: #497388 !important;

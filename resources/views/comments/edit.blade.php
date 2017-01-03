@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-md-6">
         <div class="panel panel-default">
-            <div class="panel-heading">Edit comment : <a href="/threads/{{$comment->thread->slug}}">{{$comment->thread->title}}</a> </div>
+            <div class="panel-heading"><a href="/threads/{{$comment->thread->slug}}">{{$comment->thread->title}}</a> </div>
             <div class="panel-body">
                 <form id="upload" action="/comment/{{$comment->id}}/edit" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}

@@ -11,7 +11,7 @@
             </button>
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'hery fidiawan') }}
+                {{ config('app.name', 'fidawa') }}
             </a>
             
         </div>
