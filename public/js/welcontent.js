@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var theLetters = "!<cdj>-_\\/[]{}—=+*^?#________"; //You can customize what letters it will cycle through
+  var theLetters = "!<cdj>-_\\/[]{}—=+*^?#____"; //You can customize what letters it will cycle through
   var ctnt = "www.fidawa.com"; // Your text goes here
   var speed = 100; // ms per frame
   var increment = 8; // frames per step. Must be >2   

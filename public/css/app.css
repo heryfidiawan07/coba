@@ -1,9 +1,13 @@
-.subplus .fotli a {
+.lii .btn {
 	margin-top: 10px;
 	background-color: black;
 	color: white !important;
-	min-width: 70px;
-	padding: 5px 5px;
+	width: 70px;
+	list-style: none;
+	text-align: center;
+}
+.lii {
+	display: inline-block;
 }
 .fotli {
 	display: inline-block;

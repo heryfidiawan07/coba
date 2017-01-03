@@ -16,7 +16,7 @@
       <div class="col-md-6">
         <div class="text-center">
           <ul>
-            <li class="fotli"><a href="/facebook">Facebook</a></li>
+            <li class="fotli"><a href="https://web.facebook.com/fidawadiskusi/">Facebook</a></li>
             <li class="fotli"><a href="/threads">Forum</a></li>
             <li class="fotli"><a href="/fjb">Fjb</a></li>
             <li class="fotli"><a href="/member">Member</a></li>

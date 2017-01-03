@@ -33,7 +33,7 @@
     <div id="app">
         @include('layouts.partials.nav')
         <div class="container" style="min-height: 561px; height: 100%;">
-            <p id="title" class="text-center">@include('layouts.partials.welcomecontent')</p>
+            <p id="title">@include('layouts.partials.welcomecontent')</p>
         </div>
         <div class="footer">
         @include('footer.footer') 
