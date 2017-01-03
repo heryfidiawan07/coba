@@ -8,7 +8,7 @@
           </a>
           <div class="media-body">
               <div class="media-heading">
-                <h6>Founder : Hery Fidiawan </h6>
+                <p>Founder : Hery Fidiawan </p>
               </div>
           </div>
         </div>
@@ -24,7 +24,6 @@
         </div>
       </div>
     </div>
-    <br>
-    <footer><cite title="Source Title">All rights reserved. Yes, all of them.</cite></footer>
+    <p class="text-center">All rights reserved. Yes, all of them.</p>
     <p class="text-center"> &copy; fidawa 2016 - 2017.</p>
   </blockquote>
