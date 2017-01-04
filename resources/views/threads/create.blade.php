@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="col-md-6">
-    <h4 class="text-center">Buat Threads</h4>
+    <h4 class="text-center">Tulis Threads</h4>
     <form id="upload" action="" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
         <div class="form-group {{ $errors->has('title') ? ' has-error' : '' }} ">
@@ -15,7 +15,7 @@
         <div class="form-group {{ $errors->has('tag_id') ? ' has-error' : '' }} ">
             <label for="tag_id">Tag</label>
             <select name="tag_id" id="tag_id" class="form-control">
-                <option value="">Pilih kategori</option>
+                <option value="">Select kategory</option>
                 @foreach($tags as $tag)
                     <option value=" {{$tag->id}} "> {{$tag->name}} </option>
                 @endforeach
@@ -25,7 +25,7 @@
             @endif
         </div>
         <div class="form-group {{ $errors->has('body') ? ' has-error' : '' }} ">
-            <label for="body">Body</label>
+            <label for="body">Desciption</label>
             <textarea name="body" id="body" rows="10" class="form-control">{{old('body')}}</textarea>
             @if($errors->has('body'))
                 <span class="help-block"> {{$errors->first('body')}} </span>
@@ -33,7 +33,7 @@
         </div>
         <div class="form-group {{ $errors->has('img') ? ' has-error' : '' }} ">
             <div class="alert alert-info">
-                @include('layouts.partials.progress')
+                @include('layouts.partials.upload')
             </div>
         </div>
         <div class="form-group">

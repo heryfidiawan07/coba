@@ -9,16 +9,17 @@
     <div class="col-md-3">
       <div class="media">
         <a href="/{{$hotsthread->user->getName()}}" class="pull-left">
-            <img src=" {{$hotsthread->user->getAvatar()}} " alt="{{$hotsthread->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
-            <img src="{{asset('/img/users/'.$hotsthread->user->getAvatar() )}}" alt="{{$hotsthread->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
+            <img src=" {{$hotsthread->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
+            <img src="{{asset('/img/users/'.$hotsthread->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
         </a>        
         <a href="/{{$hotsthread->user->getName()}}"> {{$hotsthread->user->getName()}} </a><br>
+        <a href="/tags/{{$hotsthread->tag->name}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;">{{$hotsthread->tag->name}}</a>
         <small class="pull-right">{{$hotsthread->created_at->diffForHumans()}}</small>
-        <p class="pull-left">{{$hotsthread->tag->name}}</p>
       </div>
-
-      <a href="/threads/{{$hotsthread->slug}} ">{{$hotsthread->title}}</a>
-      <p>{{$hotsthread->body}}</p>
+      
+        <a href="/threads/{{$hotsthread->slug}} ">{{str_limit($hotsthread->title, 50)}}</a>
+        <p>{{str_limit($hotsthread->body, 50)}}</p>
+      
       <div class="panel-footer"><a href="/threads/{{$hotsthread->slug}} ">{{$hotsthread->countComments()}} comment</a></div>
     </div>
   @endforeach

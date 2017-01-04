@@ -6,8 +6,8 @@
 	    <div class="col-md-4">
 	    		<div class="media">
               <a href="/{{$member->name}}" class="pull-left">
-                  <img src=" {{$member->getAvatar() }}" alt="profile" class="img-responsive img-circle" onerror="this.style.display='none'">
-                  <img src="{{asset('/img/users/'.$member->getAvatar() )}}" alt="profile" class="img-responsive img-circle" onerror="this.style.display='none'">
+                  <img src=" {{$member->getAvatar() }}" class="img-responsive img-circle" onerror="this.style.display='none'">
+                  <img src="{{asset('/img/users/'.$member->getAvatar() )}}" class="img-responsive img-circle" onerror="this.style.display='none'">
               </a>
               <a href="/{{$member->name}}">
                 <p>{{$member->name}}</p>

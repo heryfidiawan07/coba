@@ -66,8 +66,8 @@
                     </li>
                     <li>
                         <a href="/{{Auth::user()->name}}" style="margin-top: -10px; margin-bottom: -10px;">
-                            <img src=" {{Auth::user()->getAvatar()}} " alt="{{Auth::user()->name}}" class="media-object img-circle" onerror="this.style.display='none'">
-                            <img src="{{asset('/img/users/'.Auth::user()->getAvatar() )}}" alt="{{Auth::user()->name}}" class="media-object img-circle" onerror="this.style.display='none'">
+                            <img src=" {{Auth::user()->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
+                            <img src="{{asset('/img/users/'.Auth::user()->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
                         </a>
                     </li>
                 @endif

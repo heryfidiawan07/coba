@@ -9,12 +9,12 @@
     <div class="col-md-3">
       <div class="media">
         <a href="/{{$topjual->user->getName()}}" class="pull-left">
-            <img src=" {{$topjual->user->getAvatar()}} " alt="{{$topjual->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
-            <img src="{{asset('/img/users/'.$topjual->user->getAvatar() )}}" alt="{{$topjual->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
+            <img src=" {{$topjual->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
+            <img src="{{asset('/img/users/'.$topjual->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
         </a>        
         <a href="/{{$topjual->user->getName()}}"> {{$topjual->user->getName()}} </a><br>
+        <a href="/kategory/{{$topjual->tag->name}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;">{{$topjual->tag->name}}</a>
         <small class="pull-right">{{$topjual->created_at->diffForHumans()}}</small>
-        <p class="pull-left">{{$topjual->tag->name}}</p>
       </div>
           <div class="media">
           @if(count($topjual->galery) > 0)
@@ -40,8 +40,8 @@
           @endif
           </div>
 
-      <a href="/fjb/{{$topjual->slug}} ">{{$topjual->title}}</a>
-      <p>{{$topjual->deskripsi}}</p>
+      <a href="/fjb/{{$topjual->slug}} ">{{str_limit($topjual->title, 50)}}</a>
+      <p>{{str_limit($topjual->deskripsi, 50)}}</p>
       <div class="panel-footer"><a href="/fjb/{{$topjual->slug}} ">{{$topjual->countComments()}} comment</a></div>
     </div>
   @endforeach

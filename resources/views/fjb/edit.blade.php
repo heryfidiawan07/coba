@@ -5,7 +5,7 @@
     <div class="col-md-6">
     <div class="panel panel-default" style="padding-left: 20px; padding-right: 20px;">
         <div class="panel-heading text-center">
-            <h3>Edit || <small><a href="/fjb/{{$jual->slug}} ">{{$jual->title}}</a></small></h3>
+            <h3><small><a href="/fjb/{{$jual->slug}} ">{{$jual->title}}</a></small></h3>
         </div>
 
         <form action="" method="post" enctype="multipart/form-data">
@@ -31,7 +31,7 @@
                 @endif
             </div>
             <div class="form-group {{ $errors->has('deskripsi') ? ' has-error' : '' }} ">
-                <label for="deskripsi">Deskripsi</label>
+                <label for="deskripsi">Deskription</label>
                 <textarea name="deskripsi" id="deskripsi" rows="10" class="form-control">{{$jual->deskripsi}}</textarea>
                 @if($errors->has('deskripsi'))
                     <span class="help-block"> {{$errors->first('deskripsi')}} </span>
@@ -41,7 +41,7 @@
             @if(count($jual->galery) > 0)
                 <div class="alert alert-info">
                     @foreach($jual->galery as $galery)
-                        <img src="{{ asset('/img/fjb/'.$galery->img)  }}" alt="{{$jual->title}}" style="max-height:100px;max-width:150px;">
+                        <img src="{{ asset('/img/fjb/'.$galery->img)  }}" alt="{{$jual->tag->name}}" style="max-height:100px;max-width:150px;">
                         <a href="/fjb/{{$galery->id}}/delete" class="btn btn-warning btn-sm">delete</a>
                         <br>
                     @endforeach
@@ -60,7 +60,7 @@
             @endif
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-sm" value="update jual">
+                <input type="submit" class="btn btn-primary btn-sm" value="update fjb">
             </div>
         </form>
     </div>

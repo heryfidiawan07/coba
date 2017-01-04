@@ -18,12 +18,12 @@
                             <a href="/comment/{{$comment->id}}/delete" class="btn btn-warning btn-sm">delete</a>
                         @endif
                         @if(!$comment->img)
-                            @include('layouts.partials.commentprogress')
+                            @include('layouts.partials.upload')
                         @endif
                     </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-info btn-sm" value="update comment">
+                        <input type="submit" class="btn btn-primary btn-sm" value="update comment">
                     </div>
                 </form>
             </div>

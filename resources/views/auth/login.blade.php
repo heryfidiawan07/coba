@@ -7,13 +7,13 @@
             <div class="panel panel-info">
                 <div class="panel-heading">
                     Login
+                </div>
+                <div class="panel-body">
                     @if(session('warning'))
                         <div class="alert alert-warning">
                             {{session('warning')}}
                         </div>
                     @endif
-                </div>
-                <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 

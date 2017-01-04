@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-md-6">
         <div class="panel panel-default">
-            <div class="panel-heading"><p>Edit comment :</p>
+            <div class="panel-heading">
                 <a href="/fjb/{{$comment->jual->slug}}">{{$comment->jual->title}}</a>
             </div>
             <div class="panel-body">
@@ -21,12 +21,12 @@
                                 <a href="/commentar/{{$comment->id}}/delete" class="btn btn-warning btn-sm">delete</a>
                             @endif
                             @if(!$comment->img)
-                                @include('layouts.partials.commentprogress')
+                                @include('layouts.partials.upload')
                             @endif
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-info btn-sm" value="update comment">
+                        <input type="submit" class="btn btn-primary btn-sm" value="update comment">
                     </div>
                 </form>
             </div>

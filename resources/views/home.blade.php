@@ -24,13 +24,13 @@
 <hr>
 
 <div class="row">
-  @include('news.fjbnewsphoto')
+  @include('news.newcomment')
 </div>
 
 <hr>
 
 <div class="row">
-  @include('news.newcomment')
+  @include('news.fjbnewsphoto')
 </div>
 
 <hr>

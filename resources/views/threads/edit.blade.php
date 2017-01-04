@@ -5,7 +5,7 @@
     <div class="col-md-6">
     <div class="panel panel-default" style="padding-left: 20px; padding-right: 20px;">
         <div class="panel-heading text-center">
-            <h3>Edit thread <small><a href="/threads/{{$thread->slug}} ">{{$thread->title}}</a></small></h3>
+            <h3><small><a href="/threads/{{$thread->slug}} ">{{$thread->title}}</a></small></h3>
         </div>
 
         <form id="upload" action="" method="post" enctype="multipart/form-data">
@@ -46,7 +46,7 @@
                 @endif
                 @if(!$thread->img)
                     <div class="alert alert-info">
-                        @include('layouts.partials.progress')
+                        @include('layouts.partials.upload')
                     </div>
                 @endif
             </div>

@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => 'no-reply@fidia.com',
-        'name'    => 'fidia.com',
+        'address' => 'no-reply@fidawa.com',
+        'name'    => 'fidawa.com',
     ],
 
     /*

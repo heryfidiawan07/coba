@@ -1,7 +1,7 @@
 <div class="marketing">
 
   @if($threads->count())
-      <h4 class="text-center">news threads</h4>
+      <h4 class="text-center">new threads</h4>
       <hr>
   @endif
 
@@ -9,17 +9,16 @@
     <div class="col-md-4">
       <div class="media">
         <a href="/{{$thread->user->getName()}}" class="pull-left">
-            <img src=" {{$thread->user->getAvatar()}} " alt="{{$thread->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
-            <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" alt="{{$thread->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
+            <img src=" {{$thread->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
+            <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
         </a>        
         <a href="/{{$thread->user->getName()}}"> {{$thread->user->getName()}} </a><br>
+        <a href="/tags/{{$thread->tag->name}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;">{{$thread->tag->name}}</a>
         <small class="pull-right">{{$thread->created_at->diffForHumans()}}</small>
-        <p class="pull-left">{{$thread->tag->name}}</p>
       </div>
 
-      <a href="/threads/{{$thread->slug}} ">{{$thread->title}}</a>
-      <p>{{$thread->deskripsi}}</p>
-      <div class="panel-footer"><a href="/threads/{{$thread->slug}} ">{{$thread->countComments()}} comment</a></div>
+      <a href="/threads/{{$thread->slug}} ">{{str_limit($thread->title, 50)}}</a>
+      <div class="panel-footer"><a href="/threads/{{$thread->slug}} ">{{$thread->countComments()}} commentar</a></div>
     </div>
   @endforeach
 

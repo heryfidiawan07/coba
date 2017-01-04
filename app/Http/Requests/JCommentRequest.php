@@ -24,7 +24,7 @@ class JCommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'body'   => 'required|min:3|max:255',
+            'body'   => 'required|min:3|max:500',
             'img'    => 'image:jpg,png,gif|max:2500',
         ];
     }

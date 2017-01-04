@@ -6,8 +6,8 @@
         <div class="col-md-6">
             <div class="media">
                 <span class="pull-left">
-                    <img width="150px" src="{{$user->getAvatar()}}" class="img-responsive" alt="{{$user->getName()}}" onerror="this.style.display='none'">
-                    <img width="150px" src="{{asset('/img/users/'.$user->getAvatar() )}}" alt="{{$user->getName()}}" class="img-responsive" onerror="this.style.display='none'">
+                    <img width="150px" src="{{$user->getAvatar()}}" class="img-responsive" onerror="this.style.display='none'">
+                    <img width="150px" src="{{asset('/img/users/'.$user->getAvatar() )}}" class="img-responsive" onerror="this.style.display='none'">
                 </span>
                 <div class="media-body">
                     <h5 class="media-heading"> {{$user->getName()}} </h5>
@@ -28,7 +28,7 @@
                                     <span class="help-block"> {{$errors->first('edit_name')}} </span>
                                 @endif
                             </div>
-                            <button class="btn btn-warning btn-sm" type="submit">Edit name</button>
+                            <button class="btn btn-warning btn-sm" type="submit">edit name</button>
                         </form>
                         <form class="form-inline" action="/edit-gravatar/{{$user->id}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
@@ -39,7 +39,7 @@
                                     <span class="help-block"> {{$errors->first('img')}} </span>
                                 @endif
                             </div>
-                            <button class="btn btn-warning btn-sm" type="submit">Edit img</button>
+                            <button class="btn btn-warning btn-sm" type="submit">ubah foto profil</button>
                         </form>
                     </div>
                 @endif
@@ -63,11 +63,15 @@
         @foreach($threads as $thread)
             <div class="media">
                 <a href="/{{$thread->user->getName()}}" class="pull-left">
-                    <img src=" {{$thread->user->getAvatar()}} " alt="{{$thread->user->getName()}}" class="img-responsive img-circle" onerror="this.style.display='none'">
-                    <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" alt="{{$thread->user->getName()}}" class="img-responsive img-circle" onerror="this.style.display='none'">
+                    <img src=" {{$thread->user->getAvatar()}} " class="img-responsive img-circle" onerror="this.style.display='none'">
+                    <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="img-responsive img-circle" onerror="this.style.display='none'">
                 </a>
                 <div class="media-body">
-                    <div class="media-heading"><a href="/threads/{{$thread->slug}} ">{{$thread->title}}</a> | {{$thread->tag->name}}<a href=""></a></div>
+                    <div class="media-heading">
+                        <a href="/threads/{{$thread->slug}} ">{{$thread->title}}</a>
+                        <br>
+                        <a href="/tags/{{$thread->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;">{{$thread->tag->name}}</a>
+                    </div>
                     <p> <small>{{$thread->created_at->diffForHumans()}}</small> by <a href="/{{$thread->user->getName()}}"> {{$thread->user->getName()}} </a> </p>
                 </div>
                 <div class="panel-footer"><a href="/threads/{{$thread->slug}} ">{{$thread->countComments()}} comment</a></div>
@@ -90,11 +94,15 @@
         @foreach($juals as $jual)
             <div class="media">
                 <a href="/{{$jual->user->getName()}}" class="pull-left">
-                    <img src=" {{$jual->user->getAvatar()}} " alt="{{$jual->user->getName()}}" class="img-circle img-responsive" onerror="this.style.display='none'">
-                    <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" alt="{{$jual->user->getName()}}" class="img-circle img-responsive" onerror="this.style.display='none'">
+                    <img src=" {{$jual->user->getAvatar()}} " class="img-circle img-responsive" onerror="this.style.display='none'">
+                    <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="img-circle img-responsive" onerror="this.style.display='none'">
                 </a>
                 <div class="media-body">
-                    <div class="media-heading"><a href="/jual/{{$jual->slug}} ">{{$jual->title}}</a> | {{$jual->tag->name}}<a href=""></a></div>
+                    <div class="media-heading">
+                        <a href="/jual/{{$jual->slug}}">{{$jual->title}}</a>
+                        <br>
+                        <a href="/kategory/{{$jual->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;">{{$jual->tag->name}}</a>
+                    </div>
                     <p> <small>{{$jual->created_at->diffForHumans()}}</small> by <a href="/{{$jual->user->getName()}}"> {{$jual->user->getName()}} </a> </p>
                 </div>
                 <div class="panel-footer"><a href="/fjb/{{$jual->slug}} ">{{$jual->countComments()}} comment</a></div>

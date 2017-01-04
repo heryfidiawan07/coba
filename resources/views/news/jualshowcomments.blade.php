@@ -1,6 +1,6 @@
 <div class="marketing">
   @if($jualcomments->count())
-    <h4 class="text-center">new comments from fjb</h4>
+    <h4 class="text-center">commentar terbaru</h4>
     <hr>
   @endif
 
@@ -8,29 +8,28 @@
     <div class="col-md-4">
       <div class="media">
         <a href="/{{$jualcomment->user->getName()}}" class="pull-left">
-            <img src=" {{$jualcomment->user->getAvatar()}} " alt="{{$jualcomment->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
-            <img src="{{asset('/img/users/'.$jualcomment->user->getAvatar() )}}" alt="{{$jualcomment->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
+            <img src=" {{$jualcomment->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
+            <img src="{{asset('/img/users/'.$jualcomment->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
         </a>        
         <a href="/{{$jualcomment->user->getName()}}"> {{$jualcomment->user->getName()}} </a> <br>
+        <a href="/kategory/{{$jualcomment->tag->name}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;">{{$jualcomment->tag->name}}</a>
         <small class="pull-right">{{$jualcomment->created_at->diffForHumans()}}</small>
-        <p class="pull-left">{{$jualcomment->tag->name}}</p>
       </div>
 
-      <a href="/fjb/{{$jualcomment->slug}} ">{{$jualcomment->title}}</a>
-      <p>{{$jualcomment->body}}</p>
-      <div class="panel-footer"><a href="/fjb/{{$jualcomment->slug}} ">
+      <a href="/fjb/{{$jualcomment->slug}} ">{{str_limit($jualcomment->title, 50)}}</a>
+      <div class="panel-footer"><a href="/fjb/{{$jualcomment->slug}}">
         {{$jualcomment->countComments()}} comment</a>
       </div>
       
       <div class="panel-footer">
         <div class="media">
           <a href="/{{$jualcomment->getComment()->user->getName()}}" class="pull-left">
-              <img src=" {{$jualcomment->getComment()->user->getAvatar()}} " alt="{{$jualcomment->getComment()->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
-              <img src="{{asset('/img/users/'.$jualcomment->user->getAvatar() )}}" alt="{{$jualcomment->getComment()->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
+              <img src=" {{$jualcomment->getComment()->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
+              <img src="{{asset('/img/users/'.$jualcomment->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
           </a>        
           <a href="/{{$jualcomment->getComment()->user->getName()}}">{{$jualcomment->getComment()->user->getName()}}</a>
           <small class="pull-right">{{$jualcomment->getComment()->created_at->diffForHumans()}}</small>
-          <p>{{$jualcomment->getComment()->body}}</p>
+          <p>{{str_limit($jualcomment->getComment()->body, 50)}}</p>
         </div>
       </div>
 

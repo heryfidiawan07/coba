@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" value="create tag threads" class="btn btn-danger">
+                            <input type="submit" value="create tag threads" class="btn btn-danger btn-sm">
                         </div>
                     </div>
                 </form>
@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" value="create tag fjb" class="btn btn-danger">
+                            <input type="submit" value="create tag fjb" class="btn btn-danger btn-sm">
                         </div>
                     </div>
                 </form>
@@ -82,8 +82,8 @@
                             <div class="pull-right">
                                 <input id="tag" type="text" class="form-control input-sm" name="tag_edit" value="{{ old('tag_name') }}" placeholder="edit" required autofocus>
                                 <div class="form-group">
-                                    <input type="submit" name="" value="edit" class="btn btn-primary input-sm">
-                                    <a class="btn btn-danger input-sm" href="/admin/{{$tag->id}}/destroy">delete</a>
+                                    <input type="submit" name="" value="edit" class="btn btn-primary btn-sm">
+                                    <a class="btn btn-danger btn-sm" href="/admin/{{$tag->id}}/destroy">delete</a>
                                 </div>
                             </div>
                             </div>
@@ -112,8 +112,8 @@
                             <div class="pull-right">
                                 <input id="tag" type="text" class="form-control input-sm" name="jtag_edit" value="{{ old('jtag_name') }}" placeholder="edit" required autofocus>
                                 <div class="form-group">
-                                    <input type="submit" name="" value="edit" class="btn btn-primary input-sm">
-                                    <a class="btn btn-danger input-sm" href="/admin/tag-jual/{{$jtag->id}}/destroy">delete</a>
+                                    <input type="submit" name="" value="edit" class="btn btn-primary btn-sm">
+                                    <a class="btn btn-danger btn-sm" href="/admin/tag-jual/{{$jtag->id}}/destroy">delete</a>
                                 </div>
                             </div>
                             </div>

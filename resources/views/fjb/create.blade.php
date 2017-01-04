@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary btn-sm" value="create threads">
+            <input type="submit" class="btn btn-primary btn-sm" value="post">
         </div>
     </form>
 </div>

@@ -1,7 +1,7 @@
 <div class="marketing">
 
   @if($jualsphotos->count())
-      <h4 class="text-center">news from fjb</h4>
+      <h4 class="text-center">terbaru di fjb</h4>
       <hr>
   @endif
 
@@ -9,12 +9,12 @@
     <div class="col-md-3">
       <div class="media">
         <a href="/{{$jualsphoto->user->getName()}}" class="pull-left">
-            <img src=" {{$jualsphoto->user->getAvatar()}} " alt="{{$jualsphoto->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
-            <img src="{{asset('/img/users/'.$jualsphoto->user->getAvatar() )}}" alt="{{$jualsphoto->user->getName()}}" class="media-object img-circle" onerror="this.style.display='none'">
+            <img src=" {{$jualsphoto->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
+            <img src="{{asset('/img/users/'.$jualsphoto->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
         </a>        
         <a href="/{{$jualsphoto->user->getName()}}"> {{$jualsphoto->user->getName()}} </a><br>
+        <a href="/kategory/{{$jualsphoto->tag->name}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;">{{$jualsphoto->tag->name}}</a>
         <small class="pull-right">{{$jualsphoto->created_at->diffForHumans()}}</small>
-        <p class="pull-left">{{$jualsphoto->tag->name}}</p>
       </div>
 
         <div class="media">
@@ -41,8 +41,7 @@
           @endif
         </div>
       
-      <a href="/fjb/{{$jualsphoto->slug}} ">{{$jualsphoto->title}}</a>
-      <p>{{$jualsphoto->deskripsi}}</p>
+      <a href="/fjb/{{$jualsphoto->slug}} ">{{str_limit($jualsphoto->title, 50)}}</a>
       <div class="panel-footer"><a href="/fjb/{{$jualsphoto->slug}} ">{{$jualsphoto->countComments()}} comment</a></div>
     </div>
   @endforeach

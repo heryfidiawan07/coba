@@ -1,4 +1,5 @@
 <?php
+
 Route::get('/verify/{token}/{id}', 'Auth\RegisterController@verify_register');
 
 Auth::routes();
