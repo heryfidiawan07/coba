@@ -1,3 +1,11 @@
+ div .panel {
+	box-shadow: 0px -10px 2px 0px black;
+
+	-webkit- box-shadow: 0px -10px 2px 0px black;
+	-moz- box-shadow: 0px -10px 2px 0px black;
+	-o- box-shadow: 0px -10px 2px 0px black;
+	-ms- box-shadow: 0px -10px 2px 0px black;
+}
 #output {
 	color: #218e12;
 	box-shadow: 5px 5px 5px 5px black;

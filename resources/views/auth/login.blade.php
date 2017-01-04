@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-info">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
                     Login
                 </div>
@@ -21,7 +21,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control input-sm" name="email" value="{{ old('email') }}" required autofocus>
+                                <input id="email" type="email" class="form-control input-sm" name="email" value="{{ old('email') }}" placeholder="email" required autofocus>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -35,7 +35,7 @@
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control input-sm" name="password" required>
+                                <input id="password" type="password" class="form-control input-sm" name="password" placeholder="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
