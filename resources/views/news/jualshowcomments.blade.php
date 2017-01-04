@@ -12,7 +12,7 @@
             <img src="{{asset('/img/users/'.$jualcomment->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
         </a>        
         <a href="/{{$jualcomment->user->getName()}}"> {{$jualcomment->user->getName()}} </a> <br>
-        <a href="/kategory/{{$jualcomment->tag->name}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;">{{$jualcomment->tag->name}}</a>
+        <a href="/kategory/{{$jualcomment->tag->name}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$jualcomment->tag->name}}</a>
         <small class="pull-right">{{$jualcomment->created_at->diffForHumans()}}</small>
       </div>
 

@@ -32,16 +32,16 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 
-                <li><a href="/threads">forum</a></li>
-                <li><a href="/fjb">fjb</a></li>
+                <li><a href="/threads"><img id="icon" src="/background/forumc.svg"> forum</a></li>
+                <li><a href="/fjb"><img id="icon" src="/background/shopc.svg"> fjb</a></li>
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">login</a></li>
                     <li><a href="{{ url('/register') }}">register</a></li>
                 @else
-                    <li><a href="/fjb/create">tulis di fjb</a></li>
-                    <li><a href="/threads/create">tulis di forum</a></li>
-                    <li><a href="/">home</a></li>
+                    <li><a href="/fjb/create"><img id="icon" src="/background/createc.svg"> tulis di fjb</a></li>
+                    <li><a href="/threads/create"><img id="icon" src="/background/createc.svg"> tulis di forum</a></li>
+                    <li><a href="/"><img id="icon" src="/background/homec.svg"> home</a></li>
                     @if(Auth::user()->isAdmin())
                         <li><a href="/admin">admin</a></li>
                     @endif

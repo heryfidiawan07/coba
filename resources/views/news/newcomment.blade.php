@@ -12,7 +12,7 @@
             <img src="{{asset('/img/users/'.$newcomment->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
         </a>        
         <a href="/{{$newcomment->user->getName()}}"> {{$newcomment->user->getName()}} </a> <br>
-        <a href="/tags/{{$newcomment->tag->name}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;">{{$newcomment->tag->name}}</a>
+        <a href="/tags/{{$newcomment->tag->name}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$newcomment->tag->name}}</a>
         <small class="pull-right">{{$newcomment->created_at->diffForHumans()}}</small>
       </div>
       

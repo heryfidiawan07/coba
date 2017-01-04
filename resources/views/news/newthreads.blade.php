@@ -13,7 +13,7 @@
             <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
         </a>        
         <a href="/{{$thread->user->getName()}}"> {{$thread->user->getName()}} </a><br>
-        <a href="/tags/{{$thread->tag->name}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;">{{$thread->tag->name}}</a>
+        <a href="/tags/{{$thread->tag->name}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$thread->tag->name}}</a>
         <small class="pull-right">{{$thread->created_at->diffForHumans()}}</small>
       </div>
 

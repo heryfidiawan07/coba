@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-md-6">
     <div class="panel panel-default" style="padding: 10px 10px;">
-        <h4 class="text-center">Tulis Threads</h4>
+        <h4 class="text-center">Tulis Threads <img id="icon" src="/background/ide.svg"></h4>
         <form id="upload" action="" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
             <div class="form-group {{ $errors->has('title') ? ' has-error' : '' }} ">
@@ -33,7 +33,7 @@
                 @endif
             </div>
             <div class="form-group {{ $errors->has('img') ? ' has-error' : '' }} ">
-                <div class="alert alert-info">
+                <div class="alert alert-warning">
                     @include('layouts.partials.upload')
                 </div>
             </div>

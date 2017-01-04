@@ -15,10 +15,10 @@
                     </div>
                     
                     <div class="form-group {{ $errors->has('imgcomment') ? ' has-error' : '' }} ">
-                        <div class="alert alert-info">
+                        <div class="alert alert-warning">
                             @if($comment->img)
                                 <img src="{{ asset('/img/comments/'.$comment->img)  }}" alt="{{$comment->jual->title}}" style="width: 100px;">
-                                <a href="/commentar/{{$comment->id}}/delete" class="btn btn-warning btn-sm">delete</a>
+                                <a href="/commentar/{{$comment->id}}/delete"><img id="icon" src="/background/delete.svg"></a>
                             @endif
                             @if(!$comment->img)
                                 @include('layouts.partials.upload')

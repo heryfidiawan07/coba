@@ -39,13 +39,13 @@
             </div>
             <div class="form-group {{ $errors->has('img') ? ' has-error' : '' }} ">
                 @if($thread->img)
-                <div class="alert alert-info">
+                <div class="alert alert-warning">
                     <img src="{{ asset('/img/threads/'.$thread->img)  }}" style="max-height:100px;max-width:150px;">
-                    <a href="/threads/{{$thread->id}}/delete" class="btn btn-warning btn-sm">delete</a>
+                    <a href="/threads/{{$thread->id}}/delete"><img id="icon" src="/background/delete.svg"></a>
                 </div>
                 @endif
                 @if(!$thread->img)
-                    <div class="alert alert-info">
+                    <div class="alert alert-warning">
                         @include('layouts.partials.upload')
                     </div>
                 @endif

@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-md-6">
     <div class="panel panel-default" style="padding: 10px 10px;">
-        <h4 class="text-center">Jual Barang Anda di Sini</h4>
+        <h4 class="text-center">Jual Barang Anda di Sini <img id="icon" src="/background/ide.svg"></h4>
         <form action="" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
             <div class="form-group {{ $errors->has('title') ? ' has-error' : '' }} ">
@@ -33,7 +33,7 @@
                 @endif
             </div>
             <div class="form-group {{ $errors->has('img') ? ' has-error' : '' }} ">
-                <div class="alert alert-info">
+                <div class="alert alert-warning">
                     <label for="exampleInputFile"><i style="font-size: 12px;">Tambahkan gambar : jpg, png</i></label>
                     <input type="file" id="exampleInputFile" name="img[]" multiple="multiple">
                     <span class="help-block" style="color: red;"><i>{{ Session::get('message') }}</i></span>

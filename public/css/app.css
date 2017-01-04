@@ -1,4 +1,8 @@
- div .panel {
+#icon {
+	width: 18px;
+	margin-right: 5px;
+}
+div .panel {
 	box-shadow: 0px -10px 2px 0px black;
 
 	-webkit- box-shadow: 0px -10px 2px 0px black;

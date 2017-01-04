@@ -8,7 +8,7 @@
     @foreach($tags as $tag)
       <tr class="success">
         <td class="info">
-          <a href="/tags/{{$tag->slug}}"> {{$tag->name}} </a>
+          <a href="/tags/{{$tag->slug}}"><img id="icon" src="/background/tag.svg"> {{$tag->name}} </a>
         </td>
       </tr>
     @endforeach

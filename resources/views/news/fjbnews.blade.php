@@ -13,7 +13,7 @@
             <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
         </a>        
         <a href="/{{$jual->user->getName()}}"> {{$jual->user->getName()}} </a><br>
-        <p class="pull-left btn btn-danger btn-xs">{{$jual->tag->name}}</p>
+        <p class="pull-left btn btn-danger btn-xs"><img id="icon" src="/background/tag.svg">{{$jual->tag->name}}</p>
         <small class="pull-right">{{$jual->created_at->diffForHumans()}}</small>
       </div>
 

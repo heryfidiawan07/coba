@@ -9,7 +9,7 @@
             <div class="media">
                 <div class="media">
                     <p>{{$thread->title}}</p>
-                    <a class="btn btn-danger btn-xs" style="color: white !important;" href="/tags/{{$thread->tag->name}}">{{$thread->tag->name}}</a>
+                    <a class="btn btn-danger btn-xs" style="color: white !important;" href="/tags/{{$thread->tag->name}}"><img id="icon" src="/background/tag.svg"> {{$thread->tag->name}}</a>
                 </div>
                 <hr>
                 <div class="media">
@@ -30,12 +30,12 @@
                         <div class="media">
                             <p> {{$comment->body}} </p>
                             @if($comment->img)
-                                <img class="img-rounded" src="{{ asset('/img/comments/'.$comment->img)  }}" alt="{{$comment->tag->name}}">
+                                <img class="img-rounded" src="{{ asset('/img/comments/'.$comment->img) }}" alt="{{$thread->tag->name}}">
                             @endif
                         </div>
                             @if(Auth::check())
                                 @if(Auth::user()->id == $comment->user_id)
-                                    <small><a class="pull-right btn btn-primary btn-xs" style="color: white !important;" href="/comment/{{$comment->id}}/edit">edit</a></small>
+                                    <small><a class="pull-right" href="/comment/{{$comment->id}}/edit"><img id="icon" src="/background/sunting.svg"></a></small>
                                 @endif
                             @endif
                         </div>
@@ -54,7 +54,7 @@
                             @endif
                         </div>
                         <div class="form-group {{ $errors->has('imgcomment') ? ' has-error' : '' }} ">
-                            <div class="alert alert-info">
+                            <div class="alert alert-warning">
                                 @include('layouts.partials.upload')
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                 </div>
             @if(Auth::check())
                 @if($thread->user_id == Auth::user()->id)
-                    <a class="pull-right btn btn-primary btn-xs" style="color: white !important;" href="/threads/{{$thread->slug}}/edit">edit</a>
+                    <a class="pull-right" href="/threads/{{$thread->slug}}/edit"><img id="icon" src="/background/sunting.svg"></a>
                 @endif
             @endif
             </div>

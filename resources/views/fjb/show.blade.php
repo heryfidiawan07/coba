@@ -16,7 +16,7 @@
             @endif
                 <div class="media">
                     <p>{{$jual->title}}</p>
-                    <a class="btn btn-danger btn-xs" style="color: white !important;" href="/kategory/{{$jual->tag->name}}">{{$jual->tag->name}}</a>
+                    <a class="btn btn-danger btn-xs" style="color: white !important;" href="/kategory/{{$jual->tag->name}}"><img id="icon" src="/background/tag.svg"> {{$jual->tag->name}}</a>
                 </div>
                 <hr>
                 <div class="media">
@@ -34,13 +34,13 @@
                         <div class="media">
                             <p> {{$jcomment->body}} </p>
                             @if($jcomment->img)
-                                <img class="img-rounded img-responsive" src="{{ asset('/img/comments/'.$jcomment->img)  }}" alt="{{$jcomment->tag->name}}">
+                                <img class="img-rounded img-responsive" src="{{ asset('/img/comments/'.$jcomment->img)  }}" alt="{{$jual->tag->name}}">
                             @endif
                         </div>
                             @if(Auth::check())
                                 @if(Auth::user()->id == $jcomment->user_id)
                                     <small>
-                                        <a class="pull-right btn btn-primary btn-xs" style="color: white !important;" href="/commentar/{{$jcomment->id}}/edit">edit</a>
+                                        <a class="pull-right" href="/commentar/{{$jcomment->id}}/edit"><img id="icon" src="/background/sunting.svg"></a>
                                     </small>
                                 @endif
                             @endif
@@ -61,7 +61,7 @@
                             @endif
                         </div>
                         <div class="form-group {{ $errors->has('imgcomment') ? ' has-error' : '' }} ">
-                            <div class="alert alert-info">
+                            <div class="alert alert-warning">
                                 @include('layouts.partials.upload')
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                 </div>
             @if(Auth::check())
                 @if($jual->user_id == Auth::user()->id)
-                    <small><a class="pull-right btn btn-primary btn-xs" style="color: white !important;" href="/fjb/{{$jual->slug}}/edit">edit</a></small>
+                    <small><a class="pull-right" href="/fjb/{{$jual->slug}}/edit"><img id="icon" src="/background/sunting.svg"></a></small>
                     <!-- //tidak bissa jika begini /threads/{slug}/edit -->
                 @endif
             @endif

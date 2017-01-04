@@ -12,10 +12,10 @@
                         <textarea name="body" rows="7" class="form-control"> {{$comment->body}} </textarea>
                     </div>
                     <div class="form-group {{ $errors->has('imgcomment') ? ' has-error' : '' }} ">
-                    <div class="alert alert-info">
+                    <div class="alert alert-warning">
                         @if($comment->img)
                             <img src="{{ asset('/img/comments/'.$comment->img)  }}" alt="{{$comment->thread->title}}" style="max-height:100px;max-width:150px;">
-                            <a href="/comment/{{$comment->id}}/delete" class="btn btn-warning btn-sm">delete</a>
+                            <a href="/comment/{{$comment->id}}/delete"><img id="icon" src="/background/delete.svg"></a>
                         @endif
                         @if(!$comment->img)
                             @include('layouts.partials.upload')

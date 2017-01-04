@@ -85,7 +85,9 @@ class ThreadController extends Controller
                     $path = $file->getRealPath();
                     $img  = Image::make($path)->resize(250, 200);
                     $img->save(public_path("img/threads/". $fileName));
-                }else{
+                }else if (!empty($old = $thread->img)){
+                    $fileName = $old;
+                }else {
                     $fileName = null;
                 }
             $thread->update([

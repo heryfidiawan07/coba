@@ -8,7 +8,7 @@
     @foreach($jtags as $jtag)
       <tr>
         <td class="info">
-          <a href="/kategory/{{$jtag->slug}}"> {{$jtag->name}} </a>
+          <a href="/kategory/{{$jtag->slug}}"><img id="icon" src="/background/tag.svg"> {{$jtag->name}} </a>
         </td>
       </tr>
     @endforeach

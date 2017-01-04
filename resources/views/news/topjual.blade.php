@@ -13,7 +13,7 @@
             <img src="{{asset('/img/users/'.$topjual->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
         </a>        
         <a href="/{{$topjual->user->getName()}}"> {{$topjual->user->getName()}} </a><br>
-        <a href="/kategory/{{$topjual->tag->name}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;">{{$topjual->tag->name}}</a>
+        <a href="/kategory/{{$topjual->tag->name}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$topjual->tag->name}}</a>
         <small class="pull-right">{{$topjual->created_at->diffForHumans()}}</small>
       </div>
           <div class="media">
