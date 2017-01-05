@@ -23,7 +23,6 @@ class CreateUsersTable extends Migration
             $table->boolean('admin')->default(false);
             $table->string('img')->nullable();
             $table->string('facebook_id')->nullable();
-            $table->string('google_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
