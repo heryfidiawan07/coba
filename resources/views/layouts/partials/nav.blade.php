@@ -39,8 +39,8 @@
                     <li><a href="{{ url('/login') }}"><img id="icon" src="/background/login.svg"> login</a></li>
                     <li><a href="{{ url('/register') }}"><img id="icon" src="/background/register.svg"> register</a></li>
                 @else
-                    <li><a href="/fjb/create"><img id="icon" src="/background/createc.svg"> tulis di fjb</a></li>
                     <li><a href="/threads/create"><img id="icon" src="/background/createc.svg"> tulis di forum</a></li>
+                    <li><a href="/fjb/create"><img id="icon" src="/background/createc.svg"> tulis di fjb</a></li>
                     <li><a href="/"><img id="icon" src="/background/homec.svg"> home</a></li>
                     @if(Auth::user()->isAdmin())
                         <li><a href="/admin">admin</a></li>
@@ -50,7 +50,7 @@
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
-                        <ul class="dropdown-menu" role="menu">
+                        <ul class="dropdown-menu" role="menu" style="margin-top: 10px;">
                             <li>
                                 <a href="{{ url('/logout') }}"
                                     onclick="event.preventDefault();

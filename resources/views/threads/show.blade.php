@@ -14,9 +14,7 @@
                 <hr>
                 <div class="media">
                     @if($thread->img)
-                        <div class="text-center">
-                            <img class="img-rounded img-responsive" src="{{asset('/img/threads/'.$thread->img )}}">
-                        </div>
+                        <img class="img-rounded img-responsive" src="{{asset('/img/threads/'.$thread->img )}}">
                     @endif
                     <p>{{$thread->body}}</p>
                     @foreach($comments as $comment)
@@ -31,9 +29,7 @@
                             <small> &horbar; {{$comment->created_at->diffForHumans()}}</small>
                         <div class="media">
                             @if($comment->img)
-                                <div class="text-center">
-                                    <img class="img-rounded" src="{{ asset('/img/comments/'.$comment->img) }}" alt="{{$thread->tag->name}}">
-                                </div>
+                                <img class="img-rounded" src="{{ asset('/img/comments/'.$comment->img) }}" alt="{{$thread->tag->name}}">
                             @endif
                             <p> {{$comment->body}} </p>
                         </div>
@@ -58,7 +54,7 @@
                             @endif
                         </div>
                         <div class="form-group {{ $errors->has('imgcomment') ? ' has-error' : '' }} ">
-                            <div class="alert alert-warning">
+                            <div class="media">
                                 @include('layouts.partials.upload')
                             </div>
                         </div>

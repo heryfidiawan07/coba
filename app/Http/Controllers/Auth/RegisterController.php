@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 
 use App\Mail\userRegistered;
 use Illuminate\Support\Facades\Mail;
+use Socialite;
 
 class RegisterController extends Controller
 {

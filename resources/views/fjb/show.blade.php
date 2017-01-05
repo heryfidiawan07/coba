@@ -63,7 +63,7 @@
                             @endif
                         </div>
                         <div class="form-group {{ $errors->has('imgcomment') ? ' has-error' : '' }} ">
-                            <div class="alert alert-warning">
+                            <div class="media">
                                 @include('layouts.partials.upload')
                             </div>
                         </div>

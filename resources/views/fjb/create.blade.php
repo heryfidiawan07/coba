@@ -33,13 +33,19 @@
                 @endif
             </div>
             <div class="form-group {{ $errors->has('img') ? ' has-error' : '' }} ">
-                <div class="alert alert-warning">
-                    <label for="exampleInputFile"><i style="font-size: 12px;">Tambahkan gambar : jpg, png</i></label>
-                    <input type="file" id="exampleInputFile" name="img[]" multiple="multiple">
-                    <span class="help-block" style="color: red;"><i>{{ Session::get('message') }}</i></span>
+                <div class="media">
+                    <input type="file" name="img[]" class="file" id="media" multiple="multiple">
+                    <div class="input-group col-sm-9">
+                        <span class="input-group-addon"><img id="icon" src="/background/upload.svg"></span>
+                        <input type="text" class="form-control" disabled placeholder="Upload Image">
+                        <span class="input-group-btn">
+                            <button class="browse btn btn-primary" type="button">Browse</button>
+                        </span>
+                    </div>                            
                     @if($errors->has('img'))
                         <span class="help-block"> {{$errors->first('img')}} </span>
                     @endif
+                    <span class="help-block" style="color: red;"><i>{{ Session::get('message') }}</i></span>
                 </div>
             </div>
             <div class="form-group">

@@ -39,6 +39,7 @@
     <script type="text/javascript" src="/js/get.js"></script>
     <script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
     <script src="/js/slider-22.0.6.mini.js" type="text/javascript"></script>
+    <script src="/js/browse.js" type="text/javascript"></script>
     <script src="/js/slider1.js" type="text/javascript"></script>
 </body>
 </html>

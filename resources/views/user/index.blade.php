@@ -4,7 +4,7 @@
 <div class="panel panel-default">
     <div class="row">
         <div class="col-md-6">
-            <div class="media" style="padding-top: 10px; padding-left: 10px;">
+            <div class="media" style="padding-top: 10px; padding-left: 10px; padding-bottom: 10px;">
                 <span class="pull-left">
                     <img width="150px" src="{{$user->getAvatar()}}" class="img-responsive" onerror="this.style.display='none'">
                     <img width="150px" src="{{asset('/img/users/'.$user->getAvatar() )}}" class="img-responsive" onerror="this.style.display='none'">
@@ -28,20 +28,16 @@
                                     <span class="help-block"> {{$errors->first('edit_name')}} </span>
                                 @endif
                             </div>
-                            <button class="btn btn-danger btn-xs" type="submit">edit name</button>
+                            <button class="btn btn-primary btn-sm" type="submit">edit name</button>
                         </form>
                         <hr>
                         <form class="form-inline" action="/edit-gravatar/{{$user->id}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                             <div class="form-group {{ $errors->has('img') ? ' has-error' : '' }} ">
-                                <label for="media"><i style="font-size: 12px;">ganti foto profil : jpg, png</i></label>
-                                <input type="file" id="media" name="img">
-                                @if($errors->has('img'))
-                                    <span class="help-block"> {{$errors->first('img')}} </span>
-                                @endif
-                                <button class="btn btn-danger btn-xs" type="submit">ubah foto profil</button>
+                                @include('layouts.partials.upload')
+                                <br>
+                                <button class="btn btn-primary btn-sm" type="submit">ubah foto profil</button>
                             </div>
-                            <div id="tmp" class="pull-right"></div>
                         </form>
                     </div>
                 @endif
@@ -57,7 +53,7 @@
         @include('news.tags')
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-5">
         @if(!$threads->count())
             <p class="lead">Tidak ada threads di sini</p>
             <hr>
@@ -70,7 +66,7 @@
                 </a>
                 <div class="media-body">
                     <div class="media-heading">
-                        <a href="/threads/{{$thread->slug}} ">{{$thread->title}}</a>
+                        <a href="/threads/{{$thread->slug}} ">{{str_limit($thread->title, 50)}}</a>
                         <br>
                         <a href="/tags/{{$thread->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;">{{$thread->tag->name}}</a>
                     </div>
@@ -88,7 +84,7 @@
     <div class="col-md-3">
         @include('news.jtags')
     </div>
-    <div class="col-md-9">
+    <div class="col-md-5">
         @if(!$juals->count())
             <p class="lead">Tidak ada threads di sini</p>
             <hr>
@@ -101,7 +97,7 @@
                 </a>
                 <div class="media-body">
                     <div class="media-heading">
-                        <a href="/jual/{{$jual->slug}}">{{$jual->title}}</a>
+                        <a href="/jual/{{$jual->slug}}">{{str_limit($jual->title)}}</a>
                         <br>
                         <a href="/kategory/{{$jual->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;">{{$jual->tag->name}}</a>
                     </div>

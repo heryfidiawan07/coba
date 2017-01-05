@@ -16,11 +16,19 @@
             <li class="lii"><a class="btn btn-xs" href="/member">
                 <img id="icon" src="/background/memberc.svg"> Member</a>
             </li>
+        </div>
+        <div class="text-center">
             <li class="lii"><a class="btn btn-xs" href="/login">
                 <img id="icon" src="/background/login.svg"> Login</a>
             </li>
             <li class="lii"><a class="btn btn-xs" href="/register">
                 <img id="icon" src="/background/register.svg"> Register</a>
+            </li>
+        </div>
+        <hr>
+        <div class="text-center">
+            <li class="social"><a class="btn btn-primary btn-sm" href="/auth/facebook" style="color: black !important;">
+                <img id="icon" src="/background/fblog.svg">Login dengan facebook</a>
             </li>
         </div>
 	</div>

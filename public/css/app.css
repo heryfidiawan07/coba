@@ -1,3 +1,8 @@
+
+.file {
+  visibility: hidden;
+  position: absolute;
+}
 .lead {
 	font-size: 14px !important;
 }
@@ -35,11 +40,14 @@ blockquote a {
 blockquote p {
 	font-size: 12px;
 }
+.social {
+	list-style: none;
+}
 .lii .btn {
 	margin-top: 20px;
 	background-color: black;
 	color: white !important;
-	width: 100px;
+	width: 120px;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	list-style: none;
