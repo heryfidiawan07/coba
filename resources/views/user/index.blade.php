@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="alert alert-info">
+<div class="panel panel-default">
     <div class="row">
         <div class="col-md-6">
-            <div class="media">
+            <div class="media" style="padding-top: 10px; padding-left: 10px;">
                 <span class="pull-left">
                     <img width="150px" src="{{$user->getAvatar()}}" class="img-responsive" onerror="this.style.display='none'">
                     <img width="150px" src="{{asset('/img/users/'.$user->getAvatar() )}}" class="img-responsive" onerror="this.style.display='none'">
                 </span>
                 <div class="media-body">
-                    <h5 class="media-heading"> {{$user->getName()}} </h5>
+                    <h5 class="media-heading"><b>{{$user->getName()}}</b></h5>
                     <p>Joined :  {{$user->created_at->diffForHumans()}} </p>
                 </div>
             </div>
@@ -19,7 +19,7 @@
         <div class="col-md-6">
             @if(Auth::check())
                 @if(Auth::user()->id == $user->id)
-                    <div class="alert alert-success">
+                    <div class="panel-body">
                         <form class="form-inline" action="/edit-name/{{$user->id}}" method="post">
                         {{csrf_field()}}
                             <div class="form-group {{ $errors->has('edit_name') ? ' has-error' : '' }} ">
@@ -39,9 +39,9 @@
                                 @if($errors->has('img'))
                                     <span class="help-block"> {{$errors->first('img')}} </span>
                                 @endif
-                                <div id="tmp"></div>
                                 <button class="btn btn-danger btn-xs" type="submit">ubah foto profil</button>
                             </div>
+                            <div id="tmp" class="pull-right"></div>
                         </form>
                     </div>
                 @endif
