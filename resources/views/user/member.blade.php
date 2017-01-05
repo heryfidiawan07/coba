@@ -14,7 +14,8 @@
               </a>
               <p>Joined :  <small>{{$member->created_at->diffForHumans()}}</small> </p>
               <div class="panel-footer">
-                <p class="pull-left"> {{$member->tulisan()}} threads</p><p class="pull-right"> {{$member->fjb()}} fjb</p>
+                <p class="pull-left"> {{$member->tulisan()}} <img id="icon" src="/background/ide.svg"> threads</p>
+                <p class="pull-right"> {{$member->fjb()}} <img id="icon" src="/background/shopc.svg"> fjb</p>
               </div>
 				</div>
 	    </div>

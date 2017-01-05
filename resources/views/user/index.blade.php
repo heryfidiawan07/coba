@@ -28,18 +28,20 @@
                                     <span class="help-block"> {{$errors->first('edit_name')}} </span>
                                 @endif
                             </div>
-                            <button class="btn btn-warning btn-sm" type="submit">edit name</button>
+                            <button class="btn btn-danger btn-xs" type="submit">edit name</button>
                         </form>
+                        <hr>
                         <form class="form-inline" action="/edit-gravatar/{{$user->id}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                             <div class="form-group {{ $errors->has('img') ? ' has-error' : '' }} ">
-                                <label for="exampleInputFile"><i style="font-size: 12px;">ganti foto profil : jpg, png</i></label>
-                                <input type="file" id="exampleInputFile" name="img">
+                                <label for="media"><i style="font-size: 12px;">ganti foto profil : jpg, png</i></label>
+                                <input type="file" id="media" name="img">
                                 @if($errors->has('img'))
                                     <span class="help-block"> {{$errors->first('img')}} </span>
                                 @endif
+                                <div id="tmp"></div>
+                                <button class="btn btn-danger btn-xs" type="submit">ubah foto profil</button>
                             </div>
-                            <button class="btn btn-warning btn-sm" type="submit">ubah foto profil</button>
                         </form>
                     </div>
                 @endif

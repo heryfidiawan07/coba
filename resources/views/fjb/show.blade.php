@@ -32,10 +32,12 @@
                             <a href="/{{$jcomment->user->name}}">{{$jcomment->user->getName()}}</a>
                             <small> &horbar; {{$jcomment->created_at->diffForHumans()}}</small>
                         <div class="media">
-                            <p> {{$jcomment->body}} </p>
                             @if($jcomment->img)
-                                <img class="img-rounded img-responsive" src="{{ asset('/img/comments/'.$jcomment->img)  }}" alt="{{$jual->tag->name}}">
+                                <div class="text-center">
+                                    <img class="img-rounded img-responsive" src="{{ asset('/img/comments/'.$jcomment->img)  }}" alt="{{$jual->tag->name}}">
+                                </div>
                             @endif
+                            <p> {{$jcomment->body}} </p>
                         </div>
                             @if(Auth::check())
                                 @if(Auth::user()->id == $jcomment->user_id)

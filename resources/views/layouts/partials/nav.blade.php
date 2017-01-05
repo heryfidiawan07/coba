@@ -36,8 +36,8 @@
                 <li><a href="/fjb"><img id="icon" src="/background/shopc.svg"> fjb</a></li>
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">login</a></li>
-                    <li><a href="{{ url('/register') }}">register</a></li>
+                    <li><a href="{{ url('/login') }}"><img id="icon" src="/background/login.svg"> login</a></li>
+                    <li><a href="{{ url('/register') }}"><img id="icon" src="/background/register.svg"> register</a></li>
                 @else
                     <li><a href="/fjb/create"><img id="icon" src="/background/createc.svg"> tulis di fjb</a></li>
                     <li><a href="/threads/create"><img id="icon" src="/background/createc.svg"> tulis di forum</a></li>
@@ -62,6 +62,7 @@
                                     {{ csrf_field() }}
                                 </form>
                             </li>
+                            <li><a href="/{{ Auth::user()->name }}">profil</a></li>
                         </ul>
                     </li>
                     <li>

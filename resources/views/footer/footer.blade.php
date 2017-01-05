@@ -8,9 +8,14 @@
               <img src="/img/adm/adm.jpg" alt="fidawa.com" class="img-responsive img-circle">
             </a>
           </div>
-          <a href="https://www.facebook.com/harry.congot11" style="margin-top: 15px; color: unset;">Founder : Hery Fidiawan </a>
+          <a href="https://www.facebook.com/harry.congot11" style="margin-top: 15px; color: unset;">
+            Founder : Hery Fidiawan
+          </a>
         </div>
+        <p>Diskusikan apa yang ingin anda tanyakan di forum.</p>
+        <p>Forum Jual Beli cari barang atau pasang iklan anda di sini GRATIS.</p>
       </div>
+
       <div class="col-md-6">
         <div class="text-center">
             <li class="fotli">

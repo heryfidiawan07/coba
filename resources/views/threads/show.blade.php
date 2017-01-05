@@ -13,10 +13,12 @@
                 </div>
                 <hr>
                 <div class="media">
-                    <p>{{$thread->body}}</p>
                     @if($thread->img)
-                        <img class="img-rounded img-responsive" src="{{asset('/img/threads/'.$thread->img )}}">
+                        <div class="text-center">
+                            <img class="img-rounded img-responsive" src="{{asset('/img/threads/'.$thread->img )}}">
+                        </div>
                     @endif
+                    <p>{{$thread->body}}</p>
                     @foreach($comments as $comment)
                     <hr>
                     <div class="media" style="margin-left: 20px;">
@@ -28,10 +30,12 @@
                             <a href="/{{$comment->user->name}}">{{$comment->user->getName()}}</a>
                             <small> &horbar; {{$comment->created_at->diffForHumans()}}</small>
                         <div class="media">
-                            <p> {{$comment->body}} </p>
                             @if($comment->img)
-                                <img class="img-rounded" src="{{ asset('/img/comments/'.$comment->img) }}" alt="{{$thread->tag->name}}">
+                                <div class="text-center">
+                                    <img class="img-rounded" src="{{ asset('/img/comments/'.$comment->img) }}" alt="{{$thread->tag->name}}">
+                                </div>
                             @endif
+                            <p> {{$comment->body}} </p>
                         </div>
                             @if(Auth::check())
                                 @if(Auth::user()->id == $comment->user_id)
