@@ -15,10 +15,18 @@
 	<h5>atau klik link di bawah ini</h5>
 	<a href="http://www.fidawa.com/verify/{{$user->token}}/{{$user->id}}">http://www.fidawa.com/verify/{{str_random(50)}}</a><!--  == -->
 	<br>
-	<div style="text-align: center; list-style: none; display: inline-block; text-decoration: none;">
-      <li class="fotli"><a href="https://web.facebook.com/fidawadiskusi/">Facebok</a></li>
-      <li class="fotli"><a href="http://www.fidawa.com/threads">Forum</a></li>
-      <li class="fotli"><a href="http://www.fidawa.com/fjb">Fjb</a></li>
+	<div style="list-style: none; display: inline-block; text-decoration: none;">
+		<ul>
+      <li class="fotli"><a href="https://web.facebook.com/fidawadiskusi/">
+      	<img id="icon" src="/background/login.svg">Facebok</a>
+      </li>
+      <li class="fotli"><a href="http://www.fidawa.com/threads">
+      	<img id="icon" src="/background/forumc.svg">Forum</a>
+      </li>
+      <li class="fotli"><a href="http://www.fidawa.com/fjb">
+      	<img id="icon" src="/background/shopc.svg">Fjb</a>
+      </li>
+    </ul>
   </div>
   <br>
 	<h4 class="text-center" style="font-size: 14px; color: #636b6f;"> &copy; fidawa 2016-2017</h4>

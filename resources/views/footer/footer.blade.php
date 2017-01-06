@@ -13,7 +13,7 @@
           </a>
         </div>
         <p>Diskusikan apa yang ingin anda tanyakan di forum.</p>
-        <p>Forum Jual Beli cari barang atau pasang iklan anda di sini GRATIS.</p>
+        <p>Forum Jual Beli : cari barang atau pasang iklan anda di sini GRATIS.</p>
       </div>
 
       <div class="col-md-6">
