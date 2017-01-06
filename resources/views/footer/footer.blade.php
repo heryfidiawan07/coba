@@ -25,7 +25,7 @@
               <a href="/threads"><img id="icon" src="/background/forumc.svg"> Forum</a>
             </li>
             <li class="fotli">
-              <a href="/fjb"><img id="icon" src="/background/shopc.svg"> Fjb</a>
+              <a href="/fjb"><img id="icon" src="/background/shopc.svg"> Jual beli</a>
             </li>
             <li class="fotli">
               <a href="/member"><img id="icon" src="/background/memberc.svg"> Member</a>

@@ -11,7 +11,7 @@
                 <img id="icon" src="/background/forumc.svg"> Forum</a>
             </li>
             <li class="lii"><a class="btn btn-xs" href="/fjb">
-                <img id="icon" src="/background/shopc.svg"> Fjb</a>
+                <img id="icon" src="/background/shopc.svg">Jual beli</a>
             </li>
             <li class="lii"><a class="btn btn-xs" href="/member">
                 <img id="icon" src="/background/memberc.svg"> Member</a>

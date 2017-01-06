@@ -132,6 +132,7 @@
             <th class="warning">Id</th>
             <th class="warning">Username</th>
             <th class="warning">Email</th>
+            <th class="warning">Status</th>
             <th class="warning">Joined</th>
             @foreach($users as $user)
                 <tr class="success">
@@ -145,6 +146,10 @@
 
                     <td class="info">
                         {{ $user->email }}
+                    </td>
+
+                    <td class="info">
+                        {{ $user->status }}
                     </td>
 
                     <td class="info">

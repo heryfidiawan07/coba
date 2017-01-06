@@ -66,6 +66,7 @@ blockquote p {
 }
 .img-circle {
 	width: 50px !important;
+	height: 50px !important;
 }
 .fotli a:hover {
 	color: unset !important;
