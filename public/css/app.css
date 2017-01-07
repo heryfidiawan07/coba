@@ -1,4 +1,7 @@
-
+#kategori {
+	width: 30px;
+	margin-left: 10px;
+}
 .file {
   visibility: hidden;
   position: absolute;
