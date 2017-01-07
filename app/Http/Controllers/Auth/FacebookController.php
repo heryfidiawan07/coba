@@ -55,6 +55,9 @@ class FacebookController extends Controller
         if ($authUser){
             return $authUser;
         }
+        if ($facebookUser->email == null) {
+            $facebookUser->email = 'facebook@email.com';
+        }
 
         return User::create([
             'name'        => $facebookUser->name,
@@ -63,6 +66,7 @@ class FacebookController extends Controller
             'img'         => $facebookUser->avatar,
             'status'      => 1,
             'token'       => str_random(20),
+            'password'    => 'facebook',
         ]);
     }
     
