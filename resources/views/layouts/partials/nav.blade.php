@@ -11,7 +11,7 @@
             </button>
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img style="height: 50px; margin-top: -15px;" src="/fidawa.png">
+                <img style="height: 35px; margin-top: -8px;" src="/fidawa.png">
             </a>
             
         </div>

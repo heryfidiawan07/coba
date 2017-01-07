@@ -60,7 +60,7 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
         return $this->registered($request, $user)
-            ?: redirect('/login')->with('warning', 'Cek email untuk memferifikasi akun');
+            ?: redirect('/login')->with('warning', 'Cek email untuk verifikasi akun');
     }
 
     /**
