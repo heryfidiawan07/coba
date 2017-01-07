@@ -11,7 +11,7 @@
             </button>
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'fidawa') }}
+                <img style="height: 50px; margin-top: -15px;" src="/background/fidawa.png">
             </a>
             
         </div>
@@ -33,7 +33,7 @@
             <ul class="nav navbar-nav navbar-right">
                 
                 <li><a href="/threads"><img id="icon" src="/background/forumc.svg"> Forum</a></li>
-                <li><a href="/fjb"><img id="icon" src="/background/shopc.svg"> Jual beli</a></li>
+                <li><a href="/fjb"><img id="icon" src="/background/shopc.svg"> Jual Beli</a></li>
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}"><img id="icon" src="/background/login.svg"> Login</a></li>
@@ -55,14 +55,15 @@
                                 <a href="{{ url('/logout') }}"
                                     onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                    Logout
+                                    <img id="icon" src="/background/logout.svg"> Logout
                                 </a>
 
                                 <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
                             </li>
-                            <li><a href="/{{ Auth::user()->name }}">Profil</a></li>
+
+                            <li><a href="/{{ Auth::user()->name }}"><img id="icon" src="/background/profil.svg"> Profil</a></li>
                         </ul>
                     </li>
                     <li>

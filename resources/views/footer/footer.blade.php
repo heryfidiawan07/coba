@@ -13,7 +13,7 @@
           </a>
         </div>
         <p>Diskusikan apa yang ingin anda tanyakan di forum.</p>
-        <p>Forum Jual Beli : cari barang atau pasang iklan anda di sini GRATIS.</p>
+        <p>Forum Jual Beli : Cari barang atau pasang iklan anda di sini GRATIS.</p>
       </div>
 
       <div class="col-md-6">
@@ -25,7 +25,7 @@
               <a href="/threads"><img id="icon" src="/background/forumc.svg"> Forum</a>
             </li>
             <li class="fotli">
-              <a href="/fjb"><img id="icon" src="/background/shopc.svg"> Jual beli</a>
+              <a href="/fjb"><img id="icon" src="/background/shopc.svg"> Jual Beli</a>
             </li>
             <li class="fotli">
               <a href="/member"><img id="icon" src="/background/memberc.svg"> Member</a>
