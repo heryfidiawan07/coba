@@ -20,9 +20,11 @@
 				</div>
 	    </div>
     @endforeach
-    <div class="text-center">
-    <hr>
-      {{$members->links()}}
+    <div class="row">
+      <div class="text-center">
+        <hr>
+        {{$members->links()}}
+      </div>
     </div>
 
 @endsection
