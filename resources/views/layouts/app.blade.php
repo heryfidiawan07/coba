@@ -46,9 +46,13 @@
     <div id="app">
         @include('layouts.partials.nav')
         <div class="container" style="min-height: 560px; height: 100%;">
-            @yield('content')    
+            @yield('content')
         </div>
-        <hr>
+        <br>
+        <div class="text-center">
+            <div class="fb-like" data-href="http://www.fidawa.com" data-width="250" data-height="250" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="true"></div>
+        </div>
+        <br>
         @include('footer.footer') 
     </div>
     <!-- Scripts -->

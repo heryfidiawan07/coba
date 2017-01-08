@@ -34,9 +34,6 @@
       </div>
     </div>
     <br>
-    <div class="text-center">
-        <div class="fb-like" data-href="http://www.fidawa.com" data-width="250" data-height="250" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="true"></div>
-    </div>
     <p class="text-center">All rights reserved. Yes, all of them.</p>
     <p class="text-center"> &copy; fidawa 2016 - 2017.</p>
   </blockquote>

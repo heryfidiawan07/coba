@@ -20,7 +20,10 @@
 				</div>
 	    </div>
     @endforeach
-    {{$members->links()}}
+    <br>
+    <div class="text-center">
+      {{$members->links()}}
+    </div>
 
 @endsection
 
