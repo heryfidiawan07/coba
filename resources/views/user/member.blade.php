@@ -20,8 +20,8 @@
 				</div>
 	    </div>
     @endforeach
-    <hr>
     <div class="text-center">
+    <hr>
       {{$members->links()}}
     </div>
 
