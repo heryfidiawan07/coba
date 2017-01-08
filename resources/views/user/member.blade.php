@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="row">
 <h3 class="text-center">Daftar Member Fidawa</h3>
     @foreach($members as $member)
 	    <div class="col-md-4">
@@ -20,12 +21,15 @@
 				</div>
 	    </div>
     @endforeach
-    <div class="row">
-      <div class="text-center">
-        <hr>
-        {{$members->links()}}
-      </div>
-    </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="text-center">
+    <hr>
+    {{$members->links()}}
+  </div>
+  </div>
+</div>
 
 @endsection
 
