@@ -19,7 +19,7 @@
         <a href="/threads/{{$newcomment->slug}} ">{{str_limit($newcomment->title, 50)}}</a>
         <p>{{str_limit($newcomment->body, 50)}}</p>
         <hr>
-        <div class="fb-like" data-href="http://www.fidawa.com/threads/{{$newcomment->title}}" data-width="250" data-height="250" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="true"></div>
+        <div class="fb-like" data-href="http://fidawa.com/threads/{{$newcomment->title}}" data-width="250" data-layout="button_count" data-action="recommend" data-size="small" data-show-faces="true" data-share="true"></div>
       <div class="panel-footer"><a href="/threads/{{$newcomment->slug}}">{{$newcomment->countComments()}} comment</a></div>
       
       <div class="panel-footer">

@@ -24,7 +24,7 @@
                         </div>
                         <p> <small>{{$thread->created_at->diffForHumans()}}</small> by <a href="/{{$thread->user->getName()}}"> {{$thread->user->getName()}} </a> </p>
                         <hr>
-                        <div class="fb-like" data-href="http://www.fidawa.com/threads/{{$thread->slug}}" data-width="250" data-height="250" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="true"></div>
+                        <div class="fb-like" data-href="http://fidawa.com/threads/{{$thread->slug}}" data-width="250" data-layout="button_count" data-action="recommend" data-size="small" data-show-faces="true" data-share="true"></div>
                     </div>
                     <div class="panel-footer">
                         <p class="pull-right">{{$thread->countComments()}} commentar</p>

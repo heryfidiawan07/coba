@@ -19,7 +19,7 @@
 
       <a href="/fjb/{{$jual->slug}} ">{{str_limit($jual->title, 50)}}</a>
       <hr>
-      <div class="fb-like" data-href="http://www.fidawa.com/fjb/{{$jual->title}}" data-width="250" data-height="250" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="true"></div>
+      <div class="fb-like" data-href="http://fidawa.com/fjb/{{$jual->title}}" data-width="250" data-layout="button_count" data-action="recommend" data-size="small" data-show-faces="true" data-share="true"></div>
       <div class="panel-footer"><a href="/fjb/{{$jual->slug}} ">{{$jual->countComments()}} comment</a></div>
     </div>
   @endforeach

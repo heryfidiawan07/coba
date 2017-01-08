@@ -12,11 +12,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Facebook -->
-    <meta property="og:url"           content="http://www.fidawa.com" />
+    <meta property="og:url"           content="http://fidawa.com/" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="Fidawa - Forum diskusi dan Forum Jual Beli." />
     <meta property="og:description"   content="Diskusikan apa yang ingin anda tanyakan di forum. Forum Jual Beli Cari barang atau pasang iklan anda di sini GRATIS." />
-    <meta property="og:image"         content="http://www.fidawa.com/icon.png" />
+    <meta property="og:image"         content="http://fidawa.com/icon.png" />
+    <b:if cond='data:blog.postImageThumbnailUrl'>
+    <meta expr:content='data:blog.postImageThumbnailUrl' property='og:image'/>
+    <b:else/>
+    <meta content="http://fidawa.com/icon.png" property='og:image'/>
+    </b:if>
     <!-- Facebook -->
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -35,13 +40,15 @@
     </script>
 </head>
 <body>
-<script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/id_ID/all.js#xfbml=1";
-    fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+<div id="fb-root"></div>
+<script>
+	(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v2.8&appId=186938375115089";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
 </script>
     <div id="app">
         @include('layouts.partials.nav')
@@ -50,7 +57,7 @@
         </div>
         <br>
         <div class="text-center">
-            <div class="fb-like" data-href="http://www.fidawa.com" data-width="250" data-height="250" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="true"></div>
+            <div class="fb-like" data-href="http://fidawa.com/" data-width="250" data-layout="button_count" data-action="recommend" data-size="small" data-show-faces="true" data-share="true"></div>
         </div>
         <br>
         @include('footer.footer') 
