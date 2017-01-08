@@ -5,6 +5,8 @@ Route::get('/verify/{token}/{id}', 'Auth\RegisterController@verify_register');
 Route::get('auth/facebook', 'Auth\FacebookController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\FacebookController@handleProviderCallback');
 
+Route::get('/syarat', 'HomeController@syarat');
+
 Auth::routes();
 
 //============== Admin Panel ==========

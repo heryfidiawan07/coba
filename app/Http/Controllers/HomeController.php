@@ -20,7 +20,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['user', 'index']] );
+        $this->middleware('auth', ['except' => ['user', 'index', 'syarat']] );
     }
 
     /**
@@ -66,6 +66,11 @@ class HomeController extends Controller
     public function welcome(){
         return view('welcome');
     }
+
+    public function syarat(){
+        return view('user.kebijakan');
+    }
+    
     
 }
 

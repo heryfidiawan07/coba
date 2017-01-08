@@ -30,6 +30,9 @@
           <li class="fotli">
               <a href="http://fidawa.com/auth/facebook"><img id="icon" src="/background/fbc.svg">Login dengan facebook</a>
           </li>
+          <li class="fotli">
+              <a href="/syarat"><img id="icon" src="/background/register.svg">Syarat</a>
+          </li>
         </div>
       </div>
     </div>

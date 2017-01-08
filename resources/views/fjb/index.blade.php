@@ -23,6 +23,8 @@
                             </a>
                         </div>
                         <p> <small>{{$jual->created_at->diffForHumans()}}</small> by <a href="/{{$jual->user->getName()}}"> {{$jual->user->getName()}} </a> </p>
+                        <hr>
+                        <div class="fb-like" data-href="http://www.fidawa.com/fjb/{{$jual->slug}}" data-width="250" data-height="250" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="true"></div>
                     </div>
                     <div class="panel-footer">
                         <p class="pull-right">{{$jual->countComments()}} commentar</p>

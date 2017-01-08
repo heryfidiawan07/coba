@@ -18,7 +18,7 @@
 
       <a href="/fjb/{{$jualcomment->slug}} ">{{str_limit($jualcomment->title, 50)}}</a>
       <hr>
-      <div class="fb-like" data-href="http://www.fidawa.com/{{$jualcomment->title}}" data-width="250" data-height="250" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="true"></div>
+      <div class="fb-like" data-href="http://www.fidawa.com/fjb/{{$jualcomment->title}}" data-width="250" data-height="250" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="true"></div>
       <div class="panel-footer"><a href="/fjb/{{$jualcomment->slug}}">
         {{$jualcomment->countComments()}} comment</a>
       </div>
