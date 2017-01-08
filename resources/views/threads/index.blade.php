@@ -29,7 +29,8 @@
                 <hr>
             @endforeach
         @else
-            <i style="font-size: 14px;" class="lead">threads tidak ditemukan</i>
+            <i style="font-size: 14px;" class="lead">Belum ada yang menulis di kategori ini.</i>
+            <a href="/threads/create" class="btn btn-primary btn-xs"><img id="icon" src="/background/ide.svg">Tulis sesuatu di forum sekarang.</a>
             <hr>
         @endif
 

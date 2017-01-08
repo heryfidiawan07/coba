@@ -27,5 +27,26 @@
         </div>
         <hr>
         @include('layouts.partials.social')
+        <hr>
 	</div>
+
+    <div class="row">
+      <div class="col-md-3">
+        @include('news.tags')
+      </div>
+      <div class="col-md-9">
+        @include('news.newthreads')
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-md-3">
+        @include('news.jtags')
+      </div>
+      <div class="col-md-9">
+        @include('news.fjbnews')
+      </div>
+    </div>
 </div>

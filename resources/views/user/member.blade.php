@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<h3 class="text-center">Daftar Member Fidawa</h3>
     @foreach($members as $member)
 	    <div class="col-md-4">
 	    		<div class="media">

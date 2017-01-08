@@ -29,7 +29,7 @@
             min-height: 100vh;
         }
         #title{
-            margin-top: 200px;
+            margin-top: 100px;
             font-size: 60px;
         }
 

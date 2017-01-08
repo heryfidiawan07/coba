@@ -30,6 +30,7 @@
             @endforeach
         @else
             <i style="font-size: 14px;" class="lead"> tidak ditemukan</i>
+            <a href="/fjb/create" class="btn btn-primary btn-xs"><img id="icon" src="/background/shopc.svg">Jual barang anda di forum jual beli sekarang.</a>
             <hr>
         @endif
 
