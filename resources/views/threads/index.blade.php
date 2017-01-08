@@ -18,7 +18,9 @@
                         <div class="media-heading">
                             <a href="/threads/{{$thread->slug}}">{{str_limit($thread->title, 70)}}</a>
                             <br>
-                            <a href="/tags/{{$thread->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;">{{$thread->tag->name}}</a>
+                            <a href="/tags/{{$thread->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;">
+                                <img id="icon" src="/background/tag.svg">{{$thread->tag->name}}
+                            </a>
                         </div>
                         <p> <small>{{$thread->created_at->diffForHumans()}}</small> by <a href="/{{$thread->user->getName()}}"> {{$thread->user->getName()}} </a> </p>
                     </div>
@@ -30,7 +32,9 @@
             @endforeach
         @else
             <i style="font-size: 14px;" class="lead">Belum ada yang menulis di kategori ini.</i>
-            <a href="/threads/create" class="btn btn-primary btn-xs"><img id="icon" src="/background/ide.svg">Tulis sesuatu di forum sekarang.</a>
+            <a href="/threads/create" class="btn btn-primary btn-xs" style="color: white !important;">
+                <img id="icon" src="/background/ide.svg">Tulis sesuatu di forum sekarang.
+            </a>
             <hr>
         @endif
 

@@ -18,7 +18,9 @@
                         <div class="media-heading">
                             <a href="/fjb/{{$jual->slug}} ">{{str_limit($jual->title, 70)}}</a>
                             <br>
-                            <a href="/kategory/{{$jual->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;">{{$jual->tag->name}}</a>
+                            <a href="/kategory/{{$jual->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;">
+                                <img id="icon" src="/background/tag.svg">{{$jual->tag->name}}
+                            </a>
                         </div>
                         <p> <small>{{$jual->created_at->diffForHumans()}}</small> by <a href="/{{$jual->user->getName()}}"> {{$jual->user->getName()}} </a> </p>
                     </div>
@@ -30,7 +32,9 @@
             @endforeach
         @else
             <i style="font-size: 14px;" class="lead"> tidak ditemukan</i>
-            <a href="/fjb/create" class="btn btn-primary btn-xs"><img id="icon" src="/background/shopc.svg">Jual barang anda di forum jual beli sekarang.</a>
+            <a href="/fjb/create" class="btn btn-primary btn-xs" style="color: white !important;">
+                <img id="icon" src="/background/shopc.svg">Jual barang anda di forum jual beli sekarang.
+            </a>
             <hr>
         @endif
 

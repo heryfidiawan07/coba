@@ -3,17 +3,12 @@
     <div class="row">
       <div class="col-md-6">
         <div class="media">
-          <div class="pull-left">
-            <a href="https://www.facebook.com/harry.congot11">
-              <img src="/img/adm/adm.jpg" alt="fidawa.com" class="img-responsive img-circle">
-            </a>
-          </div>
-          <a href="https://www.facebook.com/harry.congot11" style="margin-top: 15px; color: unset;">
-            Founder : Hery Fidiawan
+          <a href="https://www.facebook.com/harry.congot11" style="color: unset;">
+            <b> Founder : Harry Congott </b>
           </a>
         </div>
-        <p>Diskusikan apa yang ingin anda tanyakan di forum.</p>
-        <p>Forum Jual Beli : Cari barang atau pasang iklan anda di sini GRATIS.</p>
+        <p>Diskusikan apa yang ingin anda tanyakan di forum.<br>
+        Forum Jual Beli : Cari barang atau pasang iklan anda di forum jual beli.</p>
       </div>
 
       <div class="col-md-6">
@@ -31,7 +26,16 @@
               <a href="/member"><img id="icon" src="/background/memberc.svg"> Member</a>
             </li>
         </div>
+        <div class="text-center">
+          <li class="fotli">
+              <a href="http://fidawa.com/auth/facebook"><img id="icon" src="/background/fbc.svg">Login dengan facebook</a>
+          </li>
+        </div>
       </div>
+    </div>
+    <br>
+    <div class="text-center">
+        <div class="fb-like" data-href="http://www.fidawa.com" data-width="250" data-height="250" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="true"></div>
     </div>
     <p class="text-center">All rights reserved. Yes, all of them.</p>
     <p class="text-center"> &copy; fidawa 2016 - 2017.</p>

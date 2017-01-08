@@ -55,7 +55,7 @@
 
     <div class="col-md-5">
         @if(!$threads->count())
-            <p class="lead">Tidak ada threads di sini</p>
+            <p class="lead">{{$user->getName()}} Belum menulis sesuatu.</p>
             <hr>
         @endif
         @foreach($threads as $thread)
@@ -86,7 +86,7 @@
     </div>
     <div class="col-md-5">
         @if(!$juals->count())
-            <p class="lead">Tidak ada threads di sini</p>
+            <p class="lead">{{$user->getName()}} Belum menulis sesuatu.</p>
             <hr>
         @endif
         @foreach($juals as $jual)
