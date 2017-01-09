@@ -16,7 +16,7 @@ class JCommentController extends Controller
     	if (!$jual) {
     		return redirect()->to('/fjb');
     	}//dd($request->body);
-    				$id   = $jual->id;
+    		$id   = $jual->id;
             $slug = str_slug($request->title);
             $time = date('Y-m-d H:i:s');
             $file = $request->file('img');
@@ -31,8 +31,8 @@ class JCommentController extends Controller
                 }
     	Auth::user()->jcomments()->create([
     		'body' 	  => $request->body,
-        'img'     => $fileName,
-    		'jual_id'	=> $jual->id,
+            'img'     => $fileName,
+    		'jual_id' => $jual->id,
     	]);
     	return back();//jika ada variable harus petik ""
     }
@@ -56,7 +56,7 @@ class JCommentController extends Controller
             return redirect('/fjb');
         }
         if (Auth::user()->id == $comment->user_id) {
-        		$id = $comment->jual_id;
+        	$id = $comment->jual_id;
             $slug = str_slug($request->title);
             $time = date('Y-m-d H:i:s');
             $file = $request->file('img');

@@ -28,10 +28,10 @@
         </div>
         <div class="text-center">
           <li class="fotli">
-              <a href="http://fidawa.com/auth/facebook"><img id="icon" src="/background/fbc.svg">Login dengan facebook</a>
+              <a href="http://fidawa.com/auth/facebook"><img id="icon" src="/background/fbc.svg">Login with facebook</a>
           </li>
           <li class="fotli">
-              <a href="/syarat"><img id="icon" src="/background/register.svg">Syarat</a>
+              <a href="/syarat"><img id="icon" src="/background/private.svg">Ketentuan</a>
           </li>
         </div>
       </div>

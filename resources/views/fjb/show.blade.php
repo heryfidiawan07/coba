@@ -21,7 +21,7 @@
                 </div>
                 <hr>
                 <div class="media">
-                    <p>{{$jual->deskripsi}}</p>
+                    <p>{!! nl2br($jual->deskripsi) !!}</p>
                     @foreach($jcomments as $jcomment)
                     <hr>
                     <div class="media" style="margin-left: 20px;">

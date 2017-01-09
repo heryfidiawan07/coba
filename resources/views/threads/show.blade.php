@@ -17,7 +17,7 @@
                     @if($thread->img)
                         <img class="img-rounded img-responsive" src="{{asset('/img/threads/'.$thread->img )}}">
                     @endif
-                    <p>{{$thread->body}}</p>
+                    <p>{!! nl2br($thread->body) !!}</p>
                     @foreach($comments as $comment)
                     <hr>
                     <div class="media" style="margin-left: 20px;">

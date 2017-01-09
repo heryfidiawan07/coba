@@ -7,22 +7,22 @@
     <meta name="googlebot" content="index,follow" />
     <meta content='Indonesia' name='geo.placename'/>
     <meta name="language" content="id" />
-    <meta name="Description" CONTENT="Diskusikan apa yang ingin anda tanyakan di forum. Forum Jual Beli Cari barang atau pasang iklan anda di sini GRATIS.">
+    <meta name="Description" CONTENT="Diskusikan apa yang ingin anda tanyakan di forum. Cari barang atau pasang iklan anda di forum jual beli.">
     <!-- to google -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Facebook -->
     <meta property="fb:app_id"        content="186938375115089" />
     <meta property="og:url"           content="http://fidawa.com/" />
-    <meta property="og:type"          content="website" />
+    <meta property="og:type"          content="article" />
     <meta property="og:title"         content="Fidawa - Forum diskusi dan Forum Jual Beli." />
     <meta property="og:description"   content="Diskusikan apa yang ingin anda tanyakan di forum. Cari barang atau pasang iklan anda di forum jual beli." />
-    <meta property="og:image"         content="http://fidawa.com/icon.png" />
+    <meta property="og:image"         content="http://fidawa.com/icon2.jpg" />
     <!-- Facebook -->
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Fidawa - Forum diskusi dan Forum Jual Beli.</title>
-    <link href='http://fidawa.com/icon.png' rel='shortcut icon'>
+    <link href='http://fidawa.com/icon2.jpg' rel='shortcut icon'>
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/progress.css">
