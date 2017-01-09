@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="author" content="harrycongott@gmail.com">
     <!-- to google -->
     <meta name="robots" content="index,follow" />
     <meta name="googlebot" content="index,follow" />
     <meta content='Indonesia' name='geo.placename'/>
     <meta name="language" content="id" />
-    <meta name="Description" CONTENT="Diskusikan apa yang ingin anda tanyakan di forum. Cari barang atau pasang iklan anda di forum jual beli.">
+    <meta name="description" content="Diskusikan apa yang ingin anda tanyakan di forum. Cari barang atau pasang iklan anda di forum jual beli." />
     <!-- to google -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,14 +16,21 @@
     <meta property="fb:app_id"        content="186938375115089" />
     <meta property="og:url"           content="http://fidawa.com/" />
     <meta property="og:type"          content="article" />
-    <meta property="og:title"         content="Fidawa - Forum diskusi dan Forum Jual Beli." />
-    <meta property="og:description"   content="Diskusikan apa yang ingin anda tanyakan di forum. Cari barang atau pasang iklan anda di forum jual beli." />
     <meta property="og:image"         content="http://fidawa.com/icon2.jpg" />
+    <!-- with logical -->
+    <meta property="fb:app_id"        content="186938375115089" />
+    <meta property="og:url"           content="@yield('url')" />
+    <meta property="og:type"          content="article" />
+    <meta property="og:title"         content="@yield('title')" />
+    <meta property="og:description"   content="@yield('description')" />
+    <meta property="og:image"         content="@yield('image')" />
     <!-- Facebook -->
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Fidawa - Forum diskusi dan Forum Jual Beli.</title>
-    <link href='http://fidawa.com/icon2.jpg' rel='shortcut icon'>
+
+    <title>Fidawa - Forum Diskusi dan Forum Jual Beli.</title>
+    <!-- untuk icon pd title -->
+    <link href='http://fidawa.com/icon.png' rel='shortcut icon'>
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/progress.css">
