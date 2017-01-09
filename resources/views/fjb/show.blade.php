@@ -74,7 +74,7 @@
                     </form>
                 @else
                     <div class="well">
-                        Please <a href="/login">Login</a> Before you make a post
+                        <a href="/login">Login</a> sebelum anda dapat berkomentar dan menulis sesuatu.
                     </div>
                 @endif
             </div>

@@ -41,9 +41,12 @@
             @if(count($jual->galery) > 0)
                 <div class="media">
                     @foreach($jual->galery as $galery)
-                        <img src="{{ asset('/img/fjb/'.$galery->img)  }}" alt="{{$jual->tag->name}}" style="max-height:100px;max-width:150px;">
-                        <a href="/fjb/{{$galery->id}}/delete"><img id="icon" src="/background/delete.svg"></a>
-                        <br>
+                        <li style="display: inline-block;">
+                        <img src="{{ asset('/img/fjb/'.$galery->img)  }}" alt="{{$jual->tag->name}}" style="max-height:100px;max-width:150px;"><br>
+                        <div class="text-center">
+                            <a href="/fjb/{{$galery->id}}/delete"><img id="kategori" src="/background/delete.svg"></a>
+                        </div>
+                        </li>
                     @endforeach
                     <span class="help-block"><i>max 4 file</i></span>
                 </div>
@@ -66,7 +69,7 @@
             @endif
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-sm" value="update fjb">
+                <input type="submit" class="btn btn-primary btn-sm" value="update">
             </div>
         </form>
     </div>

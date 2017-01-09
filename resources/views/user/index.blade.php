@@ -97,7 +97,7 @@
                 </a>
                 <div class="media-body">
                     <div class="media-heading">
-                        <a href="/jual/{{$jual->slug}}">{{str_limit($jual->title)}}</a>
+                        <a href="/fjb/{{$jual->slug}}">{{str_limit($jual->title)}}</a>
                         <br>
                         <a href="/kategory/{{$jual->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;">{{$jual->tag->name}}</a>
                     </div>

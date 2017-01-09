@@ -139,23 +139,18 @@
                     <td class="info">
                         {{ $user->id }}
                     </td>
-
                     <td class="info">
                         {{ $user->name }}
                     </td>
-
                     <td class="info">
                         {{ $user->email }}
                     </td>
-
                     <td class="info">
                         {{ $user->status }}
                     </td>
-
                     <td class="info">
-                        {{ $user->created_at }}
+                        {{ $user->created_at->diffForHumans() }}
                     </td>
-
                 </tr>
             @endforeach
         </table>

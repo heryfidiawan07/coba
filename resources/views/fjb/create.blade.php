@@ -34,6 +34,7 @@
             </div>
             <div class="form-group {{ $errors->has('img') ? ' has-error' : '' }} ">
                 <div class="media">
+                <span>max 4 image.</span>
                     <input type="file" name="img[]" class="file" id="media" multiple="multiple">
                     <div class="input-group col-sm-9">
                         <span class="input-group-addon"><img id="icon" src="/background/upload.svg"></span>
