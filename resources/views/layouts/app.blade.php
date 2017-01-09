@@ -13,13 +13,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Facebook -->
-    <meta property="fb:app_id"        content="186938375115089" />
     <meta property="og:url"           content="http://fidawa.com/" />
-    <meta property="og:type"          content="article" />
-    <meta property="og:image"         content="http://fidawa.com/icon2.jpg" />
     <!-- with logical -->
     <meta property="fb:app_id"        content="186938375115089" />
-    <meta property="og:url"           content="@yield('url')" />
     <meta property="og:type"          content="article" />
     <meta property="og:title"         content="@yield('title')" />
     <meta property="og:description"   content="@yield('description')" />

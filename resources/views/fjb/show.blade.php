@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-@section('url') http://fidawa.com/{{$jual->slug}} @stop
 @section('title') {{$jual->slug}} @stop
 @section('description') {{ str_limit($jual->deskripsi, 70) }} @stop
 @section('image')
