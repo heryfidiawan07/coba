@@ -1,5 +1,3 @@
-like
-
 @extends('layouts.app')
 
 @section('content')
@@ -19,7 +17,7 @@ like
                     <p>{{$jual->title}}</p>
                     <a class="btn btn-danger btn-xs" style="color: white !important;" href="/kategory/{{$jual->tag->name}}"><img id="icon" src="/background/tag.svg"> {{$jual->tag->name}}</a>
                     <hr>
-                    <div class="fb-like" data-href="http://fidawa.com/fjb/{{$jual->title}}" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                    <div class="fb-like" data-href="http://fidawa.com/fjb/{{$jual->slug}}" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
                 </div>
                 <hr>
                 <div class="media">

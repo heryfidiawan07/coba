@@ -10,7 +10,7 @@
                 <div class="media">
                     <p>{{$thread->title}}</p>
                     <a class="btn btn-danger btn-xs" style="color: white !important;" href="/tags/{{$thread->tag->name}}"><img id="icon" src="/background/tag.svg"> {{$thread->tag->name}}</a>
-                    <div class="fb-like" data-href="http://fidawa.com/threads/{{$thread->title}}" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                    <div class="fb-like" data-href="http://fidawa.com/threads/{{$thread->slug}}" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
                 </div>
                 <hr>
                 <div class="media">

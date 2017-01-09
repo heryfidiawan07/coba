@@ -1,4 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@include('layouts.partials.welcomecontent')
+<div class="container">
+		@include('layouts.partials.welcomecontent')	
+</div>
 @endsection

@@ -8,7 +8,7 @@
           </a>
         </div>
         <p>Diskusikan apa yang ingin anda tanyakan di forum.<br>
-        Forum Jual Beli : Cari barang atau pasang iklan anda di forum jual beli.</p>
+        Cari barang atau pasang iklan anda di forum jual beli.</p>
       </div>
 
       <div class="col-md-6">
