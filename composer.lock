@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f29b1612fa5c208c6c89e29e45059abd",
-    "content-hash": "cfdb0854727f94e10f754fbb22c101ee",
+    "hash": "f3612ce8804de0309ba50470cf502125",
+    "content-hash": "eb57a78f2ac62e2e04c0edc1cf8c8b64",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -2334,58 +2334,6 @@
                 "dump"
             ],
             "time": "2016-12-08 14:58:14"
-        },
-        {
-            "name": "torann/laravel-meta-tags",
-            "version": "v3.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Torann/laravel-meta-tags.git",
-                "reference": "541878d3063fccf454201cdfb688f90b324986c9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Torann/laravel-meta-tags/zipball/541878d3063fccf454201cdfb688f90b324986c9",
-                "reference": "541878d3063fccf454201cdfb688f90b324986c9",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~5.1",
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "^4.8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Torann\\LaravelMetaTags\\": "src/Torann/LaravelMetaTags/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Daniel Stainback",
-                    "email": "daniel@lyften.com"
-                },
-                {
-                    "name": "Lito",
-                    "email": "lito@eordes.com"
-                }
-            ],
-            "description": "A package to manage Header Meta Tags",
-            "keywords": [
-                "head",
-                "laravel",
-                "meta",
-                "meta tags",
-                "tags"
-            ],
-            "time": "2016-09-01 18:01:00"
         },
         {
             "name": "vlucas/phpdotenv",
