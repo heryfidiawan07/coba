@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('url') http://fidawa.com/threads/{{$thread->slug}} @stop
-@section('title') {{$thread->slug}} @stop
+@section('title') {{$thread->title}} @stop
 @section('description') {{ str_limit($thread->body, 100) }} @stop
 @section('image') {{asset('/img/threads/'.$thread->img )}} @stop
 
