@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Facebook -->
-    <meta property="og:url"           content="http://fidawa.com/" />
+    <meta property="og:url"           content="@yield('url')" />
     <!-- with logical -->
     <meta property="fb:app_id"        content="186938375115089" />
     <meta property="og:type"          content="article" />
