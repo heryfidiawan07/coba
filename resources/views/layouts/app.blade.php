@@ -8,7 +8,7 @@
     <meta name="googlebot" content="index,follow" />
     <meta content='Indonesia' name='geo.placename'/>
     <meta name="language" content="id" />
-    <meta name="description" content="Diskusikan apa yang ingin anda tanyakan di forum. Cari barang atau pasang iklan anda di forum jual beli." />
+    <meta name="description" content="@yield('description')" />
     <!-- to google -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +24,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Fidawa - Forum Diskusi dan Forum Jual Beli.</title>
+    <title>@yield('title')</title>
     <!-- untuk icon pd title -->
     <link href='http://fidawa.com/icon.png' rel='shortcut icon'>
     <!-- Styles -->

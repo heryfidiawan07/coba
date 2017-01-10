@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title') {{$thread->slug}} @stop
-@section('description') {{ str_limit($thread->body, 70) }} @stop
+@section('description') {{ str_limit($thread->body, 100) }} @stop
 @section('image') {{asset('/img/threads/'.$thread->img )}} @stop
 
 @section('content')

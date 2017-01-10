@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title') {{$jual->slug}} @stop
-@section('description') {{ str_limit($jual->deskripsi, 70) }} @stop
+@section('description') {{ str_limit($jual->deskripsi, 10) }} @stop
 @section('image')
     @foreach($jual->galery()->get() as $img)
         {{ asset('/img/fjb/'.$img->img ) }}
