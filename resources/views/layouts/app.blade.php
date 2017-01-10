@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="harrycongott@gmail.com">
+    <meta name="author" content="News Information and discussion.">
     <!-- to google -->
     <meta name="robots" content="index,follow" />
     <meta name="googlebot" content="index,follow" />
@@ -20,6 +20,8 @@
     <meta property="og:title"         content="@yield('title')" />
     <meta property="og:description"   content="@yield('description')" />
     <meta property="og:image"         content="@yield('image')" />
+    <meta property="og:image:width"   content="250">
+    <meta property="og:image:height"  content="200">
     <!-- Facebook -->
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -27,7 +29,6 @@
     <title>@yield('title')</title>
     <!-- untuk icon pd title -->
     <link href='http://fidawa.com/icon.png' rel='shortcut icon'>
-    <link rel="image_src" href="@yield('image')" />
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/progress.css">
