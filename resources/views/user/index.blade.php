@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('url') http://fidawa.com/{{$user->name}} @stop
 @section('title') {{$user->name}} @stop
 @section('description') Diskusikan apa yang ingin anda tanyakan di forum. Cari barang atau pasang iklan anda di forum jual beli. @stop
 @section('image') {{asset('/img/users/'.$user->img )}} @stop

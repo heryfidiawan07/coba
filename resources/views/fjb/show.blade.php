@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
+@section('url') http://fidawa.com/fjb/{{$jual->slug}} @stop
 @section('title') {{$jual->slug}} @stop
-@section('description') {{ str_limit($jual->deskripsi, 10) }} @stop
+@section('description') {{ str_limit($jual->deskripsi, 100) }} @stop
 @section('image')
     @foreach($jual->galery()->get() as $img)
         {{ asset('/img/fjb/'.$img->img ) }}
