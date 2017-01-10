@@ -15,8 +15,8 @@
     <!-- Facebook -->
     <meta property="og:url"           content="@yield('url')" />
     <!-- with logical -->
-    <meta property="fb:app_id"        content="186938375115089" />
-    <meta property="og:type"          content="article" />
+    <meta property="fb:admins"        content="186938375115089" />
+    <meta property="og:type"          content="website" />
     <meta property="og:title"         content="@yield('title')" />
     <meta property="og:description"   content="@yield('description')" />
     <meta property="og:image"         content="@yield('image')" />
@@ -27,6 +27,7 @@
     <title>@yield('title')</title>
     <!-- untuk icon pd title -->
     <link href='http://fidawa.com/icon.png' rel='shortcut icon'>
+    <link rel="image_src" href="@yield('image')" />
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/progress.css">
