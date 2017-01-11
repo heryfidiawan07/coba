@@ -15,7 +15,7 @@
     <!-- Facebook -->
     <meta property="og:url"           content="@yield('url')" />
     <!-- with logical -->
-    <meta property="fb:admins"        content="186938375115089" />
+    <meta property="fb:app_id"        content="186938375115089" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="@yield('title')" />
     <meta property="og:description"   content="@yield('description')" />
@@ -44,6 +44,14 @@
 <body>
 <div id="fb-root"></div>
 <script>
+     window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '186938375115089',
+          xfbml      : true,
+          version    : 'v2.7'
+        });
+        FB.AppEvents.logPageView();
+    };
     (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
@@ -62,7 +70,7 @@
             <div class="fb-like" data-href="http://fidawa.com/" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
         </div>
         <hr>
-        @include('footer.footer') 
+        @include('footer.footer')
     </div>
     <!-- Scripts -->
     <script src="/js/app.js"></script>
