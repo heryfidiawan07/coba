@@ -38,7 +38,7 @@ class UserController extends Controller
                 if($file){
                     $fileName = $user->id.'_'.$file->getClientOriginalName();
                     $path     = $file->getRealPath();
-                    $img      = Image::make($path)->resize(150, 150);
+                    $img      = Image::make($path)->resize(200, 200);
                     $img->save(public_path("img/users/". $fileName));
                     $user->update([
                        'img' => $fileName,
