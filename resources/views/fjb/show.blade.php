@@ -2,12 +2,34 @@
 
 @section('url') http://fidawa.com/fjb/{{$jual->slug}} @stop
 @section('title') {{$jual->title}} @stop
-@section('description') {{ str_limit($jual->deskripsi, 100) }} @stop
-@section('image') {{ asset('/img/fjb/'.$jual->galery->first()->img ) }} @stop
+@section('description') {{ str_limit($jual->deskripsi, 120) }} @stop
+@section('image') http://fidawa.com/img/fjb/{{$jual->galery->first()->img}} @stop
 
 @section('content')
 
 <div class="row">
+    
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="media">
+                    <a href="/{{$jual->user->getName()}}" class="pull-left">
+                      <img src="{{$jual->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
+                      <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+                    </a>        
+                    <a href="/{{$jual->user->name}}"> {{$jual->user->getName()}} </a>
+                    <small class="pull-right"> {{$jual->created_at->diffForHumans()}} </small>
+                </div>
+            @if(Auth::check())
+                @if($jual->user_id == Auth::user()->id)
+                    <small><a class="pull-right" href="/fjb/{{$jual->slug}}/edit"><img id="icon" src="/background/sunting.svg"></a></small>
+                    <!-- //tidak bissa jika begini /threads/{slug}/edit -->
+                @endif
+            @endif
+            </div>
+        </div>
+    </div>
+
     <div class="col-md-6">
         <div class="panel panel-default" style="padding: 10px 10px;">
             <div class="media">
@@ -85,26 +107,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <div class="media">
-                    <a href="/{{$jual->user->getName()}}" class="pull-left">
-                      <img src="{{$jual->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
-                      <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
-                    </a>        
-                    <a href="/{{$jual->user->name}}"> {{$jual->user->getName()}} </a>
-                    <small class="pull-right"> {{$jual->created_at->diffForHumans()}} </small>
-                </div>
-            @if(Auth::check())
-                @if($jual->user_id == Auth::user()->id)
-                    <small><a class="pull-right" href="/fjb/{{$jual->slug}}/edit"><img id="icon" src="/background/sunting.svg"></a></small>
-                    <!-- //tidak bissa jika begini /threads/{slug}/edit -->
-                @endif
-            @endif
-            </div>
-        </div>
-    </div>
+    
 </div>
 
 @endsection
