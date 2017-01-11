@@ -22,10 +22,10 @@ class ThreadController extends Controller
 
     public function store(ThreadRequest $request){
     	 //dd($request->file('img'));
-        $time = date('Y-m-d H:i:s');
+        $thread = Auth::user();
         $file = $request->file('img');
         if (!empty($file)) {
-            $fileName = $time.'-'.$file->getClientOriginalName();
+            $fileName = $thread->user_id.'_'.$thread->id.'_'.$file->getClientOriginalName();
             $path     = $file->getRealPath();
             $img      = Image::make($path)->resize(250, 200);
             $img->save(public_path("img/threads/". $fileName));
@@ -78,12 +78,11 @@ class ThreadController extends Controller
             return redirect()->to('/threads');
         }
         if ($request->user()->id == $thread->user_id) {
-            $time = date('Y-m-d H:i:s');
             $file = $request->file('img');
                 if (!empty($file)) {
-                    $fileName   = $time.'-'.$file->getClientOriginalName();
-                    $path = $file->getRealPath();
-                    $img  = Image::make($path)->resize(250, 200);
+                    $fileName   = $thread->user_id.'_'.$thread->id.'_'.$file->getClientOriginalName();
+                    $path       = $file->getRealPath();
+                    $img        = Image::make($path)->resize(250, 200);
                     $img->save(public_path("img/threads/". $fileName));
                 }else if (!empty($old = $thread->img)){
                     $fileName = $old;

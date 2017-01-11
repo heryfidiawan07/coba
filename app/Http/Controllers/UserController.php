@@ -30,14 +30,13 @@ class UserController extends Controller
         		'img' => 'required|image:jpg,png,gif|max:2500'
         	]);
         	//dd($request->img);//gagal terus melewati validation mimes/img
-        	$time = date('Y-m-d H:i:s');
 	        $file = $request->file('img');
 	        $from = public_path("img/users/".$user->img );
                 if (File::exists($from)) {//belum ketemu
                     File::delete($from);
                 }
                 if($file){
-                    $fileName = $user->id.'-'.$time.'-'.$file->getClientOriginalName();
+                    $fileName = $user->id.'_'.$file->getClientOriginalName();
                     $path     = $file->getRealPath();
                     $img      = Image::make($path)->resize(150, 150);
                     $img->save(public_path("img/users/". $fileName));

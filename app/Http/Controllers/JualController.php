@@ -48,11 +48,10 @@ class JualController extends Controller
                 'slug'      => $slug,
                 'tag_id'    => $request->tag_id,
             ]);
-            $time  = date('Y-m-d H:i:s');
-            $files = $request->file('img');
+            $files   = $request->file('img');
             if (!empty($files)) {
             	foreach ($files as $file) {
-                	$fileName = $jual->user_id.'-'.$jual->id.'-'.$time.'-'.$file->getClientOriginalName();
+                	$fileName = $jual->user_id.'_'.$jual->id.'_'.$file->getClientOriginalName();
 
                     $path = $file->getRealPath();
                     $img  = Image::make($path)->resize(250, 200);
@@ -100,12 +99,11 @@ class JualController extends Controller
                     'slug'      => $slug,
                     'deskripsi' => $request->deskripsi,
                 ]);
-                $time  = date('Y-m-d H:i:s');
                 $files = $request->file('img');
                 $id = $jual->user_id;
                 if (!empty($files)) {
                     foreach ($files as $file) {
-                        $fileName = $id.'-'.$jual->id.'-'.$time.'-'.$file->getClientOriginalName();
+                        $fileName = $id.'_'.$jual->id.'_'.$file->getClientOriginalName();
                         $path = $file->getRealPath();
                         $img  = Image::make($path)->resize(250, 200);
                         $img->save(public_path("img/fjb/". $fileName));
@@ -136,7 +134,7 @@ class JualController extends Controller
     
     public function minejual(){
         $juals = Auth::user()->juals()->latest()->paginate(10);
-        $jtags  = TagJual::all();
+        $jtags = TagJual::all();
         return view('fjb.index', compact('juals', 'jtags'));
     }
     
