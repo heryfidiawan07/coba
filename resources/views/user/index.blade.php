@@ -78,9 +78,7 @@
                     </div>
                     <p> <small>{{$thread->created_at->diffForHumans()}}</small> by <a href="/{{$thread->user->getName()}}"> {{$thread->user->getName()}} </a> </p>
                     <hr>
-                    <div class="text-center">
-                        <div class="fb-like" data-href="http://fidawa.com/{{$thread->slug}}" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-                    </div>
+                    <div class="fb-like" data-href="http://fidawa.com/{{$thread->slug}}" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
                 </div>
                 <div class="panel-footer"><a href="/threads/{{$thread->slug}} ">{{$thread->countComments()}} comment</a></div>
             </div>
@@ -113,9 +111,7 @@
                     </div>
                     <p> <small>{{$jual->created_at->diffForHumans()}}</small> by <a href="/{{$jual->user->getName()}}"> {{$jual->user->getName()}} </a> </p>
                     <hr>
-                    <div class="text-center">
-                        <div class="fb-like" data-href="http://fidawa.com/{{$jual->slug}}" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-                    </div>
+                    <div class="fb-like" data-href="http://fidawa.com/{{$jual->slug}}" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
                 </div>
                 <div class="panel-footer"><a href="/fjb/{{$jual->slug}} ">{{$jual->countComments()}} comment</a></div>
             </div>
