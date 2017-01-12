@@ -15,7 +15,7 @@
             @foreach($juals as $jual)
                 <div class="media">
                     <a href="/{{$jual->user->getName()}}" class="pull-left">
-                        <img src=" {{$jual->user->getAvatar()}} "class="media-object img-circle" onerror="this.style.display='none'">
+                        <img src=" {{$jual->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
                         <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
                     </a>
                     <div class="media-body">
@@ -27,8 +27,6 @@
                             </a>
                         </div>
                         <p> <small>{{$jual->created_at->diffForHumans()}}</small> by <a href="/{{$jual->user->getName()}}"> {{$jual->user->getName()}} </a> </p>
-                        <hr>
-                        <div class="fb-like" data-href="http://fidawa.com/fjb/{{$jual->slug}}" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
                     </div>
                     <div class="panel-footer">
                         <p class="pull-right">{{$jual->countComments()}} commentar</p>
