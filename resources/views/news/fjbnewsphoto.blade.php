@@ -42,8 +42,6 @@
         </div>
       
       <a href="/fjb/{{$jualsphoto->slug}} ">{{str_limit($jualsphoto->title, 50)}}</a>
-      <hr>
-      <div class="fb-like" data-href="http://fidawa.com/fjb/{{$jualsphoto->slug}}" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
       <div class="panel-footer"><a href="/fjb/{{$jualsphoto->slug}} ">{{$jualsphoto->countComments()}} comment</a></div>
     </div>
   @endforeach
