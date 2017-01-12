@@ -20,7 +20,7 @@
     <meta property="og:title"         content="@yield('title')" />
     <meta property="og:description"   content="@yield('description')" />
     <meta property="og:image"         content="@yield('image')" />
-    <meta property="og:image:width"   content="250">
+    <meta property="og:image:width"   content="200">
     <meta property="og:image:height"  content="200">
     <!-- Facebook -->
     <!-- CSRF Token -->
@@ -67,7 +67,7 @@
         </div>
         <br>
         <div class="text-center">
-            <div class="fb-like" data-href="http://fidawa.com/" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+            <div class="fb-like" data-href="https://www.facebook.com/fidawadiskusi/" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
         </div>
         <hr>
         @include('footer.footer')
