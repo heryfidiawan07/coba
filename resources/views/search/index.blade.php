@@ -17,7 +17,10 @@
                         <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
                     </a>
                     <div class="media-body">
-                        <div class="media-heading"><a href="/threads/{{$thread->slug}} ">{{$thread->title}}</a> | {{$thread->tag->name}}<a href=""></a> </div>
+                        <div class="media-heading">
+                            <a href="/threads/{{$thread->slug}} ">{{$thread->title}}</a>
+                            <a href="/tag/{{$thread->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$thread->tag->name}}</a>
+                        </div>
                         <p> <small>{{$thread->created_at->diffForHumans()}}</small> by <a href="/{{$thread->user->getName()}}"> {{$thread->user->getName()}} </a> </p>
                     </div>
                     <div class="panel-footer">
@@ -54,7 +57,10 @@
                         <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" alt="profile" class="media-object img-circle" onerror="this.style.display='none'">
                     </a>
                     <div class="media-body">
-                        <div class="media-heading"><a href="/fjb/{{$jual->slug}} ">{{$jual->title}}</a> | {{$jual->tag->name}}<a href=""></a> </div>
+                        <div class="media-heading">
+                            <a href="/fjb/{{$jual->slug}} ">{{$jual->title}}</a>
+                            <a href="/kategory/{{$jual->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$jual->tag->name}}</a>
+                        </div>
                         <p> <small>{{$jual->created_at->diffForHumans()}}</small> by <a href="/{{$jual->user->getName()}}"> {{$jual->user->getName()}} </a> </p>
                     </div>
                     <div class="panel-footer">
