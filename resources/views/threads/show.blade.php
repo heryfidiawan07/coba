@@ -91,7 +91,7 @@
                     </form>
                 @else
                     <div class="well">
-                        <a href="/login">Login</a> sebelum anda dapat berkomentar dan menulis sesuatu.
+                        <a href="/login">Login</a> sebelum anda dapat berkomentar dan menulis di forum.
                     </div>
                 @endif
             </div>
