@@ -3,7 +3,11 @@
 @section('url') http://fidawa.com/fjb/{{$jual->slug}} @stop
 @section('title') {{$jual->title}} @stop
 @section('description') {{ str_limit($jual->deskripsi, 120) }} @stop
-@section('image') http://fidawa.com/img/fjb/{{$jual->galery->first()->img}} @stop
+@section('image')
+    @if(count($jual->galery()->first()) > 0)
+        http://fidawa.com/img/fjb/{{$jual->galery->first()->img}}
+    @endif
+@stop
 
 @section('content')
 
