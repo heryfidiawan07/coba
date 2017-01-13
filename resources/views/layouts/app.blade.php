@@ -31,7 +31,6 @@
     <link href='http://fidawa.com/icon.png' rel='shortcut icon'>
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/progress.css">
     <link rel="stylesheet" type="text/css" href="/css/slider1.css">
     <link rel="stylesheet" href="/css/welcontent.css">
     <!-- Scripts -->
