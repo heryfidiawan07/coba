@@ -10,7 +10,7 @@ $(document).ready(function(){
 		$.ajax({
 			method: "GET",
 			url   : urll,
-			success : function(){
+			success : function(data){	
 				$('#li_'+id).remove();
 			}
 		});
@@ -22,9 +22,11 @@ $(document).ready(function(){
 		$.ajax({
 			method: "GET",
 			url   : urll,
-			success : function(){
-				$('#img').remove();
-				$('.delete').remove();
+			success : function(data){
+				if (data.img == null) {
+					$('#img').remove();
+					$('.delete').remove();
+				}
 			}
 		});
 	});

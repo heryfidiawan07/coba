@@ -52,7 +52,7 @@
                 </div>
                 <hr>
                 <div class="media">
-                    <p>{!! nl2br($jual->deskripsi) !!}</p>
+                    <p>{!!nl2br($jual->deskripsi)!!}</p>
                     @foreach($jcomments as $jcomment)
                     <hr>
                     <div class="media" style="margin-left: 20px;">
@@ -66,10 +66,10 @@
                         <div class="media">
                             @if($jcomment->img)
                                 <div class="text-center">
-                                    <img class="img-rounded img-responsive" src="{{ asset('/img/comments/'.$jcomment->img)  }}" alt="{{$jual->tag->name}}">
+                                    <img class="img-rounded img-responsive" src="{{ asset('/img/jcomments/'.$jcomment->img)  }}" alt="{{$jual->tag->name}}">
                                 </div>
                             @endif
-                            <p> {{$jcomment->body}} </p>
+                            <p> {!!nl2br($jcomment->body)!!} </p>
                         </div>
                             @if(Auth::check())
                                 @if(Auth::user()->id == $jcomment->user_id)
@@ -105,7 +105,7 @@
                     </form>
                 @else
                     <div class="well">
-                        <a href="/login">Login</a> sebelum anda dapat berkomentar dan menulis di forum.
+                        <a href="/login">Login</a> sebelum dapat berkomentar dan menulis di forum.
                     </div>
                 @endif
             </div>

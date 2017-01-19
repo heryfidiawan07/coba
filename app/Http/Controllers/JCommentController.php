@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use File;
 use Auth;
 use Image;
 use App\Jual;
@@ -17,17 +18,16 @@ class JCommentController extends Controller
     		return redirect()->to('/fjb');
     	}//dd($request->body);
     		$id   = $jual->id;
-            $slug = str_slug($request->title);
-            $time = date('Y-m-d H:i:s');
+            $time = date('Y-m-d_H-i-s');
             $file = $request->file('img');
             //dd($file);
-                if (empty($file)) {
-                    $fileName = null;
+                if (!empty($file)) {
+                    $fileName = $id.'_'.$time.'_'.$file->getClientOriginalName();
+                    $path     = $file->getRealPath();
+                    $img      = Image::make($path)->resize(250, 200);
+                    $img->save(public_path("img/jcomments/". $fileName));
                 }else{
-                    $fileName   = $id.'-'.$time.'-'.$file->getClientOriginalName();
-                    $path = $file->getRealPath();
-                    $img  = Image::make($path)->resize(250, 200);
-                    $img->save(public_path("img/comments/". $fileName));
+                    $fileName = null;
                 }
     	Auth::user()->jcomments()->create([
     		'body' 	  => $request->body,
@@ -56,18 +56,22 @@ class JCommentController extends Controller
             return redirect('/fjb');
         }
         if (Auth::user()->id == $comment->user_id) {
-        	$id = $comment->jual_id;
-            $slug = str_slug($request->title);
-            $time = date('Y-m-d H:i:s');
+        	$id   = $comment->jual_id;
+            $time = date('Y-m-d_H-i-s');
             $file = $request->file('img');
-            
-                if (empty($file)) {
+            $from = public_path("img/jcomments/".$comment->img );
+                if (!empty($file)) {
+                    if (File::exists($from)) {
+                        File::delete($from);
+                    }
+                    $fileName = $id.'_'.$time.'_'.$file->getClientOriginalName();
+                    $path     = $file->getRealPath();
+                    $img      = Image::make($path)->resize(250, 200);
+                    $img->save(public_path("img/jcomments/". $fileName));
+                }else if($comment->img != null){
                     $fileName = $comment->img;
                 }else{
-                    $fileName   = $id.'-'.$time.'-'.$file->getClientOriginalName();
-                    $path = $file->getRealPath();
-                    $img  = Image::make($path)->resize(250, 200);
-                    $img->save(public_path("img/comments/". $fileName));
+                    $fileName = null;
                 }
             $comment->update([
                 'body'      => $request->body,

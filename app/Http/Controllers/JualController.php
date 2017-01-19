@@ -48,10 +48,11 @@ class JualController extends Controller
                 'slug'      => $slug,
                 'tag_id'    => $request->tag_id,
             ]);
+            $time = date('Y-m-d_H-i-s');
             $files   = $request->file('img');
             if (!empty($files)) {
             	foreach ($files as $file) {
-                	$fileName = $jual->user_id.'_'.$jual->id.'_'.$file->getClientOriginalName();
+                	$fileName = $jual->user_id.'_'.$jual->id.'_'.$time.'_'.$file->getClientOriginalName();
 
                     $path = $file->getRealPath();
                     $img  = Image::make($path)->resize(250, 200);
@@ -99,11 +100,12 @@ class JualController extends Controller
                     'slug'      => $slug,
                     'deskripsi' => $request->deskripsi,
                 ]);
+                $time = date('Y-m-d_H-i-s');
                 $files = $request->file('img');
                 $id = $jual->user_id;
                 if (!empty($files)) {
                     foreach ($files as $file) {
-                        $fileName = $id.'_'.$jual->id.'_'.$file->getClientOriginalName();
+                        $fileName = $id.'_'.$jual->id.'_'.$time.'_'.$file->getClientOriginalName();
                         $path = $file->getRealPath();
                         $img  = Image::make($path)->resize(250, 200);
                         $img->save(public_path("img/fjb/". $fileName));

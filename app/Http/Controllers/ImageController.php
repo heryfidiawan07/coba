@@ -27,7 +27,7 @@ class ImageController extends Controller
 
     public function destroyimgcomment($id){
         $imgc = Jcomment::find($id);
-        $path   = public_path("img/comments/".$imgc->img );
+        $path   = public_path("img/jcomments/".$imgc->img );
         if (File::exists($path)) {
             File::delete($path);
             $imgc->img = null;

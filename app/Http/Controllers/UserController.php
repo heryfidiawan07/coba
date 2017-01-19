@@ -32,7 +32,7 @@ class UserController extends Controller
         	//dd($request->img);//gagal terus melewati validation mimes/img
 	        $file = $request->file('img');
 	        $from = public_path("img/users/".$user->img );
-                if (File::exists($from)) {//belum ketemu
+                if (File::exists($from)) {
                     File::delete($from);
                 }
                 if($file){

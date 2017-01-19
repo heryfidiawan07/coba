@@ -44,11 +44,9 @@
                     <img id="kategori" class="delete" data-url="/threads/{{$thread->id}}/delete" data-id="{{$thread->id}}" src="/background/delete.svg">
                 </div>
                 @endif
-                @if(!$thread->img)
-                    <div class="media">
-                        @include('layouts.partials.upload')
-                    </div>
-                @endif
+                <div class="media">
+                    @include('layouts.partials.upload')
+                </div>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary btn-sm" value="update threads">

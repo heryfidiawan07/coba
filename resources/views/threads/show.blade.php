@@ -58,7 +58,7 @@
                             @if($comment->img)
                                 <img class="img-rounded" src="{{ asset('/img/comments/'.$comment->img) }}" alt="{{$thread->tag->name}}">
                             @endif
-                            <p> {{$comment->body}} </p>
+                            <p> {!!nl2br($comment->body)!!} </p>
                         </div>
                             @if(Auth::check())
                                 @if(Auth::user()->id == $comment->user_id)
@@ -91,7 +91,7 @@
                     </form>
                 @else
                     <div class="well">
-                        <a href="/login">Login</a> sebelum anda dapat berkomentar dan menulis di forum.
+                        <a href="/login">Login</a> sebelum dapat berkomentar dan menulis di forum.
                     </div>
                 @endif
             </div>

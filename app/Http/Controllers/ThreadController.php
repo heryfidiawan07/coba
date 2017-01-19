@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use File;
 use Auth;
 use Image;
 use App\Tag;
@@ -79,14 +80,18 @@ class ThreadController extends Controller
         }
         if ($request->user()->id == $thread->user_id) {
             $file = $request->file('img');
+            $from = public_path("img/threads/".$thread->img );
                 if (!empty($file)) {
+                    if (File::exists($from)) {
+                        File::delete($from);
+                    }
                     $fileName   = $thread->user_id.'_'.$thread->id.'_'.$file->getClientOriginalName();
                     $path       = $file->getRealPath();
                     $img        = Image::make($path)->resize(250, 200);
                     $img->save(public_path("img/threads/". $fileName));
-                }else if (!empty($old = $thread->img)){
-                    $fileName = $old;
-                }else {
+                }else if($thread->img != null) {
+                    $fileName = $thread->img;
+                }else{
                     $fileName = null;
                 }
             $thread->update([

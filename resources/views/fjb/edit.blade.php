@@ -50,9 +50,9 @@
                     @endforeach
                 </div>
             @endif
-            @if(count($jual->galery) < 4)
+            <div class="media">
                 @include('layouts.partials.uploadfjb')
-            @endif
+            </div>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary btn-sm" value="update">

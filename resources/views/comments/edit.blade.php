@@ -9,7 +9,7 @@
                 <form id="upload" action="/comment/{{$comment->id}}/edit" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
                     <div class="form-group">
-                        <textarea name="body" rows="7" class="form-control"> {{$comment->body}} </textarea>
+                        <textarea name="body" rows="7" class="form-control">{{$comment->body}}</textarea>
                     </div>
                     <div class="form-group {{ $errors->has('imgcomment') ? ' has-error' : '' }} ">
                     <div class="media">
@@ -17,9 +17,9 @@
                             <img id="img" src="{{ asset('/img/comments/'.$comment->img)  }}" alt="{{$comment->thread->title}}" style="max-height:100px;max-width:150px;">
                             <img data-url="/comment/{{$comment->id}}/delete" class="delete" id="kategori" data-id="{{$comment->id}}" src="/background/delete.svg">
                         @endif
-                        @if(!$comment->img)
+                        <div class="media">
                             @include('layouts.partials.upload')
-                        @endif
+                        </div>
                     </div>
                     </div>
                     <div class="form-group">

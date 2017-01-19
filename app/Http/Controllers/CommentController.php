@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use File;
 use Auth;
 use Image;
 use App\Thread;
@@ -16,10 +17,11 @@ class CommentController extends Controller
     	if (!$thread) {
     		return redirect()->to('/threads');
     	}//dd($request->body);
-            $time = date('Y-m-d H:i:s');
+            $id   = $thread->id;
+            $time = date('Y-m-d_H-i-s');
             $file = $request->file('img');
                 if (!empty($file)) {
-                    $fileName = $time.'-'.$file->getClientOriginalName();
+                    $fileName = $id.'_'.$time.'-'.$file->getClientOriginalName();
                     $path     = $file->getRealPath();
                     $img      = Image::make($path)->resize(250, 200);
                     $img->save(public_path("img/comments/". $fileName));
@@ -53,13 +55,20 @@ class CommentController extends Controller
             return redirect('/');
         }
         if (Auth::user()->id == $comment->user_id) {
-            $time = date('Y-m-d H:i:s');
+            $id   = $comment->thread_id;
+            $time = date('Y-m-d_H-i-s');
             $file = $request->file('img');
+            $from = public_path("img/comments/".$comment->img );
                 if (!empty($file)) {
-                    $fileName = $time.'-'.$file->getClientOriginalName();
+                    if (File::exists($from)) {
+                        File::delete($from);
+                    }
+                    $fileName = $id.'_'.$time.'_'.$file->getClientOriginalName();
                     $path     = $file->getRealPath();
                     $img      = Image::make($path)->resize(250, 200);
                     $img->save(public_path("img/comments/". $fileName));
+                }else if($comment->img != null){
+                    $fileName = $comment->img;
                 }else{
                     $fileName = null;
                 }
