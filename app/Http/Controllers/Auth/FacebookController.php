@@ -63,7 +63,6 @@ class FacebookController extends Controller
             'name'        => $facebookUser->name,
             'email'       => $facebookUser->email,
             'facebook_id' => $facebookUser->id,
-            'img'         => $facebookUser->avatar,
             'status'      => 1,
             'token'       => str_random(20),
             'password'    => 'facebook',
