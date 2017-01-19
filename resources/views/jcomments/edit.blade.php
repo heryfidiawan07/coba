@@ -17,8 +17,8 @@
                     <div class="form-group {{ $errors->has('imgcomment') ? ' has-error' : '' }} ">
                         <div class="media">
                             @if($comment->img)
-                                <img src="{{ asset('/img/comments/'.$comment->img)  }}" alt="{{$comment->jual->title}}" style="width: 100px;">
-                                <a href="/commentar/{{$comment->id}}/delete"><img id="icon" src="/background/delete.svg"></a>
+                                <img id="img" src="{{ asset('/img/comments/'.$comment->img)  }}" alt="{{$comment->jual->title}}" style="width: 100px;">
+                                <img data-url="/commentar/{{$comment->id}}/delete" data-id="{{$comment->id}}" class="delete" id="kategori" src="/background/delete.svg">
                             @endif
                             @if(!$comment->img)
                                 @include('layouts.partials.upload')

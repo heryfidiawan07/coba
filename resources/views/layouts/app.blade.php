@@ -73,6 +73,7 @@
     </div>
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script src="/js/fjbajax.js" type="text/javascript"></script>
     <script src="/js/welcontent.js"></script>
     <script type="text/javascript" src="/js/get.js"></script>
     <script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>

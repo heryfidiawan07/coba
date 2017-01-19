@@ -22,7 +22,7 @@ class ImageController extends Controller
     		File::delete($path);
     		Galery::destroy($id);
     	}
-    	return back();
+    	return response()->json($galery);
     }
 
     public function destroyimgcomment($id){
@@ -33,7 +33,7 @@ class ImageController extends Controller
             $imgc->img = null;
             $imgc->save();
         }
-        return back();
+        return response()->json($imgc);
     }
 
     public function destroyimgthreads($id){
@@ -44,7 +44,7 @@ class ImageController extends Controller
             $thread->img = null;
             $thread->save();
         }
-        return back();   
+        return response()->json($thread);
     }
     
     public function deleteimgcomment($id){
@@ -55,7 +55,7 @@ class ImageController extends Controller
             $comment->img = null;
             $comment->save();
         }
-        return back();      
+        return response()->json($comment);
     }
     
 }
