@@ -88,5 +88,12 @@ class AdminController extends Controller
     $request->session()->flash('message', 'Tags berhasil di hapus');
     return back();
   }
+
+  public function dluser($id){
+    $user = User::find($id);
+    $user->delete();
+    return back();
+  }
+  
   
 }

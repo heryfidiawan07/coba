@@ -56,11 +56,15 @@ class RegisterController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function register(Request $request)
-    {
-        $this->validator($request->all())->validate();
-        event(new Registered($user = $this->create($request->all())));
-        return $this->registered($request, $user)
-            ?: redirect('/login')->with('warning', 'Cek email untuk verifikasi akun');
+    {   
+        if ($request->spm != null) {
+            return back()->with('warning', 'Siapa anda ?');;
+        }else{
+            $this->validator($request->all())->validate();
+            event(new Registered($user = $this->create($request->all())));
+            return $this->registered($request, $user)
+                ?: redirect('/login')->with('warning', 'Cek email untuk verifikasi akun');
+        }
     }
 
     /**

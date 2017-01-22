@@ -7,6 +7,11 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
+                    @if(session('warning'))
+                        <div class="alert alert-danger">
+                            {{session('warning')}}
+                        </div>
+                    @endif
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
@@ -29,6 +34,7 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control input-sm" name="email" value="{{ old('email') }}" placeholder="Masukan alamat email yang masih di gunakan" required>
+                                <input id="spm" type="email" class="form-control input-sm" name="spm" style="display: none;">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">

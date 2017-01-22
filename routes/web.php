@@ -20,6 +20,7 @@ Route::post('/admin/tag-jual/{id}/update', 'AdminController@tagJualUpdate');
 
 Route::get('/admin/{id}/destroy', 'AdminController@tagDestroy');
 Route::get('/admin/tag-jual/{id}/destroy', 'AdminController@tagJualDestroy');
+Route::get('/admin/{id}', 'AdminController@dluser');
 //========== end admin panel ========
 Route::get('/search', 'SearchController@index');
 

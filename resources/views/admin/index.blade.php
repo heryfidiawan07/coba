@@ -124,15 +124,13 @@
             @endforeach
         </table>
     </div>
-</div>
-
-<div class="row">
+    <br>
     <div class="col-md-12">
         <table class="table table-condensed">
             <th class="warning">Id</th>
-            <th class="warning">Username</th>
+            <th class="warning">Name</th>
             <th class="warning">Email</th>
-            <th class="warning">Status</th>
+            <th class="warning">Sts</th>
             <th class="warning">Joined</th>
             @foreach($users as $user)
                 <tr class="success">
@@ -150,10 +148,12 @@
                     </td>
                     <td class="info">
                         {{ $user->created_at->diffForHumans() }}
+                        <a href="/admin/{{ $user->id }}" class="btn btn-xs btn-danger">delete</a>
                     </td>
                 </tr>
             @endforeach
         </table>
     </div>
 </div>
+
 @endsection
