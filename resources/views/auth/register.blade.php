@@ -34,7 +34,6 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control input-sm" name="email" value="{{ old('email') }}" placeholder="Masukan alamat email yang masih di gunakan" required>
-                                <input type="text" name="spm" id="spm">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">

@@ -58,14 +58,11 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {   
-        if (!empty($request->spm)) {
-            return back()->with('warning', 'Siapa anda ?');;
-        }else{
-            $this->validator($request->all())->validate();
-            event(new Registered($user = $this->create($request->all())));
-            return $this->registered($request, $user)
-                ?: redirect('/login')->with('warning', 'Cek email untuk verifikasi akun');
-        }
+        
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->create($request->all())));
+        return $this->registered($request, $user)
+            ?: redirect('/login')->with('warning', 'Cek email untuk verifikasi akun');
     }
 
     /**
