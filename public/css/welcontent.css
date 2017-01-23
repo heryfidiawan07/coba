@@ -3,3 +3,7 @@
   font-size:25px;
   font-weight:bold;
 }
+#spm {
+	visibility: hidden;
+	display: none;
+}
