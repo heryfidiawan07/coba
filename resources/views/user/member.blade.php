@@ -1,13 +1,8 @@
 @extends('layouts.app')
 
-@section('url') http://fidawa.com/ @stop
-@section('title') Fidawa - Forum Diskusi dan Forum Jual Beli. @stop
-@section('description') Diskusikan apa yang ingin anda tanyakan di forum. Cari barang atau pasang iklan anda di forum jual beli. @stop
-@section('image') http://fidawa.com/icon2.jpg @stop
-
 @section('content')
 <div class="row">
-<h3 class="text-center">Daftar Member Fidawa</h3>
+<h3 class="text-center"><u> Daftar Member </u></h3>
     @foreach($members as $member)
 	    <div class="col-md-4">
 	    		<div class="media">

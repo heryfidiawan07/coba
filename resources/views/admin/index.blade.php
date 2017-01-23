@@ -80,11 +80,14 @@
                             <div class="form-inline">
                             {{ $tag->name }}
                             <div class="pull-right">
+                            <details>
+                                <summary>Modify :</summary>
                                 <input id="tag" type="text" class="form-control input-sm" name="tag_edit" value="{{ old('tag_name') }}" placeholder="edit" required autofocus>
                                 <div class="form-group">
                                     <input type="submit" name="" value="edit" class="btn btn-primary btn-sm">
                                     <a class="btn btn-danger btn-sm" href="/admin/{{$tag->id}}/destroy">delete</a>
                                 </div>
+                            </details>
                             </div>
                             </div>
                         </form>
@@ -110,11 +113,14 @@
                             <div class="form-inline">
                             {{ $jtag->name }}
                             <div class="pull-right">
+                                <details>
+                                <summary>Modify :</summary>
                                 <input id="tag" type="text" class="form-control input-sm" name="jtag_edit" value="{{ old('jtag_name') }}" placeholder="edit" required autofocus>
                                 <div class="form-group">
                                     <input type="submit" name="" value="edit" class="btn btn-primary btn-sm">
                                     <a class="btn btn-danger btn-sm" href="/admin/tag-jual/{{$jtag->id}}/destroy">delete</a>
                                 </div>
+                                </details>
                             </div>
                             </div>
                         </form>
@@ -148,7 +154,10 @@
                     </td>
                     <td class="info">
                         {{ $user->created_at->diffForHumans() }}
+                        <details>
+                        <summary>Modify :</summary>
                         <a href="/admin/{{ $user->id }}" class="btn btn-xs btn-danger">delete</a>
+                        </details>
                     </td>
                 </tr>
             @endforeach
