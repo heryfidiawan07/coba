@@ -65,7 +65,7 @@ class FacebookController extends Controller
             'facebook_id' => $facebookUser->id,
             'status'      => 1,
             'token'       => str_random(20),
-            'password'    => 'facebook',
+            'password'    => bcrypt('dari_facebook'),
         ]);
     }
     
