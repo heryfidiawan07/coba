@@ -57,7 +57,7 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {   
-        if ($request->spm != null) {
+        if (!empty($request->spm)) {
             return back()->with('warning', 'Siapa anda ?');;
         }else{
             $this->validator($request->all())->validate();
