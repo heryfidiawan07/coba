@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href="/css/slider1.css">
     <link rel="stylesheet" href="/css/welcontent.css">
     <!-- Scripts -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),

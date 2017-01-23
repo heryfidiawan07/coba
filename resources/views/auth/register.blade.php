@@ -67,6 +67,14 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="password-confirm" class="col-md-4 control-label">Validate</label>
+
+                            <div class="col-md-6">
+                                <div class="g-recaptcha" data-sitekey="6LeezhIUAAAAACOvTjRPL0egjmNbx0hRGRUG6fuD"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary btn-sm">
                                     Register

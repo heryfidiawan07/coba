@@ -181,6 +181,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
     ],
 
