@@ -4,7 +4,7 @@
 @endif
 
 <table class="table table-condensed">
-    <th class="warning"><h3>Kategori<img id="kategori" src="/background/shopc.svg"></h3></th>
+    <th class="warning"><h3>Jual beli<img id="kategori" src="/background/shopc.svg"></h3></th>
     @foreach($jtags as $jtag)
       <tr>
         <td class="info">

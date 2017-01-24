@@ -6,13 +6,10 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-3">
-        @include('news.jtags')
-    </div>
-    <div class="col-md-5">
 			
 		@if($juals->count())
             @foreach($juals as $jual)
+            <div class="col-md-4">
                 <div class="media">
                     <a href="/{{$jual->user->getName()}}" class="pull-left">
                         <img src=" {{$jual->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
@@ -33,20 +30,24 @@
                     </div>
                 </div>
                 <hr>
+            </div>
             @endforeach
         @else
+        <div class="text-center">
             <i style="font-size: 14px;" class="lead"> tidak ditemukan</i>
             <br>
             <a href="/fjb/create" class="btn btn-primary btn-xs" style="color: white !important;">
                 <img id="icon" src="/background/shopc.svg">Jual barang anda di forum jual beli sekarang.
             </a>
             <hr>
+        </div>
         @endif
-
-    @if(Auth::check())
-        {{$juals->links()}}
-    @endif
-    
+</div>
+<div class="row">
+    <div class="text-center">
+        @if(Auth::check())
+            {{$juals->links()}}
+        @endif
     </div>
 </div>
 @endsection

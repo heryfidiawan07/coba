@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use App\Tag;
 use App\Jual;
 use App\User;
 use App\Thread;
 use App\Comment;
-use App\TagJual;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -30,12 +28,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $tags        = Tag::all();
         $threads     = Thread::latest()->paginate(6);
         $hotsthreads = Thread::has('comments', '>', 0)->paginate(4);
         $newcomments = Thread::has('comments')->latest()->paginate(3);
 
-        $jtags        = TagJual::all();
         $juals        = Jual::latest()->paginate(6);
         $jualsphotos  = Jual::latest()->paginate(4);
         $topjuals     = Jual::has('jcomments', '>', 0)->paginate(4);
@@ -43,24 +39,22 @@ class HomeController extends Controller
 
         if (Auth::check()) {
             if (Auth::user()) {
-                return view('home', compact('tags', 'threads', 'newcomments', 'hotsthreads', 'topjuals', 'jtags', 'juals', 'jualcomments', 'jualsphotos'));
+                return view('home', compact('threads', 'newcomments', 'hotsthreads', 'topjuals', 'juals', 'jualcomments', 'jualsphotos'));
             }
         }else{
-            return view('welcome', compact('tags', 'threads', 'newcomments', 'hotsthreads', 'topjuals', 'jtags', 'juals', 'jualcomments', 'jualsphotos'));
+            return view('welcome', compact('threads', 'newcomments', 'hotsthreads', 'topjuals', 'juals', 'jualcomments', 'jualsphotos'));
         }
     }   
 
     public function user($name){
         $user    = User::whereName($name)->first();
-        $tags    = Tag::all();
-        $jtags   = TagJual::all();
         if (!$user) {
             return redirect('/');
         }
-        $threads = Thread::where('user_id', $user->id)->latest()->paginate(10);
-        $juals   = Jual::where('user_id', $user->id)->latest()->paginate(10);
+        $threads = Thread::where('user_id', $user->id)->latest()->paginate(9);
+        $juals   = Jual::where('user_id', $user->id)->latest()->paginate(9);
         //dd($user->id);
-        return view('user.index', compact('user', 'threads', 'tags', 'juals', 'jtags'));
+        return view('user.index', compact('user', 'threads', 'juals'));
     }
     
     public function welcome(){

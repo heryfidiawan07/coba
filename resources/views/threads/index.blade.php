@@ -7,13 +7,10 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-3">
-        @include('news.tags')
-    </div>
-    <div class="col-md-5">
         
         @if($threads->count())
             @foreach($threads as $thread)
+            <div class="col-md-4">
                 <div class="media">
                     <a href="/{{$thread->user->getName()}}" class="pull-left">
                         <img src="{{$thread->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
@@ -34,19 +31,23 @@
                     </div>
                 </div>
                 <hr>
+                </div>
             @endforeach
         @else
+        <div class="text-center">
             <i style="font-size: 14px;" class="lead">Belum ada yang menulis di kategori ini.</i>
             <a href="/threads/create" class="btn btn-primary btn-xs" style="color: white !important;">
-                <img id="icon" src="/background/ide.svg">Tulis sesuatu di forum sekarang.
+                <img id="icon" src="/background/ide.svg">Tulis di forum sekarang.
             </a>
             <hr>
+        </div>
         @endif
-
-    @if(Auth::check())
-        {{$threads->links()}}
-    @endif
-    
+</div>
+<div class="row">
+    <div class="text-center">
+        @if(Auth::check())
+            {{$threads->links()}}
+        @endif
     </div>
 </div>
 @endsection

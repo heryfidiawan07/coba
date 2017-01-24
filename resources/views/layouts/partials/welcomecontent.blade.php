@@ -31,10 +31,7 @@
 	</div>
 
     <div class="row">
-      <div class="col-md-3">
-        @include('news.tags')
-      </div>
-      <div class="col-md-9">
+      <div class="col-md-12">
         @include('news.newthreads')
       </div>
     </div>
@@ -42,10 +39,7 @@
     <hr>
 
     <div class="row">
-      <div class="col-md-3">
-        @include('news.jtags')
-      </div>
-      <div class="col-md-9">
+      <div class="col-md-12">
         @include('news.fjbnews')
       </div>
     </div>

@@ -54,17 +54,13 @@
 <hr>
 
 <div class="row">
-
-	<div class="col-md-3">
-        @include('news.tags')
-    </div>
-
-    <div class="col-md-5">
-        @if(!$threads->count())
-            <p class="lead">{{$user->getName()}} Belum menulis sesuatu.</p>
-            <hr>
-        @endif
-        @foreach($threads as $thread)
+    <div class="text-center"><h3><u> Forum </u></h3></div>
+    @foreach($threads as $thread)
+        <div class="col-md-4">
+            @if(!$threads->count())
+                <p class="lead">{{$user->getName()}} Belum menulis sesuatu.</p>
+                <hr>
+            @endif
             <div class="media">
                 <a href="/{{$thread->user->getName()}}" class="pull-left">
                     <img src=" {{$thread->user->getAvatar()}} " class="img-responsive img-circle" onerror="this.style.display='none'">
@@ -81,21 +77,23 @@
                 <div class="panel-footer"><a href="/threads/{{$thread->slug}} ">{{$thread->countComments()}} comment</a></div>
             </div>
             <hr>
-        @endforeach
+        </div>
+    @endforeach
+</div>
+<div class="row">
+    <div class="text-center">
         {{$threads->links()}}
     </div>
 </div>
     
 <div class="row">
-    <div class="col-md-3">
-        @include('news.jtags')
-    </div>
-    <div class="col-md-5">
-        @if(!$juals->count())
-            <p class="lead">{{$user->getName()}} Belum menulis sesuatu.</p>
-            <hr>
-        @endif
-        @foreach($juals as $jual)
+    <div class="text-center"><h3><u> Jual beli </u></h3></div>
+    @foreach($juals as $jual)
+        <div class="col-md-4">
+            @if(!$juals->count())
+                <p class="lead">{{$user->getName()}} Belum menulis sesuatu.</p>
+                <hr>
+            @endif
             <div class="media">
                 <a href="/{{$jual->user->getName()}}" class="pull-left">
                     <img src=" {{$jual->user->getAvatar()}} " class="img-circle img-responsive" onerror="this.style.display='none'">
@@ -112,9 +110,12 @@
                 <div class="panel-footer"><a href="/fjb/{{$jual->slug}} ">{{$jual->countComments()}} comment</a></div>
             </div>
             <hr>
-        @endforeach
+        </div>
+    @endforeach
+</div>
+<div class="row">
+    <div class="text-center">
         {{$juals->links()}}
     </div>
-    
 </div>
 @endsection

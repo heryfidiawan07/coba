@@ -33,6 +33,7 @@
     <link href="/css/app.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/slider1.css">
     <link rel="stylesheet" href="/css/welcontent.css">
+    <link rel="stylesheet" href="/css/kategoryModal.css">
     <!-- Scripts -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script>
@@ -63,6 +64,7 @@
     <div id="app">
         @include('layouts.partials.nav')
         <div class="container" style="min-height: 560px; height: 100%;">
+            @include('layouts.partials.kategoryModal')
             @yield('content')
         </div>
         <br>

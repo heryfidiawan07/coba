@@ -17,7 +17,7 @@ class AdminController extends Controller
   public function index(){
     $tags     = Tag::all();
     $users    = User::all();
-    $jtags = TagJual::all();
+    $jtags    = TagJual::all();
   	return view('admin.index', compact('tags', 'users', 'jtags'));
   }
 

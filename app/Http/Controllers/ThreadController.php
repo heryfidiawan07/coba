@@ -25,8 +25,9 @@ class ThreadController extends Controller
     	 //dd($request->file('img'));
         $thread = Auth::user();
         $file = $request->file('img');
+        $time = date('Y-m-d_H-i-s');
         if (!empty($file)) {
-            $fileName = $thread->user_id.'_'.$thread->id.'_'.$file->getClientOriginalName();
+            $fileName = $thread->user_id.'_'.$thread->id.'_'.$time.'_'.$file->getClientOriginalName();
             $path     = $file->getRealPath();
             $img      = Image::make($path)->resize(250, 200);
             $img->save(public_path("img/threads/". $fileName));
@@ -44,9 +45,8 @@ class ThreadController extends Controller
     }
 
     public function index(){
-        $threads = Thread::latest()->paginate(10);
-        $tags    = Tag::all();
-        return view('threads.index', compact('threads', 'tags'));
+        $threads = Thread::latest()->paginate(9);
+        return view('threads.index', compact('threads'));
     }
 
     public function show($slug){
@@ -80,12 +80,13 @@ class ThreadController extends Controller
         }
         if ($request->user()->id == $thread->user_id) {
             $file = $request->file('img');
+            $time = date('Y-m-d_H-i-s');
             $from = public_path("img/threads/".$thread->img );
                 if (!empty($file)) {
                     if (File::exists($from)) {
                         File::delete($from);
                     }
-                    $fileName   = $thread->user_id.'_'.$thread->id.'_'.$file->getClientOriginalName();
+                    $fileName   = $thread->user_id.'_'.$thread->id.'_'.$time.'_'.$file->getClientOriginalName();
                     $path       = $file->getRealPath();
                     $img        = Image::make($path)->resize(250, 200);
                     $img->save(public_path("img/threads/". $fileName));
@@ -120,8 +121,7 @@ class ThreadController extends Controller
     
     public function mine(){
         $threads = Auth::user()->threads()->latest()->paginate(10);
-        $tags    = Tag::all();
-        return view('threads.index', compact('threads', 'tags'));
+        return view('threads.index', compact('threads'));
     }
     
     

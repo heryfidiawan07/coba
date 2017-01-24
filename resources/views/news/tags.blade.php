@@ -4,7 +4,7 @@
 @endif
 
 <table class="table table-condensed">
-    <th class="warning"><h3>Kategori<img id="kategori" src="/background/ide.svg"></h3></th>
+    <th class="warning"><h3>Forum<img id="kategori" src="/background/ide.svg"></h3></th>
     @foreach($tags as $tag)
       <tr class="success">
         <td class="info">
@@ -13,4 +13,3 @@
       </tr>
     @endforeach
 </table>
-<hr>

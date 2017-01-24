@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-8">
         <div class="panel panel-default" style="padding: 10px 10px;">
             <div class="media">
             @if(count($jual->galery()->first()) > 0)

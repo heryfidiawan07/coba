@@ -20,9 +20,8 @@ class JualController extends Controller
 	}
 	
 	public function index(){
-		$jtags = TagJual::all();
-        $juals = Jual::latest()->paginate(10);
-		return view('fjb.index', compact('juals', 'jtags'));
+        $juals = Jual::latest()->paginate(9);
+		return view('fjb.index', compact('juals'));
 	}		
 
     public function create(){
@@ -136,8 +135,7 @@ class JualController extends Controller
     
     public function minejual(){
         $juals = Auth::user()->juals()->latest()->paginate(10);
-        $jtags = TagJual::all();
-        return view('fjb.index', compact('juals', 'jtags'));
+        return view('fjb.index', compact('juals'));
     }
     
 }

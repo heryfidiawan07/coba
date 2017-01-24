@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-8">
         <div class="panel panel-default" style="padding: 10px 10px;">
             <div class="media">
                 <div class="media">
@@ -43,7 +43,7 @@
                     @if($thread->img)
                         <img class="img-rounded img-responsive" src="{{asset('/img/threads/'.$thread->img )}}">
                     @endif
-                    <p>{!! nl2br($thread->body) !!}</p>
+                    <br><p>{!! nl2br($thread->body) !!}</p>
                     @foreach($comments as $comment)
                     <hr>
                     <div class="media" style="margin-left: 20px;">
