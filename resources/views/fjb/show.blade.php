@@ -66,7 +66,7 @@
                         <div class="media">
                             @if($jcomment->img)
                                 <div class="text-center">
-                                    <img class="img-rounded img-responsive" src="{{ asset('/img/jcomments/'.$jcomment->img)  }}" alt="{{$jual->tag->name}}">
+                                    <img class="img-responsive" src="{{ asset('/img/jcomments/'.$jcomment->img)  }}" alt="{{$jual->tag->name}}">
                                 </div>
                             @endif
                             <p> {!!nl2br($jcomment->body)!!} </p>

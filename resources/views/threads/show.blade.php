@@ -41,7 +41,7 @@
                 <hr>
                 <div class="media">
                     @if($thread->img)
-                        <img class="img-rounded img-responsive" src="{{asset('/img/threads/'.$thread->img )}}">
+                        <img class="img-responsive" src="{{asset('/img/threads/'.$thread->img )}}" alt="{{$thread->tag->name}}">
                     @endif
                     <br><p>{!! nl2br($thread->body) !!}</p>
                     @foreach($comments as $comment)
@@ -56,7 +56,7 @@
                             <small> &horbar; {{$comment->created_at->diffForHumans()}}</small>
                         <div class="media">
                             @if($comment->img)
-                                <img class="img-rounded" src="{{ asset('/img/comments/'.$comment->img) }}" alt="{{$thread->tag->name}}">
+                                <img class="img-responsive" src="{{ asset('/img/comments/'.$comment->img) }}" alt="{{$thread->tag->name}}">
                             @endif
                             <p> {!!nl2br($comment->body)!!} </p>
                         </div>
