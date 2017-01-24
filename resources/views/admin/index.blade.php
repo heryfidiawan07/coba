@@ -81,7 +81,7 @@
                             {{ $tag->name }}
                             <div class="pull-right">
                             <details>
-                                <summary>Modify :</summary>
+                                <summary><img id="icon" src="/background/sunting.svg">  </summary>
                                 <input id="tag" type="text" class="form-control input-sm" name="tag_edit" value="{{ old('tag_name') }}" placeholder="edit" required autofocus>
                                 <div class="form-group">
                                     <input type="submit" name="" value="edit" class="btn btn-primary btn-sm">
@@ -114,7 +114,7 @@
                             {{ $jtag->name }}
                             <div class="pull-right">
                                 <details>
-                                <summary>Modify :</summary>
+                                <summary><img id="icon" src="/background/sunting.svg"></summary>
                                 <input id="tag" type="text" class="form-control input-sm" name="jtag_edit" value="{{ old('jtag_name') }}" placeholder="edit" required autofocus>
                                 <div class="form-group">
                                     <input type="submit" name="" value="edit" class="btn btn-primary btn-sm">
@@ -155,7 +155,7 @@
                     <td class="info">
                         {{ $user->created_at->diffForHumans() }}
                         <details>
-                        <summary>Modify :</summary>
+                        <summary><img id="icon" src="/background/sunting.svg"></summary>
                         <a href="/admin/{{ $user->id }}" class="btn btn-xs btn-danger">delete</a>
                         </details>
                     </td>

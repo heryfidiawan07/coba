@@ -1,3 +1,85 @@
+#kategori {
+	width: 30px;
+	margin-left: 10px;
+}
+.file {
+  visibility: hidden;
+  position: absolute;
+}
+.lead {
+	font-size: 14px !important;
+}
+#icon {
+	width: 18px;
+	margin-right: 5px;
+}
+div .panel {
+	box-shadow: 0px -10px 2px 0px black;
+
+	-webkit- box-shadow: 0px -10px 2px 0px black;
+	-moz- box-shadow: 0px -10px 2px 0px black;
+	-o- box-shadow: 0px -10px 2px 0px black;
+	-ms- box-shadow: 0px -10px 2px 0px black;
+}
+#output {
+	background-color: black;
+	color: #218e12;
+	box-shadow: 5px 5px 5px 5px grey;
+	text-shadow: 2px 1px 1px #ffff33;
+	/* vendor prefix*/
+	-webkit- text-shadow: 2px 1px 1px #ffff33;
+	-moz- text-shadow: 2px 1px 1px #ffff33;
+	-o- text-shadow: 2px 1px 1px #ffff33;
+	-ms- text-shadow: 2px 1px 1px #ffff33;
+
+	-webkit- box-shadow: 5px 5px 5px 5px grey;
+	-moz- box-shadow: 5px 5px 5px 5px grey;
+	-o- box-shadow: 5px 5px 5px 5px grey;
+	-ms- box-shadow: 5px 5px 5px 5px grey;
+}
+blockquote a {
+	font-size: 12px;
+}
+blockquote p {
+	font-size: 12px;
+}
+.social {
+	list-style: none;
+}
+.lii .btn {
+	margin-top: 20px;
+	background-color: black;
+	color: white !important;
+	width: 120px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	list-style: none;
+	text-align: center;
+}
+.lii {
+	display: inline-block;
+}
+.fotli {
+	display: inline-block;
+	margin-top: 10px;
+  list-style: none;
+  font-size: 14px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.img-circle {
+	width: 50px !important;
+	height: 50px !important;
+}
+.fotli a:hover {
+	color: unset !important;
+}
+.fotli a {
+	color: unset !important;
+}
+div.container a {
+  color: #497388 !important;
+}
 #output{
   /* The command I know best. */
   font-size:25px;

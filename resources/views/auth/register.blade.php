@@ -69,7 +69,7 @@
                             <label for="password-confirm" class="col-md-4 control-label">Validate</label>
 
                             <div class="col-md-6">
-                                <div class="g-recaptcha" data-sitekey="6LeezhIUAAAAACOvTjRPL0egjmNbx0hRGRUG6fuD"></div>
+                                <div class="g-recaptcha" data-sitekey="6LeezhIUAAAAACOvTjRPL0egjmNbx0hRGRUG6fuD" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;"></div>
                             </div>
                         </div>
 
