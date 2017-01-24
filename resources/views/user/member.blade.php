@@ -13,6 +13,7 @@
               <a href="/{{$member->name}}">
                 <p>{{$member->name}}</p>
               </a>
+              <p> {{str_limit($member->tentang, 50)}} </p>
               <p>Joined :  <small>{{$member->created_at->diffForHumans()}}</small> </p>
               <div class="panel-footer">
                 <p class="pull-left"><img id="icon" src="/background/ide.svg"> {{$member->tulisan()}} threads</p>

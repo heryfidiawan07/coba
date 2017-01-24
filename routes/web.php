@@ -74,4 +74,5 @@ Route::get('/commentar/{id}/delete', 'ImageController@destroyimgcomment');
 Route::get('/{name}', 'HomeController@user');
 
 Route::post('/edit-name/{id} ', 'UserController@editname');
+Route::post('/tentang/{id} ', 'UserController@status');
 Route::post('/edit-gravatar/{id} ', 'UserController@editgravatar');

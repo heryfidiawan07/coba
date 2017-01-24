@@ -29,7 +29,7 @@ class ThreadController extends Controller
         if (!empty($file)) {
             $fileName = $thread->user_id.'_'.$thread->id.'_'.$time.'_'.$file->getClientOriginalName();
             $path     = $file->getRealPath();
-            $img      = Image::make($path)->resize(250, 200);
+            $img      = Image::make($path)->resize(450, 400);
             $img->save(public_path("img/threads/". $fileName));
         }else{
             $fileName = null;
@@ -88,7 +88,7 @@ class ThreadController extends Controller
                     }
                     $fileName   = $thread->user_id.'_'.$thread->id.'_'.$time.'_'.$file->getClientOriginalName();
                     $path       = $file->getRealPath();
-                    $img        = Image::make($path)->resize(250, 200);
+                    $img        = Image::make($path)->resize(450, 400);
                     $img->save(public_path("img/threads/". $fileName));
                 }else if($thread->img != null) {
                     $fileName = $thread->img;

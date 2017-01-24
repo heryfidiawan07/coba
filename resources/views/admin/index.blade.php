@@ -144,19 +144,22 @@
                         {{ $user->id }}
                     </td>
                     <td class="info">
-                        {{ $user->name }}
+                        <a href="/{{ $user->name }}">{{ $user->name }}</a>
                     </td>
                     <td class="info">
-                        {{ $user->email }}
+                        <details>
+                        <summary><img id="icon" src="/background/sunting.svg"></summary>
+                            {{ $user->email }}
+                        </details>
                     </td>
                     <td class="info">
                         {{ $user->status }}
                     </td>
                     <td class="info">
-                        {{ $user->created_at->diffForHumans() }}
                         <details>
                         <summary><img id="icon" src="/background/sunting.svg"></summary>
-                        <a href="/admin/{{ $user->id }}" class="btn btn-xs btn-danger">delete</a>
+                            {{ $user->created_at->diffForHumans() }}
+                            <a href="/admin/{{ $user->id }}" class="btn btn-xs btn-danger">delete</a>
                         </details>
                     </td>
                 </tr>

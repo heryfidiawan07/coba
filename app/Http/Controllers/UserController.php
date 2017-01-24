@@ -22,6 +22,19 @@ class UserController extends Controller
         }
     }
 
+    public function status(Request $request, $id){
+        $user = User::whereId($id)->first();
+        if ($request->user()->id == $id) {
+            $this->validate($request, [
+                'tentang' => 'required|min:3|max:100',
+            ]);
+            $user->update([
+                'tentang' => $request->tentang,
+            ]);
+            return redirect()->to("/{$user->name}");
+        }
+    }
+
     public function editgravatar(Request $request, $id){
     	//dd($request->file('img'));
     	$user = User::whereId($id)->first();
@@ -38,7 +51,7 @@ class UserController extends Controller
                 if($file){
                     $fileName = $user->id.'_'.$file->getClientOriginalName();
                     $path     = $file->getRealPath();
-                    $img      = Image::make($path)->resize(200, 200);
+                    $img      = Image::make($path)->resize(250, 250);
                     $img->save(public_path("img/users/". $fileName));
                     $user->update([
                        'img' => $fileName,

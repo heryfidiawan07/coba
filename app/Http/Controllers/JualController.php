@@ -54,7 +54,7 @@ class JualController extends Controller
                 	$fileName = $jual->user_id.'_'.$jual->id.'_'.$time.'_'.$file->getClientOriginalName();
 
                     $path = $file->getRealPath();
-                    $img  = Image::make($path)->resize(250, 200);
+                    $img  = Image::make($path)->resize(450, 400);
                     $img->save(public_path("img/fjb/". $fileName));
 
                     $galeries = new Galery;
@@ -106,7 +106,7 @@ class JualController extends Controller
                     foreach ($files as $file) {
                         $fileName = $id.'_'.$jual->id.'_'.$time.'_'.$file->getClientOriginalName();
                         $path = $file->getRealPath();
-                        $img  = Image::make($path)->resize(250, 200);
+                        $img  = Image::make($path)->resize(450, 400);
                         $img->save(public_path("img/fjb/". $fileName));
                           $galery = new Galery;
                           $galery->img      = $fileName;

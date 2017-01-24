@@ -2,7 +2,13 @@
 
 @section('url') http://fidawa.com/{{$user->name}} @stop
 @section('title') {{$user->name}} @stop
-@section('description') Diskusikan apa yang ingin anda tanyakan di forum. Cari barang atau pasang iklan anda di forum jual beli. @stop
+@if($user->tentang != null)
+    @section('description') {{$user->tentang}} @stop
+@else
+    @section('description')
+        Diskusikan apa yang ingin anda tanyakan di forum. Cari barang atau pasang iklan anda di forum jual beli.
+    @stop
+@endif
 @section('image') {{asset('/img/users/'.$user->img )}} @stop
 
 @section('content')
@@ -15,7 +21,8 @@
                     <img width="150px" src="{{asset('/img/users/'.$user->getAvatar() )}}" class="img-responsive" onerror="this.style.display='none'">
                 </span>
                 <div class="media-body">
-                    <h5 class="media-heading"><b>{{$user->getName()}}</b></h5>
+                    <h4 class="media-heading"><b>{{$user->getName()}}</b></h4>
+                    <p class="media-heading">{{$user->tentang}}</p>
                     <p>Joined :  {{$user->created_at->diffForHumans()}} </p>
                 </div>
                 <div class="fb-like" data-href="http://fidawa.com/{{$user->name}}" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
@@ -26,24 +33,41 @@
             @if(Auth::check())
                 @if(Auth::user()->id == $user->id)
                     <div class="panel-body">
-                        <form class="form-inline" action="/edit-name/{{$user->id}}" method="post">
+                        <details>
+                        <summary><img id="icon" src="/background/sunting.svg">Edit name</summary>
+                            <form class="form-inline" action="/edit-name/{{$user->id}}" method="post">
+                            {{csrf_field()}}
+                                <div class="form-group {{ $errors->has('edit_name') ? ' has-error' : '' }} ">
+                                    <input name="edit_name" class="form-control input-sm" type="text" placeholder="edit name">
+                                    @if($errors->has('edit_name'))
+                                        <span class="help-block"> {{$errors->first('edit_name')}} </span>
+                                    @endif
+                                </div>
+                                <button class="btn btn-primary btn-sm" type="submit">edit name</button>
+                            </form>
+                        </details>
+                        <br>
+                        <details>
+                        <summary><img id="icon" src="/background/sunting.svg">Edit foto profil</summary>
+                            <form class="form-inline" action="/edit-gravatar/{{$user->id}}" method="post" enctype="multipart/form-data">
+                            {{csrf_field()}}
+                                <div class="form-group {{ $errors->has('img') ? ' has-error' : '' }} ">
+                                    @include('layouts.partials.upload')
+                                    <br>
+                                    <button class="btn btn-primary btn-sm" type="submit">ubah foto profil</button>
+                                </div>
+                            </form>
+                        </details>
+                        <br>
+                        <form class="form-inline" action="/tentang/{{$user->id}}" method="post">
                         {{csrf_field()}}
-                            <div class="form-group {{ $errors->has('edit_name') ? ' has-error' : '' }} ">
-                                <input name="edit_name" class="form-control input-sm" type="text" placeholder="edit name">
-                                @if($errors->has('edit_name'))
-                                    <span class="help-block"> {{$errors->first('edit_name')}} </span>
+                            <div class="form-group {{ $errors->has('tentang') ? ' has-error' : '' }} ">
+                                <textarea name="tentang" class="form-control input-sm" placeholder="Tentang diri anda" cols="40" rows="2"></textarea>
+                                @if($errors->has('tentang'))
+                                    <span class="help-block"> {{$errors->first('tentang')}} </span>
                                 @endif
                             </div>
-                            <button class="btn btn-primary btn-sm" type="submit">edit name</button>
-                        </form>
-                        <hr>
-                        <form class="form-inline" action="/edit-gravatar/{{$user->id}}" method="post" enctype="multipart/form-data">
-                        {{csrf_field()}}
-                            <div class="form-group {{ $errors->has('img') ? ' has-error' : '' }} ">
-                                @include('layouts.partials.upload')
-                                <br>
-                                <button class="btn btn-primary btn-sm" type="submit">ubah foto profil</button>
-                            </div>
+                            <button class="btn btn-primary btn-sm" type="submit">post</button>
                         </form>
                     </div>
                 @endif
@@ -54,13 +78,15 @@
 <hr>
 
 <div class="row">
-    <div class="text-center"><h3><u> Forum </u></h3></div>
+    <div class="text-center">
+        <h3><u> Forum </u></h3>
+        @if(!$threads->count())
+            <p class="lead">{{$user->getName()}} belum menulis forum.</p>
+            <hr>
+        @endif
+    </div>
     @foreach($threads as $thread)
         <div class="col-md-4">
-            @if(!$threads->count())
-                <p class="lead">{{$user->getName()}} Belum menulis sesuatu.</p>
-                <hr>
-            @endif
             <div class="media">
                 <a href="/{{$thread->user->getName()}}" class="pull-left">
                     <img src=" {{$thread->user->getAvatar()}} " class="img-responsive img-circle" onerror="this.style.display='none'">
@@ -87,13 +113,15 @@
 </div>
     
 <div class="row">
-    <div class="text-center"><h3><u> Jual beli </u></h3></div>
+    <div class="text-center">
+        <h3><u> Jual beli </u></h3>
+        @if(!$juals->count())
+            <p class="lead">{{$user->getName()}} belum menulis di fjb.</p>
+            <hr>
+        @endif
+    </div>
     @foreach($juals as $jual)
         <div class="col-md-4">
-            @if(!$juals->count())
-                <p class="lead">{{$user->getName()}} Belum menulis sesuatu.</p>
-                <hr>
-            @endif
             <div class="media">
                 <a href="/{{$jual->user->getName()}}" class="pull-left">
                     <img src=" {{$jual->user->getAvatar()}} " class="img-circle img-responsive" onerror="this.style.display='none'">

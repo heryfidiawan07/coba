@@ -30,8 +30,8 @@
     <!-- untuk icon pd title -->
     <link href='http://fidawa.com/icon.png' rel='shortcut icon'>
     <!-- Styles -->
+    @yield('css')
     <link href="/css/app.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/slider1.css">
     <link rel="stylesheet" href="/css/welcontent.css">
     <link rel="stylesheet" href="/css/kategoryModal.css">
     <!-- Scripts -->
@@ -77,11 +77,8 @@
     <!-- Scripts -->
     <script src="/js/app.js"></script>
     <script src="/js/fjbajax.js" type="text/javascript"></script>
-    <script src="/js/welcontent.js"></script>
     <script type="text/javascript" src="/js/get.js"></script>
-    <script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
-    <script src="/js/slider-22.0.6.mini.js" type="text/javascript"></script>
     <script src="/js/browse.js" type="text/javascript"></script>
-    <script src="/js/slider1.js" type="text/javascript"></script>
+    @yield('js')
 </body>
 </html>

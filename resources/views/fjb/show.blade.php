@@ -8,7 +8,7 @@
         http://fidawa.com/img/fjb/{{$jual->galery->first()->img}}
     @endif
 @stop
-
+@section('css') <link rel="stylesheet" type="text/css" href="/css/slider1.css"> @stop
 @section('content')
 
 <div class="row">
@@ -115,3 +115,7 @@
 </div>
 
 @endsection
+@section('js')
+    <script src="/js/slider-22.0.6.mini.js" type="text/javascript"></script>
+    <script src="/js/slider1.js" type="text/javascript"></script>
+@stop
