@@ -13,8 +13,11 @@
             <div class="col-md-4">
                 <div class="media">
                     <a href="/{{$thread->user->getName()}}" class="pull-left">
-                        <img src="{{$thread->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
-                        <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+                    @if($thread->user->img == null)
+                        <img src="{{$thread->user->getAvatar()}}" class="media-object img-circle">
+                    @else
+                        <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="media-object img-circle">
+                    @endif
                     </a>
                     <div class="media-body">
                         <div class="media-heading">
@@ -35,7 +38,8 @@
             @endforeach
         @else
         <div class="text-center">
-            <i style="font-size: 14px;" class="lead">Belum ada yang menulis di kategori ini.</i>
+            <i style="font-size: 14px;" class="lead">Belum ada yang menulis di forum ini.</i>
+            <br>
             <a href="/threads/create" class="btn btn-primary btn-xs" style="color: white !important;">
                 <img id="icon" src="/background/ide.svg">Tulis di forum sekarang.
             </a>
@@ -44,11 +48,7 @@
         @endif
 </div>
 <div class="row">
-    <div class="text-center">
-        @if(Auth::check())
-            {{$threads->links()}}
-        @endif
-    </div>
+    <div class="text-center">{{$threads->links()}}</div>
 </div>
 @endsection
 

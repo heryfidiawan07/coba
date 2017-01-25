@@ -34,8 +34,8 @@ class JualController extends Controller
         if(!$jual){
             return redirect()->to('/fjb');
         }
-    	   $jcomments = $jual->jcomments;
-    	   return view('fjb.show', compact('jual', 'jcomments'));
+	   $jcomments = $jual->jcomments()->latest()->paginate(5);
+	   return view('fjb.show', compact('jual', 'jcomments'));
     }
     
     public function store(JualRequest $request){

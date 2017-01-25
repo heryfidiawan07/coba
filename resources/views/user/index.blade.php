@@ -3,7 +3,7 @@
 @section('url') http://fidawa.com/{{$user->name}} @stop
 @section('title') {{$user->name}} @stop
 @section('description') {{$user->tentang}} @stop
-@section('image') {{asset('/img/users/'.$user->img )}} @stop
+@section('image') http://fidawa.com/img/users/{{$user->img}} @stop
 
 @section('content')
 <div class="panel panel-default">
@@ -11,8 +11,11 @@
         <div class="col-md-6">
             <div class="media" style="padding-top: 10px; padding-left: 10px; padding-bottom: 10px;">
                 <span class="pull-left">
-                    <img width="150px" src="{{$user->getAvatar()}}" class="img-responsive" onerror="this.style.display='none'">
-                    <img width="150px" src="{{asset('/img/users/'.$user->getAvatar() )}}" class="img-responsive" onerror="this.style.display='none'">
+                @if($user->img == null)
+                    <img width="150px" src="{{$user->getAvatar()}}" class="img-responsive">
+                @else
+                    <img width="150px" src="{{asset('/img/users/'.$user->getAvatar() )}}" class="img-responsive">
+                @endif
                 </span>
                 <div class="media-body">
                     <h4 class="media-heading"><b>{{$user->getName()}}</b></h4>
@@ -84,8 +87,11 @@
         <div class="col-md-4">
             <div class="media">
                 <a href="/{{$thread->user->getName()}}" class="pull-left">
-                    <img src=" {{$thread->user->getAvatar()}} " class="img-responsive img-circle" onerror="this.style.display='none'">
-                    <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="img-responsive img-circle" onerror="this.style.display='none'">
+                @if($thread->user->img == null)
+                    <img src=" {{$thread->user->getAvatar()}} " class="img-responsive img-circle">
+                @else
+                    <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="img-responsive img-circle">
+                @endif
                 </a>
                 <div class="media-body">
                     <div class="media-heading">
@@ -120,8 +126,11 @@
         <div class="col-md-4">
             <div class="media">
                 <a href="/{{$jual->user->getName()}}" class="pull-left">
-                    <img src=" {{$jual->user->getAvatar()}} " class="img-circle img-responsive" onerror="this.style.display='none'">
-                    <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="img-circle img-responsive" onerror="this.style.display='none'">
+                @if($jual->user->img == null)
+                    <img src=" {{$jual->user->getAvatar()}} " class="img-circle img-responsive">
+                @else
+                    <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="img-circle img-responsive">
+                @endif
                 </a>
                 <div class="media-body">
                     <div class="media-heading">

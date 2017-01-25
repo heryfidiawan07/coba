@@ -3,11 +3,10 @@
 @section('url') http://fidawa.com/fjb/{{$jual->slug}} @stop
 @section('title') {{$jual->title}} @stop
 @section('description') {{ str_limit($jual->deskripsi, 120) }} @stop
-@section('image')
-    @if(count($jual->galery()->first()) > 0)
-        http://fidawa.com/img/fjb/{{$jual->galery->first()->img}}
+@section('image') 
+    @if(count($jual->galery))
+        http://fidawa.com/img/fjb/{{$jual->galery->first()->img}} @stop
     @endif
-@stop
 @section('css') <link rel="stylesheet" type="text/css" href="/css/slider1.css"> @stop
 @section('content')
 
@@ -18,8 +17,11 @@
             <div class="panel-body">
                 <div class="media">
                     <a href="/{{$jual->user->getName()}}" class="pull-left">
-                      <img src="{{$jual->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
-                      <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+                    @if($jual->user->img == null)
+                      <img src="{{$jual->user->getAvatar()}}" class="media-object img-circle">
+                    @else
+                      <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="media-object img-circle">
+                    @endif
                     </a>        
                     <a href="/{{$jual->user->name}}"> {{$jual->user->getName()}} </a>
                     <small class="pull-right"> {{$jual->created_at->diffForHumans()}} </small>
@@ -58,8 +60,11 @@
                     <div class="media" style="margin-left: 20px;">
                         <div class="media">
                             <a href="/{{$jcomment->user->getName()}}" class="pull-left">
-                              <img src=" {{$jcomment->user->getAvatar()}} " class="media-object img-circle" onerror="this.style.display='none'">
-                              <img src="{{asset('/img/users/'.$jcomment->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+                            @if($jcomment->user->img == null)
+                              <img src=" {{$jcomment->user->getAvatar()}} " class="media-object img-circle">
+                            @else
+                              <img src="{{asset('/img/users/'.$jcomment->user->getAvatar() )}}" class="media-object img-circle">
+                            @endif
                             </a>
                             <a href="/{{$jcomment->user->name}}">{{$jcomment->user->getName()}}</a>
                             <small> &horbar; {{$jcomment->created_at->diffForHumans()}}</small>
@@ -82,10 +87,9 @@
                     </div>
                     @endforeach
                 </div>
-        
-        
-                @if(Auth::check())
                 <hr>
+                <div class="text-center"> {{$jcomments->links()}} </div>
+                @if(Auth::check())
                     <form action="/commentar/{{$jual->slug}}" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                         <div class="form-group {{$errors->has('body') ? ' has-error' : ''}} ">

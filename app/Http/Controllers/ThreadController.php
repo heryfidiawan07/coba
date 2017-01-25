@@ -54,7 +54,7 @@ class ThreadController extends Controller
         if (!$thread) {
             return redirect()->to('/threads');
         }
-        $comments = $thread->comments;
+        $comments = $thread->comments()->latest()->paginate(5);
         return view('threads.show', compact('thread', 'comments'));
     }
     

@@ -2,19 +2,17 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-3">
-    @if($threads->count())
-        @include('news.tags')
-    @endif
-    </div>
-    <div class="col-md-5">
         
-        @if($threads->count())
-            @foreach($threads as $thread)
+    @if($threads->count())
+        @foreach($threads as $thread)
+            <div class="col-md-4">
                 <div class="media">
                     <a href="/{{$thread->user->getName()}}" class="pull-left">
-                        <img src="{{$thread->user->getAvatar()}} " alt="" class="media-object img-circle" onerror="this.style.display='none'">
-                        <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+                    @if($thread->user->img == null)
+                        <img src="{{$thread->user->getAvatar()}} " alt="" class="media-object img-circle">
+                    @else
+                        <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="media-object img-circle">
+                    @endif
                     </a>
                     <div class="media-body">
                         <div class="media-heading">
@@ -28,33 +26,28 @@
                     </div>
                 </div>
                 <hr>
-            @endforeach
-        @else
-            <i style="font-size: 14px;" class="lead">threads tidak ditemukan</i>
-            <hr>
-        @endif
-
-    @if(Auth::check())
-        {{$threads->links()}}
+            </div>
+        @endforeach
+    @else
+        <div class="text-center"><i style="font-size: 14px;" class="lead">tidak ditemukan</i></div>
     @endif
-    
-    </div>
+</div>
+<div class="row">
+    <div class="text-center">{{$threads->links()}}</div>
 </div>
 <hr>
 <div class="row">
-    <div class="col-md-3">
-    @if($juals->count())
-        @include('news.jtags')
-    @endif
-    </div>
-    <div class="col-md-5">
         
-        @if($juals->count())
-            @foreach($juals as $jual)
+    @if($juals->count())
+        @foreach($juals as $jual)
+            <div class="col-md-4">
                 <div class="media">
                     <a href="/{{$jual->user->getName()}}" class="pull-left">
-                        <img src="{{$jual->user->getAvatar()}} " alt="profile" class="media-object img-circle" onerror="this.style.display='none'">
-                        <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" alt="profile" class="media-object img-circle" onerror="this.style.display='none'">
+                    @if($jual->user->img == null)
+                        <img src="{{$jual->user->getAvatar()}} " alt="profile" class="media-object img-circle">
+                    @else
+                        <img src="{{asset('/img/users/'.$jual->user->getAvatar())}}" alt="profile" class="media-object img-circle">
+                    @endif
                     </a>
                     <div class="media-body">
                         <div class="media-heading">
@@ -68,17 +61,14 @@
                     </div>
                 </div>
                 <hr>
-            @endforeach
-        @else
-            <i style="font-size: 14px;" class="lead">threads tidak ditemukan</i>
-            <hr>
-        @endif
-
-    @if(Auth::check())
-        {{$juals->links()}}
+            </div>
+        @endforeach
+    @else
+        <div class="text-center"><i style="font-size: 14px;" class="lead">tidak ditemukan</i></div>
     @endif
-    
-    </div>
+</div>
+<div class="row">
+    <div class="text-center">{{$juals->links()}}</div>
 </div>
 @endsection
 

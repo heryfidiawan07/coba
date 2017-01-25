@@ -7,8 +7,11 @@
 	    <div class="col-md-4">
 	    		<div class="media">
               <a href="/{{$member->name}}" class="pull-left">
-                  <img src=" {{$member->getAvatar() }}" class="img-responsive img-circle" onerror="this.style.display='none'">
-                  <img src="{{asset('/img/users/'.$member->getAvatar() )}}" class="img-responsive img-circle" onerror="this.style.display='none'">
+              @if($member->img == null)
+                  <img src=" {{$member->getAvatar() }}" class="img-responsive img-circle">
+              @else
+                  <img src="{{asset('/img/users/'.$member->getAvatar() )}}" class="img-responsive img-circle">
+              @endif
               </a>
               <a href="/{{$member->name}}">
                 <p>{{$member->name}}</p>
@@ -26,15 +29,11 @@
 				</div>
 	    </div>
     @endforeach
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <div class="text-center">
+  <div class="text-center">
     <hr>
     {{$members->links()}}
   </div>
-  </div>
 </div>
-
+    
 @endsection
 
