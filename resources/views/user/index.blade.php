@@ -11,11 +11,8 @@
         <div class="col-md-6">
             <div class="media" style="padding-top: 10px; padding-left: 10px; padding-bottom: 10px;">
                 <span class="pull-left">
-                @if($user->img == null)
-                    <img width="150px" src="{{$user->getAvatar()}}" class="img-responsive">
-                @else
-                    <img width="150px" src="{{asset('/img/users/'.$user->getAvatar() )}}" class="img-responsive">
-                @endif
+                    <img width="150px" src="{{$user->getAvatar()}}" class="img-responsive" onerror="this.style.display='none'">
+                    <img width="150px" src="{{asset('/img/users/'.$user->getAvatar() )}}" class="img-responsive" onerror="this.style.display='none'">
                 </span>
                 <div class="media-body">
                     <h4 class="media-heading"><b>{{$user->getName()}}</b></h4>
@@ -87,11 +84,8 @@
         <div class="col-md-4">
             <div class="media">
                 <a href="/{{$thread->user->getName()}}" class="pull-left">
-                @if($thread->user->img == null)
-                    <img src=" {{$thread->user->getAvatar()}} " class="img-responsive img-circle">
-                @else
-                    <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="img-responsive img-circle">
-                @endif
+                    <img src=" {{$thread->user->getAvatar()}} " class="img-responsive img-circle" onerror="this.style.display='none'">
+                    <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="img-responsive img-circle" onerror="this.style.display='none'">
                 </a>
                 <div class="media-body">
                     <div class="media-heading">
@@ -126,11 +120,8 @@
         <div class="col-md-4">
             <div class="media">
                 <a href="/{{$jual->user->getName()}}" class="pull-left">
-                @if($jual->user->img == null)
-                    <img src=" {{$jual->user->getAvatar()}} " class="img-circle img-responsive">
-                @else
-                    <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="img-circle img-responsive">
-                @endif
+                    <img src=" {{$jual->user->getAvatar()}} " class="img-circle img-responsive" onerror="this.style.display='none'">
+                    <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="img-circle img-responsive" onerror="this.style.display='none'">
                 </a>
                 <div class="media-body">
                     <div class="media-heading">

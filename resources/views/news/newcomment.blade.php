@@ -8,11 +8,8 @@
     <div class="col-md-4">
       <div class="media">
         <a href="/{{$newcomment->user->getName()}}" class="pull-left">
-          @if($newcomment->user->img == null)
-            <img src=" {{$newcomment->user->getAvatar()}}" class="media-object img-circle">
-          @else
-            <img src="{{asset('/img/users/'.$newcomment->user->getAvatar() )}}" class="media-object img-circle">
-          @endif
+          <img src=" {{$newcomment->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
+          <img src="{{asset('/img/users/'.$newcomment->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
         </a>        
         <a href="/{{$newcomment->user->getName()}}"> {{$newcomment->user->getName()}} </a> <br>
         <a href="/tags/{{$newcomment->tag->name}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$newcomment->tag->name}}</a>
@@ -26,11 +23,8 @@
       <div class="panel-footer">
         <div class="media">
           <a href="/{{$newcomment->getComment()->user->getName()}}" class="pull-left">
-            @if($newcomment->getComment()->user->img == null)
-              <img src=" {{$newcomment->getComment()->user->getAvatar()}}" class="media-object img-circle">
-            @else
-              <img src="{{asset('/img/users/'.$newcomment->user->getAvatar() )}}" class="media-object img-circle">
-            @endif
+            <img src=" {{$newcomment->getComment()->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
+            <img src="{{asset('/img/users/'.$newcomment->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
           </a>        
           <a href="/{{$newcomment->getComment()->user->getName()}}">{{$newcomment->getComment()->user->getName()}}</a>
           <small class="pull-right">{{$newcomment->getComment()->created_at->diffForHumans()}}</small>

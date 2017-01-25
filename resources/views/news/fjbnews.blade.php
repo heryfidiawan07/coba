@@ -9,11 +9,8 @@
     <div class="col-md-4">
       <div class="media">
         <a href="/{{$jual->user->getName()}}" class="pull-left">
-          @if($jual->user->img == null)
-            <img src=" {{$jual->user->getAvatar()}}" class="media-object img-circle">
-          @else
-            <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="media-object img-circle">
-          @endif
+            <img src=" {{$jual->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
+            <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
         </a>        
         <a href="/{{$jual->user->getName()}}"> {{$jual->user->getName()}} </a><br>
         <p class="pull-left btn btn-danger btn-xs"><img id="icon" src="/background/tag.svg">{{$jual->tag->name}}</p>

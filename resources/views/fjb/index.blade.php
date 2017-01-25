@@ -13,11 +13,8 @@
             <div class="col-md-4">
                 <div class="media">
                     <a href="/{{$jual->user->getName()}}" class="pull-left">
-                    @if($jual->user->img == null)
-                        <img src=" {{$jual->user->getAvatar()}}" class="media-object img-circle">
-                    @else
-                        <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="media-object img-circle">
-                    @endif
+                        <img src=" {{$jual->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
+                        <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
                     </a>
                     <div class="media-body">
                         <div class="media-heading">

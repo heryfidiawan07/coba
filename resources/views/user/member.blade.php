@@ -7,11 +7,8 @@
 	    <div class="col-md-4">
 	    		<div class="media">
               <a href="/{{$member->name}}" class="pull-left">
-              @if($member->img == null)
-                  <img src=" {{$member->getAvatar() }}" class="img-responsive img-circle">
-              @else
-                  <img src="{{asset('/img/users/'.$member->getAvatar() )}}" class="img-responsive img-circle">
-              @endif
+                <img src=" {{$member->getAvatar() }}" class="img-responsive img-circle" onerror="this.style.display='none'">
+                <img src="{{asset('/img/users/'.$member->getAvatar() )}}" class="img-responsive img-circle" onerror="this.style.display='none'">
               </a>
               <a href="/{{$member->name}}">
                 <p>{{$member->name}}</p>

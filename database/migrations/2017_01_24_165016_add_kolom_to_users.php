@@ -15,7 +15,7 @@ class AddKolomToUsers extends Migration
     {
         Schema::table('users', function(Blueprint $table)
         {
-            $table->string('tentang')->after('name');
+            $table->string('tentang')->nullable()->after('name');
         });
     }
 

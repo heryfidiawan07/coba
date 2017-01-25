@@ -13,11 +13,8 @@
             <div class="col-md-4">
                 <div class="media">
                     <a href="/{{$thread->user->getName()}}" class="pull-left">
-                    @if($thread->user->img == null)
-                        <img src="{{$thread->user->getAvatar()}}" class="media-object img-circle">
-                    @else
-                        <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="media-object img-circle">
-                    @endif
+                        <img src="{{$thread->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
+                        <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
                     </a>
                     <div class="media-body">
                         <div class="media-heading">
