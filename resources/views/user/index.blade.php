@@ -2,13 +2,7 @@
 
 @section('url') http://fidawa.com/{{$user->name}} @stop
 @section('title') {{$user->name}} @stop
-@if($user->tentang != null)
-    @section('description') {{$user->tentang}} @stop
-@else
-    @section('description')
-        Diskusikan apa yang ingin anda tanyakan di forum. Cari barang atau pasang iklan anda di forum jual beli.
-    @stop
-@endif
+@section('description') {{$user->tentang}} @stop
 @section('image') {{asset('/img/users/'.$user->img )}} @stop
 
 @section('content')
@@ -80,6 +74,7 @@
 <div class="row">
     <div class="text-center">
         <h3><u> Forum </u></h3>
+        <br>
         @if(!$threads->count())
             <p class="lead">{{$user->getName()}} belum menulis forum.</p>
             <hr>
@@ -115,6 +110,7 @@
 <div class="row">
     <div class="text-center">
         <h3><u> Jual beli </u></h3>
+        <br>
         @if(!$juals->count())
             <p class="lead">{{$user->getName()}} belum menulis di fjb.</p>
             <hr>

@@ -4,7 +4,7 @@
             <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
             <div style="position:absolute;display:block;background:url('/background/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
         </div>
-        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 801px; height: 356px; overflow: hidden;">
+        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 801px; height: 456px; overflow: hidden;">
             @foreach($jual->galery()->get() as $img)
               <div data-p="144.50">
                   <img data-u="image" src="{{ asset('/img/fjb/'.$img->img ) }}" alt="{{$jual->tag->name}}" class="img-responsive" />

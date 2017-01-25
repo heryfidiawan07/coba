@@ -22,18 +22,17 @@
           <!-- ===== Photo Slide ===== -->
           <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" role="listbox">
-              @if(count($jualsphoto->galery) >= 1)
-                <div class="item active">
-                  <img src="{{ asset('/img/fjb/'.$jualsphoto->getNameImg()->img ) }}" alt="{{$jualsphoto->tag->name}}" class="img-responsive">
-                </div>
-              @endif
-              @if(count($jualsphoto->galery) > 1)
-                @foreach($jualsphoto->galery as $galery)
-                    <div class="item">
-                        <img src="{{ asset('/img/fjb/'.$galery->img ) }}" alt="{{$jualsphoto->tag->name}}" class="img-responsive">
-                    </div>
-                @endforeach
-              @endif
+              @foreach($jualsphoto->galery as $galery)
+                @if($galery->img == $jualsphoto->getNameImg()->img)
+                  <div class="item active">
+                    <img src="{{ asset('/img/fjb/'.$jualsphoto->getNameImg()->img ) }}" alt="{{$jualsphoto->tag->name}}" class="img-responsive">
+                  </div>
+                  @continue
+                @endif
+                  <div class="item">
+                      <img src="{{ asset('/img/fjb/'.$galery->img ) }}" alt="{{$jualsphoto->tag->name}}" class="img-responsive">
+                  </div>
+              @endforeach
             </div>
           </div>
           <style>.carousel-inner > .item > img,.carousel-inner > .item > a > img { width: auto; margin: auto;} </style>

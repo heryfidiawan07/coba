@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-<h3 class="text-center"><u> Daftar Member </u></h3>
+<h3 class="text-center"><u> Daftar Member </u></h3><br>
     @foreach($members as $member)
 	    <div class="col-md-4">
 	    		<div class="media">
