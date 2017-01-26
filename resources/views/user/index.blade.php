@@ -16,7 +16,11 @@
                 </span>
                 <div class="media-body">
                     <h4 class="media-heading"><b>{{$user->getName()}}</b></h4>
-                    <p class="media-heading">{{$user->tentang}}</p>
+                    @if($user->tentang == null)
+                        <p> No status </p>
+                    @else
+                        <p style="max-height: 125px; overflow: scroll;" class="media-heading">{!!nl2br($user->tentang)!!}</p>
+                    @endif
                     <p>Joined :  {{$user->created_at->diffForHumans()}} </p>
                 </div>
                 <div class="fb-like" data-href="http://fidawa.com/{{$user->name}}" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
@@ -32,7 +36,7 @@
                             <form class="form-inline" action="/edit-name/{{$user->id}}" method="post">
                             {{csrf_field()}}
                                 <div class="form-group {{ $errors->has('edit_name') ? ' has-error' : '' }} ">
-                                    <input name="edit_name" class="form-control input-sm" type="text" placeholder="edit name">
+                                    <input name="edit_name" class="form-control input-sm" type="text" placeholder="name : max 20 karakter.">
                                     @if($errors->has('edit_name'))
                                         <span class="help-block"> {{$errors->first('edit_name')}} </span>
                                     @endif
@@ -56,7 +60,7 @@
                         <form class="form-inline" action="/tentang/{{$user->id}}" method="post">
                         {{csrf_field()}}
                             <div class="form-group {{ $errors->has('tentang') ? ' has-error' : '' }} ">
-                                <textarea name="tentang" class="form-control input-sm" placeholder="Tentang diri anda" cols="40" rows="2"></textarea>
+                                <textarea name="tentang" class="form-control input-sm" placeholder="Tentang diri anda : max 100 karakter." cols="40" rows="2"></textarea>
                                 @if($errors->has('tentang'))
                                     <span class="help-block"> {{$errors->first('tentang')}} </span>
                                 @endif
@@ -89,7 +93,7 @@
                 </a>
                 <div class="media-body">
                     <div class="media-heading">
-                        <a href="/threads/{{$thread->slug}} ">{{str_limit($thread->title, 50)}}</a>
+                        <a href="/threads/{{$thread->slug}} ">{{str_limit($thread->title, 40)}}</a>
                         <br>
                         <a href="/tags/{{$thread->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$thread->tag->name}}</a>
                     </div>
@@ -125,7 +129,7 @@
                 </a>
                 <div class="media-body">
                     <div class="media-heading">
-                        <a href="/fjb/{{$jual->slug}}">{{str_limit($jual->title)}}</a>
+                        <a href="/fjb/{{$jual->slug}}">{{str_limit($jual->title, 40)}}</a>
                         <br>
                         <a href="/kategory/{{$jual->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$jual->tag->name}}</a>
                     </div>

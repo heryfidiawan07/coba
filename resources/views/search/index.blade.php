@@ -13,7 +13,7 @@
                     </a>
                     <div class="media-body">
                         <div class="media-heading">
-                            <a href="/threads/{{$thread->slug}} ">{{$thread->title}}</a><br>
+                            <a href="/threads/{{$thread->slug}} ">{{str_limit($thread->title, 40)}}</a><br>
                             <a href="/tag/{{$thread->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$thread->tag->name}}</a>
                         </div>
                         <p> <small>{{$thread->created_at->diffForHumans()}}</small> by <a href="/{{$thread->user->getName()}}"> {{$thread->user->getName()}} </a> </p>
@@ -45,7 +45,7 @@
                     </a>
                     <div class="media-body">
                         <div class="media-heading">
-                            <a href="/fjb/{{$jual->slug}} ">{{$jual->title}}</a><br>
+                            <a href="/fjb/{{$jual->slug}} ">{{str_limit($jual->title, 40)}}</a><br>
                             <a href="/kategory/{{$jual->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$jual->tag->name}}</a>
                         </div>
                         <p> <small>{{$jual->created_at->diffForHumans()}}</small> by <a href="/{{$jual->user->getName()}}"> {{$jual->user->getName()}} </a> </p>

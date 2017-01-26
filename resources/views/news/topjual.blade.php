@@ -40,8 +40,8 @@
           @endif
           </div>
 
-      <a href="/fjb/{{$topjual->slug}} ">{{str_limit($topjual->title, 50)}}</a>
-      <p>{{str_limit($topjual->deskripsi, 50)}}</p>
+      <a href="/fjb/{{$topjual->slug}} ">{{str_limit($topjual->title, 40)}}</a>
+      <p>{{str_limit($topjual->deskripsi, 40)}}</p>
       <div class="panel-footer"><a href="/fjb/{{$topjual->slug}} ">{{$topjual->countComments()}} comment</a></div>
     </div>
   @endforeach

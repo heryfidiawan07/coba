@@ -40,7 +40,7 @@
           @endif
         </div>
       
-      <a href="/fjb/{{$jualsphoto->slug}} ">{{str_limit($jualsphoto->title, 50)}}</a>
+      <a href="/fjb/{{$jualsphoto->slug}} ">{{str_limit($jualsphoto->title, 40)}}</a>
       <div class="panel-footer"><a href="/fjb/{{$jualsphoto->slug}} ">{{$jualsphoto->countComments()}} comment</a></div>
     </div>
   @endforeach

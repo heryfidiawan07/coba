@@ -17,7 +17,7 @@
         <small class="pull-right">{{$thread->created_at->diffForHumans()}}</small>
       </div>
 
-      <a href="/threads/{{$thread->slug}} ">{{str_limit($thread->title, 50)}}</a>
+      <a href="/threads/{{$thread->slug}} ">{{str_limit($thread->title, 45)}}</a>
       <div class="panel-footer"><a href="/threads/{{$thread->slug}} ">{{$thread->countComments()}} commentar</a></div>
     </div>
   @endforeach

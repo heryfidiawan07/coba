@@ -20,8 +20,6 @@
     <meta property="og:title"         content="@yield('title')" />
     <meta property="og:description"   content="@yield('description')" />
     <meta property="og:image"         content="@yield('image')" />
-    <meta property="og:image:width"   content="200">
-    <meta property="og:image:height"  content="200">
     <!-- Facebook -->
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -34,6 +32,7 @@
     <link href="/css/app.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/welcontent.css">
     <link rel="stylesheet" href="/css/kategoryModal.css">
+    <link rel="stylesheet" href="/css/loop.css">
     <!-- Scripts -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script>

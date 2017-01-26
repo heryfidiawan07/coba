@@ -28,7 +28,7 @@
           </a>        
           <a href="/{{$newcomment->getComment()->user->getName()}}">{{$newcomment->getComment()->user->getName()}}</a>
           <small class="pull-right">{{$newcomment->getComment()->created_at->diffForHumans()}}</small>
-          <p>{{str_limit($newcomment->getComment()->body, 50)}}</p>
+          <p>{{str_limit($newcomment->getComment()->body, 30)}}</p>
         </div>
       </div>
 
