@@ -27,7 +27,7 @@ class ThreadController extends Controller
         $file = $request->file('img');
         $time = date('Y-m-d_H-i-s');
         if (!empty($file)) {
-            $fileName = $thread->user_id.'_'.$thread->id.'_'.$time.'_'.$file->getClientOriginalName();
+            $fileName = $thread->user_id.'_'.$thread->id.'_'.$time.'_fidawadotcom.jpg';
             $path     = $file->getRealPath();
             $img      = Image::make($path)->resize(600, 315);
             $img->save(public_path("img/threads/". $fileName));
@@ -86,7 +86,7 @@ class ThreadController extends Controller
                     if (File::exists($from)) {
                         File::delete($from);
                     }
-                    $fileName   = $thread->user_id.'_'.$thread->id.'_'.$time.'_'.$file->getClientOriginalName();
+                    $fileName   = $thread->user_id.'_'.$thread->id.'_'.$time.'_fidawadotcom.jpg';
                     $path       = $file->getRealPath();
                     $img        = Image::make($path)->resize(600, 315);
                     $img->save(public_path("img/threads/". $fileName));

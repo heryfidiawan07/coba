@@ -25,7 +25,7 @@ class JCommentRequest extends FormRequest
     {
         return [
             'body'   => 'required|min:3|max:500',
-            'img'    => 'image:jpg,png,gif|max:2500',
+            'img'    => 'image:jpg,png|max:2500',
         ];
     }
 }

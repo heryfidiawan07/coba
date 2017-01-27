@@ -49,7 +49,7 @@ class UserController extends Controller
                     File::delete($from);
                 }
                 if($file){
-                    $fileName = $user->id.'_'.$file->getClientOriginalName();
+                    $fileName = $user->id.'_fidawadotcom.jpg';
                     $path     = $file->getRealPath();
                     $img      = Image::make($path)->resize(250, 250);
                     $img->save(public_path("img/users/". $fileName));

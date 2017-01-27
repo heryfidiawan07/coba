@@ -26,7 +26,7 @@ class ThreadRequest extends FormRequest
         return [
             'title'     => 'required|min:3|max:255',
             'tag_id'    => 'required',
-            'img'       => 'image:jpg,png,gif|max:2500',
+            'img'       => 'image:jpg,png|max:2500',
             'body'      => 'required|min:3|max:2000'
         ];
     }
