@@ -102,8 +102,9 @@
                         </div>
                     </form>
                 @else
-                    <div class="well">
-                        <a href="/login">Login</a> sebelum dapat berkomentar dan menulis di forum.
+                    <div class="well text-center">
+                        <b><a href="/login">Login</a></b> sebelum dapat berkomentar dan menulis di forum.
+                        @include('layouts.partials.social')
                     </div>
                 @endif
             </div>
