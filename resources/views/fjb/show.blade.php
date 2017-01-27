@@ -104,6 +104,7 @@
                 @else
                     <div class="well text-center">
                         <b><a href="/login">Login</a></b> sebelum dapat berkomentar dan menulis di forum.
+                        <p>atau</p>
                         @include('layouts.partials.social')
                     </div>
                 @endif
