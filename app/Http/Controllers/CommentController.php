@@ -23,7 +23,7 @@ class CommentController extends Controller
                 if (!empty($file)) {
                     $fileName = $id.'_'.$time.'-'.$file->getClientOriginalName();
                     $path     = $file->getRealPath();
-                    $img      = Image::make($path)->resize(400, 350);
+                    $img      = Image::make($path)->resize(350, 300);
                     $img->save(public_path("img/comments/". $fileName));
                 }else{
                     $fileName = null;
@@ -65,7 +65,7 @@ class CommentController extends Controller
                     }
                     $fileName = $id.'_'.$time.'_'.$file->getClientOriginalName();
                     $path     = $file->getRealPath();
-                    $img      = Image::make($path)->resize(400, 350);
+                    $img      = Image::make($path)->resize(350, 300);
                     $img->save(public_path("img/comments/". $fileName));
                 }else if($comment->img != null){
                     $fileName = $comment->img;
