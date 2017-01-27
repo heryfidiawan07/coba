@@ -3,18 +3,17 @@
 @section('content')
 <div class="col-md-6">
     <div class="panel panel-default" style="padding: 10px 10px;">
-        <h4 class="text-center">Tulis Threads <img id="icon" src="/background/ide.svg"></h4>
         <form id="upload" action="" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
             <div class="form-group {{ $errors->has('title') ? ' has-error' : '' }} ">
-                <label for="title">Title</label>
+                <label for="title">Judul</label>
                 <input type="text" name="title" id="title" class="form-control" value="{{old('title')}}">
                 @if($errors->has('title'))
                     <span class="help-block"> {{$errors->first('title')}} </span>
                 @endif
             </div>
             <div class="form-group {{ $errors->has('tag_id') ? ' has-error' : '' }} ">
-                <label for="tag_id">Tag</label>
+                <label for="tag_id">Kategori</label>
                 <select name="tag_id" id="tag_id" class="form-control">
                     <option value="">Select kategory</option>
                     @foreach($tags as $tag)
@@ -26,7 +25,7 @@
                 @endif
             </div>
             <div class="form-group {{ $errors->has('body') ? ' has-error' : '' }} ">
-                <label for="body">Desciption</label>
+                <label for="body">Deskripsi</label>
                 <textarea name="body" id="body" rows="10" class="form-control">{{old('body')}}</textarea>
                 @if($errors->has('body'))
                     <span class="help-block"> {{$errors->first('body')}} </span>

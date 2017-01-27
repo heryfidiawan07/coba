@@ -2,7 +2,7 @@
 
 @section('url') http://fidawa.com/threads/{{$thread->slug}} @stop
 @section('title') {{$thread->title}} @stop
-@section('description') {{ str_limit($thread->body, 120) }} @stop
+@section('description') {{ str_limit($thread->body, 150) }} @stop
 @section('image') http://fidawa.com/img/threads/{{$thread->img}} @stop
 
 @section('content')

@@ -128,13 +128,13 @@ class JualController extends Controller
             return redirect()->to('/fjb');
         }
         $jtags = TagJual::all();
-        $juals = Jual::where('tag_id',$tag->id)->latest()->paginate(10); //eroorrrrrr============
+        $juals = Jual::where('tag_id',$tag->id)->latest()->paginate(9); //eroorrrrrr============
         //dd($juals);
         return view('fjb.index', compact('juals', 'jtags'));
     }
     
     public function minejual(){
-        $juals = Auth::user()->juals()->latest()->paginate(10);
+        $juals = Auth::user()->juals()->latest()->paginate(9);
         return view('fjb.index', compact('juals'));
     }
     

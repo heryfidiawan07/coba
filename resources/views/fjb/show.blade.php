@@ -2,7 +2,7 @@
 
 @section('url') http://fidawa.com/fjb/{{$jual->slug}} @stop
 @section('title') {{$jual->title}} @stop
-@section('description') {{ str_limit($jual->deskripsi, 120) }} @stop
+@section('description') {{ str_limit($jual->deskripsi, 150) }} @stop
 @section('image') 
     @if(count($jual->galery))
         http://fidawa.com/img/fjb/{{$jual->galery->first()->img}} @stop

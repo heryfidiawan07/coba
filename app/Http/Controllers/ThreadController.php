@@ -115,12 +115,12 @@ class ThreadController extends Controller
             return redirect()->to('/threads');
         }
         $tags     = Tag::all();
-        $threads = $tag->threads()->latest()->paginate(10);
+        $threads = $tag->threads()->latest()->paginate(9);
         return view('threads.index', compact('threads', 'tags'));
     }
     
     public function mine(){
-        $threads = Auth::user()->threads()->latest()->paginate(10);
+        $threads = Auth::user()->threads()->latest()->paginate(9);
         return view('threads.index', compact('threads'));
     }
     

@@ -1,5 +1,5 @@
 @if(Auth::check())
-	<a href="/fjb/mythreads" class="btn btn-warning btn-sm" style="color: white !important;">My FJB</a>
+	<a href="/fjb/mythreads" class="btn btn-warning btn-sm" style="color: white !important;">My JB</a>
   <br><br>
 @endif
 
