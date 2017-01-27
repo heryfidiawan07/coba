@@ -6,7 +6,7 @@
   @endif
 
   @foreach($jualsphotos as $jualsphoto)
-    <div class="col-md-3">
+    <div class="col-md-4">
       <div class="media">
         <a href="/{{$jualsphoto->user->getName()}}" class="pull-left">
             <img src=" {{$jualsphoto->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">

@@ -6,7 +6,6 @@ use Auth;
 use App\Jual;
 use App\User;
 use App\Thread;
-use App\Comment;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -29,12 +28,12 @@ class HomeController extends Controller
     public function index()
     {
         $threads     = Thread::latest()->paginate(6);
-        $hotsthreads = Thread::has('comments', '>', 0)->paginate(4);
+        $hotsthreads = Thread::has('comments', '>', 0)->paginate(3);
         $newcomments = Thread::has('comments')->latest()->paginate(3);
 
         $juals        = Jual::latest()->paginate(6);
-        $jualsphotos  = Jual::latest()->paginate(4);
-        $topjuals     = Jual::has('jcomments', '>', 0)->paginate(4);
+        $jualsphotos  = Jual::latest()->paginate(3);
+        $topjuals     = Jual::has('jcomments', '>', 0)->paginate(3);
         $jualcomments = Jual::has('jcomments')->latest()->paginate(3);
 
         if (Auth::check()) {

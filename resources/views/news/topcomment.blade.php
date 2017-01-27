@@ -6,7 +6,7 @@
   @endif
 
   @foreach($hotsthreads as $hotsthread)
-    <div class="col-md-3">
+    <div class="col-md-4">
       <div class="media">
         <a href="/{{$hotsthread->user->getName()}}" class="pull-left">
             <img src=" {{$hotsthread->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
@@ -17,7 +17,7 @@
         <small class="pull-right">{{$hotsthread->created_at->diffForHumans()}}</small>
       </div>
       
-        <a href="/threads/{{$hotsthread->slug}} ">{{str_limit($hotsthread->title, 35)}}</a>
+        <a href="/threads/{{$hotsthread->slug}} ">{{str_limit($hotsthread->title, 50)}}</a>
         <p>{{str_limit($hotsthread->body, 35)}}</p>
       <div class="panel-footer"><a href="/threads/{{$hotsthread->slug}} ">{{$hotsthread->countComments()}} comment</a></div>
     </div>

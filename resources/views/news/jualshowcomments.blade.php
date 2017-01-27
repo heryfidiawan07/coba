@@ -29,7 +29,7 @@
           </a>        
           <a href="/{{$jualcomment->getComment()->user->getName()}}">{{$jualcomment->getComment()->user->getName()}}</a>
           <small class="pull-right">{{$jualcomment->getComment()->created_at->diffForHumans()}}</small>
-          <p>{{str_limit($jualcomment->getComment()->body, 50)}}</p>
+          <p>{{str_limit($jualcomment->getComment()->body, 40)}}</p>
         </div>
       </div>
 

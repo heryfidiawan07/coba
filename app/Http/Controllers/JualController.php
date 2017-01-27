@@ -51,10 +51,9 @@ class JualController extends Controller
             $files   = $request->file('img');
             if (!empty($files)) {
             	foreach ($files as $file) {
-                	$fileName = $jual->user_id.'_'.$jual->id.'_'.$time.'_fidawadotcom.jpg';
-
-                    $path = $file->getRealPath();
-                    $img  = Image::make($path)->resize(600, 315);
+                	$fileName = $jual->user_id.'_'.$jual->id.'_'.$time.'_'.$file->getClientOriginalName().'_fidawadotcom.jpg';
+                    $path     = $file->getRealPath();
+                    $img      = Image::make($path)->resize(600, 315);
                     $img->save(public_path("img/fjb/". $fileName));
 
                     $galeries = new Galery;
@@ -104,9 +103,9 @@ class JualController extends Controller
                 $id = $jual->user_id;
                 if (!empty($files)) {
                     foreach ($files as $file) {
-                        $fileName = $id.'_'.$jual->id.'_'.$time.'_fidawadotcom.jpg';
-                        $path = $file->getRealPath();
-                        $img  = Image::make($path)->resize(600, 315);
+                        $fileName = $id.'_'.$jual->id.'_'.$time.'_'.$file->getClientOriginalName().'_fidawadotcom.jpg';
+                        $path     = $file->getRealPath();
+                        $img      = Image::make($path)->resize(600, 315);
                         $img->save(public_path("img/fjb/". $fileName));
                           $galery = new Galery;
                           $galery->img      = $fileName;
