@@ -16,9 +16,10 @@
         <a href="/tags/{{$thread->tag->name}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$thread->tag->name}}</a>
         <small class="pull-right">{{$thread->created_at->diffForHumans()}}</small>
       </div>
-
-      <a href="/threads/{{$thread->slug}} ">{{str_limit($thread->title, 45)}}</a>
-      <div class="panel-footer"><a href="/threads/{{$thread->slug}} ">{{$thread->countComments()}} commentar</a></div>
+      <div class="title_show">
+        <b><a href="/threads/{{$thread->slug}} ">{!!nl2br($thread->title)!!}</a></b>
+      </div>
+      <div class="panel-footer"><a href="/threads/{{$thread->slug}} ">{{$thread->countComments()}} commentar</a></div><br>
     </div>
   @endforeach
 

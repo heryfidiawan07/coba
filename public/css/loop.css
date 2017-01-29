@@ -1,5 +1,25 @@
-#isi {
-	max-height: 65px;
-	min-height: 65px;
-	overflow: hidden;
+.title_show {
+	line-height: 1.5em;
+  height: 3em;
+  overflow: hidden; 
+}
+.body_show {
+	line-height: 1.5em;
+  height: 4.5em;
+  overflow: hidden; 
+}
+.comment_show {
+	line-height: 1.5em;
+  height: 1.5em;
+  overflow: hidden; 
+}
+#status {
+	line-height: 1.5em;
+  height: 3em;
+  overflow: hidden; 
+}
+#tentang {
+	line-height: 1.5em;
+	height: 4em;
+	overflow: scroll;
 }

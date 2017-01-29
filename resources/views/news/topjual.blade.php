@@ -16,8 +16,8 @@
         <a href="/kategory/{{$topjual->tag->name}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$topjual->tag->name}}</a>
         <small class="pull-right">{{$topjual->created_at->diffForHumans()}}</small>
       </div>
-      <a href="/fjb/{{$topjual->slug}} ">{{str_limit($topjual->title, 50)}}</a>
-      <p>{{str_limit($topjual->deskripsi, 45)}}</p>
+      <div class="title_show"><b><a href="/fjb/{{$topjual->slug}} ">{!!nl2br($topjual->title)!!}</a></b></div>
+      <div class="body_show"><p>{!!nl2br($topjual->deskripsi)!!}</p></div>
       <div class="panel-footer"><a href="/fjb/{{$topjual->slug}} ">{{$topjual->countComments()}} comment</a></div>
     </div>
   @endforeach

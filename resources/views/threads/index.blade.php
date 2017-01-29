@@ -13,8 +13,7 @@
                 </a>
                 <div class="media-body">
                     <div class="media-heading">
-                        <a href="/threads/{{$thread->slug}}">{{str_limit($thread->title, 40)}}</a>
-                        <br>
+                        <div class="title_show"><b><a href="/threads/{{$thread->slug}}">{!!nl2br($thread->title)!!}</a></b></div>
                         <a href="/tags/{{$thread->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;">
                             <img id="icon" src="/background/tag.svg">{{$thread->tag->name}}
                         </a>

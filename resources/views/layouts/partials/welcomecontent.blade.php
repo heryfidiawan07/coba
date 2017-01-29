@@ -1,8 +1,5 @@
 <div class="row">
-	<div class="col-md-8 col-md-offset-2">
-	    <div id="output" class="text-center"></div>
-	</div>
-	<div class="col-md-8 col-md-offset-2">
+	<div class="col-md-12">
     	<div class="text-center">
             <li class="lii"><a class="btn btn-xs" href="https://web.facebook.com/fidawadiskusi/">
                 <img id="icon" src="/background/fbc.svg"> Facebook</a>
@@ -16,8 +13,6 @@
             <li class="lii"><a class="btn btn-xs" href="/member">
                 <img id="icon" src="/background/memberc.svg"> Member</a>
             </li>
-        </div>
-        <div class="text-center">
             <li class="lii"><a class="btn btn-xs" href="/login">
                 <img id="icon" src="/background/login.svg"> Login</a>
             </li>
@@ -25,22 +20,8 @@
                 <img id="icon" src="/background/register.svg"> Register</a>
             </li>
         </div>
-        <hr>
+        <br>
         @include('layouts.partials.social')
         <hr>
 	</div>
-
-    <div class="row">
-      <div class="col-md-12">
-        @include('news.newthreads')
-      </div>
-    </div>
-
-    <hr>
-
-    <div class="row">
-      <div class="col-md-12">
-        @include('news.fjbnews')
-      </div>
-    </div>
 </div>

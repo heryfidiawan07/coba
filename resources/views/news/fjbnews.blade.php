@@ -17,8 +17,8 @@
         <small class="pull-right">{{$jual->created_at->diffForHumans()}}</small>
       </div>
 
-      <a href="/fjb/{{$jual->slug}} ">{{str_limit($jual->title, 50)}}</a>
-      <div class="panel-footer"><a href="/fjb/{{$jual->slug}} ">{{$jual->countComments()}} comment</a></div>
+      <div class="title_show"><b><a href="/fjb/{{$jual->slug}} ">{!!nl2br($jual->title)!!}</a></b></div>
+      <div class="panel-footer"><a href="/fjb/{{$jual->slug}} ">{{$jual->countComments()}} comment</a></div><br>
     </div>
   @endforeach
 

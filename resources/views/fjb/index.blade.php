@@ -13,8 +13,7 @@
                 </a>
                 <div class="media-body">
                     <div class="media-heading">
-                        <a href="/fjb/{{$jual->slug}} ">{{str_limit($jual->title, 40)}}</a>
-                        <br>
+                        <div class="title_show"><b><a href="/fjb/{{$jual->slug}} ">{!!nl2br($jual->title)!!}</a></b></div>
                         <a href="/kategory/{{$jual->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;">
                             <img id="icon" src="/background/tag.svg">{{$jual->tag->name}}
                         </a>

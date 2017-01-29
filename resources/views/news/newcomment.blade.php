@@ -15,9 +15,12 @@
         <a href="/tags/{{$newcomment->tag->name}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$newcomment->tag->name}}</a>
         <small class="pull-right">{{$newcomment->created_at->diffForHumans()}}</small>
       </div>
-      
-        <a href="/threads/{{$newcomment->slug}} ">{{str_limit($newcomment->title, 50)}}</a>
-        <p>{{str_limit($newcomment->body, 50)}}</p>
+      <div class="title_show">
+        <b><a href="/threads/{{$newcomment->slug}} ">{!!nl2br($newcomment->title)!!}</a></b>
+      </div>
+      <div class="body_show">
+        <p>{!!nl2br($newcomment->body)!!}</p>
+      </div>
       <div class="panel-footer"><a href="/threads/{{$newcomment->slug}}">{{$newcomment->countComments()}} comment</a></div>
       
       <div class="panel-footer">
@@ -28,7 +31,7 @@
           </a>        
           <a href="/{{$newcomment->getComment()->user->getName()}}">{{$newcomment->getComment()->user->getName()}}</a>
           <small class="pull-right">{{$newcomment->getComment()->created_at->diffForHumans()}}</small>
-          <p>{{str_limit($newcomment->getComment()->body, 30)}}</p>
+          <div class="comment_show">{!!nl2br($newcomment->getComment()->body)!!}</div>
         </div>
       </div>
 

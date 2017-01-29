@@ -13,7 +13,7 @@
               <a href="/{{$member->name}}">
                 <p>{{$member->name}}</p>
               </a>
-              <div id="isi">
+              <div id="status">
                 @if($member->tentang == null)
                   <p> No status </p>
                 @else
@@ -24,7 +24,7 @@
               <div class="panel-footer">
                 <p class="pull-left"><img id="icon" src="/background/ide.svg"> {{$member->tulisan()}} threads</p>
                 <p class="pull-right"><img id="icon" src="/background/shopc.svg"> {{$member->fjb()}} jual beli</p>
-              </div>
+              </div><hr>
 				</div>
 	    </div>
     @endforeach

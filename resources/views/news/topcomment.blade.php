@@ -17,8 +17,8 @@
         <small class="pull-right">{{$hotsthread->created_at->diffForHumans()}}</small>
       </div>
       
-        <a href="/threads/{{$hotsthread->slug}} ">{{str_limit($hotsthread->title, 50)}}</a>
-        <p>{{str_limit($hotsthread->body, 35)}}</p>
+        <div class="title_show"><b><a href="/threads/{{$hotsthread->slug}} ">{!!nl2br($hotsthread->title)!!}</a></b></div>
+        <div class="body_show"><p>{!!nl2br($hotsthread->body)!!}</p></div>
       <div class="panel-footer"><a href="/threads/{{$hotsthread->slug}} ">{{$hotsthread->countComments()}} comment</a></div>
     </div>
   @endforeach

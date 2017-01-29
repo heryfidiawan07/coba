@@ -16,7 +16,7 @@
         <small class="pull-right">{{$jualcomment->created_at->diffForHumans()}}</small>
       </div>
 
-      <a href="/fjb/{{$jualcomment->slug}} ">{{str_limit($jualcomment->title, 50)}}</a>
+      <div class="title_show"><b><a href="/fjb/{{$jualcomment->slug}} ">{!!nl2br($jualcomment->title)!!}</a></b></div>
       <div class="panel-footer"><a href="/fjb/{{$jualcomment->slug}}">
         {{$jualcomment->countComments()}} comment</a>
       </div>
@@ -29,7 +29,9 @@
           </a>        
           <a href="/{{$jualcomment->getComment()->user->getName()}}">{{$jualcomment->getComment()->user->getName()}}</a>
           <small class="pull-right">{{$jualcomment->getComment()->created_at->diffForHumans()}}</small>
-          <p>{{str_limit($jualcomment->getComment()->body, 40)}}</p>
+          <div class="comment_show">
+            {!!nl2br($jualcomment->getComment()->body)!!}
+          </div>
         </div>
       </div>
 
