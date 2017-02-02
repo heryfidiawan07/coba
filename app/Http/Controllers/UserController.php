@@ -17,7 +17,7 @@ class UserController extends Controller
             ]);
             $user->update([
                 'name' => $request->edit_name,
-                'slug' => str_slug($request->edit_name),
+                'slug' => str_slug($request->edit_name).'-'.str_random(5),
             ]);
             return redirect()->to("/{$user->slug}");
         }
