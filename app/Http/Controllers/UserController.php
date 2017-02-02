@@ -17,8 +17,9 @@ class UserController extends Controller
             ]);
             $user->update([
                 'name' => $request->edit_name,
+                'slug' => str_slug($request->edit_name),
             ]);
-            return redirect()->to("/{$user->name}");
+            return redirect()->to("/{$user->slug}");
         }
     }
 
@@ -31,7 +32,7 @@ class UserController extends Controller
             $user->update([
                 'tentang' => $request->tentang,
             ]);
-            return redirect()->to("/{$user->name}");
+            return redirect()->to("/{$user->slug}");
         }
     }
 
@@ -40,7 +41,7 @@ class UserController extends Controller
     	$user = User::whereId($id)->first();
         if ($request->user()->id == $id) {
         	$this->validate($request, [
-        		'img' => 'required|image:jpg,png,gif|max:2500'
+        		'img' => 'required|image:jpeg,png,gif|max:2500'
         	]);
         	//dd($request->img);//gagal terus melewati validation mimes/img
 	        $file = $request->file('img');
@@ -49,15 +50,14 @@ class UserController extends Controller
                     File::delete($from);
                 }
                 if($file){
-                    $fileName = $user->id.'_fidawadotcom.jpg';
+                    $fileName = $user->id.'_fidawadotcom.'.$file->getClientOriginalExtension();
                     $path     = $file->getRealPath();
-                    $img      = Image::make($path)->resize(250, 250);
-                    $img->save(public_path("img/users/". $fileName));
+                    $request->file('img')->move("img/users", $fileName);
                     $user->update([
                        'img' => $fileName,
                     ]);
                 }
-        	return redirect()->to("/{$user->name}");
+        	return redirect()->to("/{$user->slug}");
         }
     }
     

@@ -1,4 +1,5 @@
-<div class="media">
+
+<div class="form-group {{ $errors->has('img') ? ' has-error' : '' }} ">
     <span>max 4 images.</span>
     <input type="file" name="img[]" class="file" id="media" multiple="multiple">
     <div class="input-group col-sm-9">
@@ -7,7 +8,7 @@
         <span class="input-group-btn">
             <button class="browse btn btn-primary" type="button">Browse</button>
         </span>
-    </div>                            
+    </div>
     @if($errors->has('img'))
         <span class="help-block"> {{$errors->first('img')}} </span>
     @endif

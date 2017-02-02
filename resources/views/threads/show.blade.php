@@ -13,11 +13,11 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="media">
-                    <a href="/{{$thread->user->getName()}}" class="pull-left">
+                    <a href="/{{$thread->user->slug}}" class="pull-left">
                       <img src="{{$thread->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
                       <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
                     </a>        
-                    <a href="/{{$thread->user->name}}"> {{$thread->user->getName()}} </a>
+                    <a href="/{{$thread->user->slug}}"> {{$thread->user->getName()}} </a>
                     <small class="pull-right"> {{$thread->created_at->diffForHumans()}} </small>
                 </div>
             @if(Auth::check())
@@ -34,25 +34,25 @@
             <div class="media">
                 <div class="media">
                     <p><b>{!!nl2br($thread->title)!!}</b></p>
-                    <a class="btn btn-danger btn-xs" style="color: white !important;" href="/tags/{{$thread->tag->name}}"><img id="icon" src="/background/tag.svg"> {{$thread->tag->name}}</a>
+                    <a class="btn btn-danger btn-xs" style="color: white !important;" href="/tags/{{$thread->tag->slug}}"><img id="icon" src="/background/tag.svg"> {{$thread->tag->name}}</a>
                     <hr>
                     <div class="fb-like" data-href="http://fidawa.com/threads/{{$thread->slug}}" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
                 </div>
                 <hr>
                 <div class="media">
                     @if($thread->img)
-                        <img class="img-responsive" src="{{asset('/img/threads/'.$thread->img )}}" alt="{{$thread->tag->name}}">
+                        <img class="img-responsive" src="{{asset('/img/threads/'.$thread->img )}}" alt="{{$thread->tag->name}}" style="margin: 0 auto; padding: 0px 30px;">
                     @endif
                     <br><p>{!! nl2br($thread->body) !!}</p>
                     @foreach($comments as $comment)
                     <hr>
                     <div class="media" style="margin-left: 20px;">
                         <div class="media">
-                            <a href="/{{$comment->user->getName()}}" class="pull-left">
+                            <a href="/{{$comment->user->slug}}" class="pull-left">
                               <img src=" {{$comment->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
                               <img src="{{asset('/img/users/'.$comment->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
                             </a>
-                            <a href="/{{$comment->user->name}}">{{$comment->user->getName()}}</a>
+                            <a href="/{{$comment->user->slug}}">{{$comment->user->getName()}}</a>
                             <small> &horbar; {{$comment->created_at->diffForHumans()}}</small>
                         <div class="media">
                             @if($comment->img)

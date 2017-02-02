@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddKolomToUsers extends Migration
+class AddKolomToJuals extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class AddKolomToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function(Blueprint $table)
+        Schema::table('juals', function(Blueprint $table)
         {
-            $table->string('tentang')->nullable()->after('name');
-            $table->string('slug')->after('status');
+            $table->integer('hargaNormal')->after('title');
+            $table->integer('diskon')->after('hargaNormal');
         });
     }
 
@@ -27,10 +27,10 @@ class AddKolomToUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function(Blueprint $table)
+        Schema::table('juals', function(Blueprint $table)
         {
-            $table->dropColumn('tentang');
-            $table->dropColumn('slug');
+            $table->dropColumn('hargaNormal');
+            $table->dropColumn('diskon');
         });
     }
 }

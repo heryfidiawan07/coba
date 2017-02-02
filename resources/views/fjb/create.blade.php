@@ -24,6 +24,20 @@
                     <span class="help-block"> {{$errors->first('tag_id')}} </span>
                 @endif
             </div>
+            <div class="form-group form-inline {{ $errors->has('hargaNormal') ? ' has-error' : '' }} ">
+                <label for="hargaNormal" style="width: 100px;">Harga Normal</label>
+                <input type="number" name="hargaNormal" value="{{old('hargaNormal')}}" class="form-control bfh-number" placeholder="example : 5000">
+                @if($errors->has('hargaNormal'))
+                    <span class="help-block"> {{$errors->first('hargaNormal')}} </span>
+                @endif
+            </div>
+            <div class="form-group form-inline {{ $errors->has('diskon') ? ' has-error' : '' }} ">
+                <label for="diskon" style="width: 100px;">Diskon</label>
+                <input type="number" name="diskon" value="{{old('diskon')}}" class="form-control bfh-number" placeholder="example : 1000">
+                @if($errors->has('diskon'))
+                    <span class="help-block"> {{$errors->first('diskon')}} </span>
+                @endif
+            </div>
             <div class="form-group {{ $errors->has('deskripsi') ? ' has-error' : '' }} ">
                 <label for="deskripsi">Deskripsi</label>
                 <textarea name="deskripsi" id="deskripsi" rows="10" class="form-control">{{old('deskripsi')}}</textarea>
@@ -31,9 +45,9 @@
                     <span class="help-block"> {{$errors->first('deskripsi')}} </span>
                 @endif
             </div>
-            <div class="form-group {{ $errors->has('img') ? ' has-error' : '' }} ">
-                @include('layouts.partials.uploadfjb')
-            </div>
+            
+            @include('layouts.partials.uploadfjb')
+            
             <div class="form-group">
                 <input type="submit" class="btn btn-primary btn-sm" value="post">
             </div>

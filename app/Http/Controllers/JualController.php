@@ -20,8 +20,12 @@ class JualController extends Controller
 	}
 	
 	public function index(){
-        $juals = Jual::latest()->paginate(9);
-		return view('fjb.index', compact('juals'));
+        $juals        = Jual::latest()->paginate(3);
+        $jualsphotos  = Jual::whereHas('galery',
+                            function ($query) {
+                                $query->where('jual_id', '!=', null);
+                            })->latest()->paginate(6);
+		return view('fjb.index', compact('jualsphotos', 'juals'));
 	}		
 
     public function create(){
@@ -42,16 +46,19 @@ class JualController extends Controller
         if (count($request->file('img')) <= 4) {
             $slug = str_slug($request->title);
             $jual = Auth::user()->juals()->create([
-                'title'     => $request->title,
-                'deskripsi' => $request->deskripsi,
-                'slug'      => $slug,
-                'tag_id'    => $request->tag_id,
+                'title'       => $request->title,
+                'deskripsi'   => $request->deskripsi,
+                'slug'        => $slug,
+                'tag_id'      => $request->tag_id,
+                'hargaNormal' => $request->hargaNormal,
+                'diskon'      => $request->diskon,
             ]);
             $time = date('Y-m-d_H-i-s');
             $files   = $request->file('img');
             if (!empty($files)) {
             	foreach ($files as $file) {
-                	$fileName = $jual->user_id.'_'.$jual->id.'_'.$time.'_'.$file->getClientOriginalName().'_fidawadotcom.jpg';
+                    $ex = $file->getClientOriginalExtension();
+                	$fileName = $jual->user_id.'_'.$jual->id.'_'.$time.'_'.pathinfo($file, PATHINFO_FILENAME).'.'.$ex;
                     $path     = $file->getRealPath();
                     $img      = Image::make($path)->resize(600, 315);
                     $img->save(public_path("img/fjb/". $fileName));
@@ -81,7 +88,7 @@ class JualController extends Controller
         }
     }
 
-    public function update(EditJual $request, $slug){
+    public function update(JualRequest $request, $slug){
         $jual = Jual::whereSlug($slug)->first();
         if (!$jual) {
             return redirect()->to('/fjb');
@@ -93,24 +100,28 @@ class JualController extends Controller
             $slug = str_slug($request->title);
             if ($request->user()->id == $jual->user_id) {
                 $jual->update([
-                    'title'     => $request->title,
-                    'tag_id'    => $request->tag_id,
-                    'slug'      => $slug,
-                    'deskripsi' => $request->deskripsi,
+                    'title'       => $request->title,
+                    'tag_id'      => $request->tag_id,
+                    'slug'        => $slug,
+                    'deskripsi'   => $request->deskripsi,
+                    'hargaNormal' => $request->hargaNormal,
+                    'diskon'      => $request->diskon,
                 ]);
                 $time = date('Y-m-d_H-i-s');
                 $files = $request->file('img');
                 $id = $jual->user_id;
                 if (!empty($files)) {
                     foreach ($files as $file) {
-                        $fileName = $id.'_'.$jual->id.'_'.$time.'_'.$file->getClientOriginalName().'_fidawadotcom.jpg';
+                        $ex = $file->getClientOriginalExtension();
+                        $fileName =  $id.'_'.$jual->id.'_'.$time.'_'.pathinfo($file, PATHINFO_FILENAME).'.'.$ex;
                         $path     = $file->getRealPath();
                         $img      = Image::make($path)->resize(600, 315);
                         $img->save(public_path("img/fjb/". $fileName));
-                          $galery = new Galery;
-                          $galery->img      = $fileName;
-                          $galery->jual_id  = $jual->id;
-                          $galery->save();
+                        //save to Galery
+                        $galery = new Galery;
+                        $galery->img      = $fileName;
+                        $galery->jual_id  = $jual->id;
+                        $galery->save();
                     }
                 }
               return redirect()->to("/fjb/". $slug);  
@@ -126,15 +137,22 @@ class JualController extends Controller
         if (!$tag) {
             return redirect()->to('/fjb');
         }
-        $jtags = TagJual::all();
-        $juals = Jual::where('tag_id',$tag->id)->latest()->paginate(9); //eroorrrrrr============
+        //$juals = Jual::where('tag_id',$tag->id)->latest()->paginate(9); //eroorrrrrr============
+        $jualsphotos  = Jual::where('tag_id',$tag->id)->whereHas('galery',
+                            function ($query) {
+                                $query->where('jual_id', '!=', null);
+                            })->latest()->paginate(6);
         //dd($juals);
-        return view('fjb.index', compact('juals', 'jtags'));
+        return view('fjb.index', compact('jualsphotos'));
     }
     
     public function minejual(){
-        $juals = Auth::user()->juals()->latest()->paginate(9);
-        return view('fjb.index', compact('juals'));
+        //$juals = Auth::user()->juals()->latest()->paginate(9);
+        $jualsphotos  = Auth::user()->juals()->whereHas('galery',
+                            function ($query) {
+                                $query->where('jual_id', '!=', null);
+                            })->latest()->paginate(6);
+        return view('fjb.index', compact('jualsphotos'));
     }
     
 }

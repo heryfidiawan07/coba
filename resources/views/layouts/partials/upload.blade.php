@@ -8,5 +8,6 @@
   	</span>
 </div>                            
 @if($errors->has('img'))
-    <span class="help-block"> {{$errors->first('img')}} </span>
+    <span style="color: red;" class="help-block"> {{$errors->first('img')}} </span>
 @endif
+<span class="help-block" style="color: red;"><i>{{ Session::get('message') }}</i></span>

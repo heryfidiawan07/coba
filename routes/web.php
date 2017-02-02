@@ -71,7 +71,7 @@ Route::post('/commentar/{id}/edit', 'JCommentController@update');
 
 Route::get('/commentar/{id}/delete', 'ImageController@destroyimgcomment');
 //===== End Jual Barang
-Route::get('/{name}', 'HomeController@user');
+Route::get('/{slug}', 'HomeController@user');
 
 Route::post('/edit-name/{id} ', 'UserController@editname');
 Route::post('/tentang/{id} ', 'UserController@status');

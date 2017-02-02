@@ -7,6 +7,7 @@ use App\Jual;
 use App\User;
 use App\Thread;
 use Illuminate\Http\Request;
+use DB;
 
 class HomeController extends Controller
 {
@@ -27,33 +28,40 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $threads     = Thread::latest()->paginate(6);
-        $hotsthreads = Thread::has('comments', '>', 0)->paginate(3);
-        $newcomments = Thread::has('comments')->latest()->paginate(3);
+        $threads      = Thread::where('img', null)->latest()->paginate(3);
+        $threadsphoto = Thread::where('img', '!=', null)->latest()->paginate(6);
+        $newcomments  = Thread::has('comments', '>', 0)->paginate(3);
 
-        $juals        = Jual::latest()->paginate(6);
-        $jualsphotos  = Jual::latest()->paginate(3);
-        $topjuals     = Jual::has('jcomments', '>', 0)->paginate(3);
-        $jualcomments = Jual::has('jcomments')->latest()->paginate(3);
+        $juals        = Jual::latest()->paginate(3);
+        $jualsphotos  = Jual::whereHas('galery',
+                            function ($query) {
+                                $query->where('jual_id', '!=', null);
+                            })->latest()->paginate(6);
+        $jualcomments     = Jual::has('jcomments', '>', 0)->paginate(3);
 
         if (Auth::check()) {
             if (Auth::user()) {
-                return view('home', compact('threads', 'newcomments', 'hotsthreads', 'topjuals', 'juals', 'jualcomments', 'jualsphotos'));
+                return view('home', compact('threads', 'newcomments', 'juals', 'jualcomments', 'jualsphotos', 'threadsphoto'));
             }
         }else{
-            return view('welcome', compact('threads', 'newcomments', 'hotsthreads', 'topjuals', 'juals', 'jualcomments', 'jualsphotos'));
+            return view('welcome', compact('threadsphoto', 'jualsphotos'));
         }
     }   
 
-    public function user($name){
-        $user    = User::whereName($name)->first();
+    public function user($slug){
+        $user    = User::whereSlug($slug)->first();
         if (!$user) {
             return redirect('/');
         }
-        $threads = Thread::where('user_id', $user->id)->latest()->paginate(9);
-        $juals   = Jual::where('user_id', $user->id)->latest()->paginate(9);
+        $threads      = Thread::where(['img' => null, 'user_id'=> $user->id])->latest()->paginate(3);
+        $threadsphoto = Thread::where([['img', '!=', null], ['user_id', '=', $user->id]])->latest()->paginate(3);
+        $juals        = Jual::where('user_id', $user->id)->latest()->paginate(3);
+        $jualsphotos  = Jual::where('user_id', $user->id)->whereHas('galery',
+                            function ($query) {
+                                $query->where('jual_id', '!=', null);
+                            })->latest()->paginate(3);
         //dd($user->id);
-        return view('user.index', compact('user', 'threads', 'juals'));
+        return view('user.index', compact('user', 'threads', 'juals', 'threadsphoto', 'jualsphotos'));
     }
     
     public function welcome(){

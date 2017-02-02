@@ -24,10 +24,12 @@ class JualRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'     => 'required|min:3|max:255',
-            'tag_id'    => 'required',
-            'deskripsi' => 'required|min:3|max:2000',
-            'img[]'     => 'image:jpg|max:2500',
+            'title'       => 'required|min:3|max:255',
+            'hargaNormal' => 'required|min:4',
+            'diskon'      => 'required|min:4',
+            'tag_id'      => 'required',
+            'deskripsi'   => 'required|min:3|max:2000',
+            'img[]'       => 'image:jpeg|max:2500',
         ];
     }
 }

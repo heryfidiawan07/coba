@@ -16,11 +16,11 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="media">
-                    <a href="/{{$jual->user->getName()}}" class="pull-left">
+                    <a href="/{{$jual->user->slug}}" class="pull-left">
                       <img src="{{$jual->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
                       <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
                     </a>        
-                    <a href="/{{$jual->user->name}}"> {{$jual->user->getName()}} </a>
+                    <a href="/{{$jual->user->slug}}"> {{$jual->user->getName()}} </a>
                     <small class="pull-right"> {{$jual->created_at->diffForHumans()}} </small>
                 </div>
             @if(Auth::check())
@@ -43,9 +43,15 @@
                     </div>
                 </div>
             @endif
+                <h4 class="text-center">
+                    <small><strike>Rp {!!number_format($jual->hargaNormal)!!}</strike></small>
+                    <small style="background-color: yellow;"> - Rp {!!number_format($jual->diskon)!!}</small>
+                    <br><b> RP {!!number_format($jual->hargaNormal - $jual->diskon)!!} </b>
+                    <small><i>- {!!number_format($jual->diskon / $jual->hargaNormal * 100)!!}%</i></small>
+                </h4>
                 <div class="media">
                     <p><b>{!!nl2br($jual->title)!!}</b></p>
-                    <a class="btn btn-danger btn-xs" style="color: white !important;" href="/kategory/{{$jual->tag->name}}"><img id="icon" src="/background/tag.svg"> {{$jual->tag->name}}</a>
+                    <a class="btn btn-danger btn-xs" style="color: white !important;" href="/kategory/{{$jual->tag->slug}}"><img id="icon" src="/background/tag.svg"> {{$jual->tag->name}}</a>
                     <hr>
                     <div class="fb-like" data-href="http://fidawa.com/fjb/{{$jual->slug}}" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
                 </div>
@@ -56,7 +62,7 @@
                     <hr>
                     <div class="media" style="margin-left: 20px;">
                         <div class="media">
-                            <a href="/{{$jcomment->user->getName()}}" class="pull-left">
+                            <a href="/{{$jcomment->user->slug}}" class="pull-left">
                               <img src=" {{$jcomment->user->getAvatar()}} " class="media-object img-circle" onerror="this.style.display='none'">
                               <img src="{{asset('/img/users/'.$jcomment->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
                             </a>

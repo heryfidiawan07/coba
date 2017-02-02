@@ -77,7 +77,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'token' => str_random(20)
+            'token' => str_random(20),
+            'slug' => str_slug($data['name']),
         ]);
         // mengirim email
         Mail::to($user->email)->send(new userRegistered($user));

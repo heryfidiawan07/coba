@@ -1,6 +1,6 @@
 <div class="marketing">
 
-  @foreach($threads as $thread)
+  @foreach($threadsphoto as $thread)
   <div class="col-md-4">
     <div class="well">
       <div class="media">
@@ -11,6 +11,11 @@
         <a href="/{{$thread->user->slug}}"> {{$thread->user->getName()}} </a><br>
         <a href="/tags/{{$thread->tag->slug}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$thread->tag->name}}</a>
         <small class="pull-right">{{$thread->created_at->diffForHumans()}}</small>
+      </div>
+      <div class="media">
+        <a href="/threads/{{$thread->slug}} ">
+          <img src="{{asset('/img/threads/'.$thread->img )}}" class="media-object img-responsive">
+        </a>
       </div>
       <div class="title_show">
         <b><a href="/threads/{{$thread->slug}} ">{!!nl2br($thread->title)!!}</a></b>

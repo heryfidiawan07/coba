@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('url') http://fidawa.com/{{$user->name}} @stop
+@section('url') http://fidawa.com/{{$user->slug}} @stop
 @section('title') {{$user->name}} @stop
 @section('description') {{$user->tentang}} @stop
 @section('image') http://fidawa.com/img/users/{{$user->img}} @stop
@@ -23,7 +23,7 @@
                     @endif
                     <p>Joined :  {{$user->created_at->diffForHumans()}} </p>
                 </div>
-                <div class="fb-like" data-href="http://fidawa.com/{{$user->name}}" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                <div class="fb-like" data-href="http://fidawa.com/{{$user->slug}}" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
             </div>
         </div>
 
@@ -84,32 +84,21 @@
             <hr>
         @endif
     </div>
-    @foreach($threads as $thread)
-        <div class="col-md-4">
-            <div class="media">
-                <a href="/{{$thread->user->getName()}}" class="pull-left">
-                    <img src=" {{$thread->user->getAvatar()}} " class="img-responsive img-circle" onerror="this.style.display='none'">
-                    <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="img-responsive img-circle" onerror="this.style.display='none'">
-                </a>
-                <div class="media-body">
-                    <div class="media-heading">
-                        <div class="title_show"><b><a href="/threads/{{$thread->slug}} ">{!!nl2br($thread->title)!!}</a></b></div>
-                        <a href="/tags/{{$thread->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$thread->tag->name}}</a>
-                    </div>
-                    <p> <small>{{$thread->created_at->diffForHumans()}}</small> by <a href="/{{$thread->user->getName()}}"> {{$thread->user->getName()}} </a> </p>
-                </div>
-                <div class="panel-footer"><a href="/threads/{{$thread->slug}} ">{{$thread->countComments()}} comment</a></div>
-            </div>
-            <hr>
-        </div>
-    @endforeach
+    @include('news.newthreadsphoto')
+</div>
+<div class="row"><div class="text-center"> {{$threadsphoto->links()}} </div></div>
+<hr>
+<div class="row">
+    @include('news.newthreads')
 </div>
 <div class="row">
     <div class="text-center">
         {{$threads->links()}}
     </div>
 </div>
-    
+
+<hr>
+
 <div class="row">
     <div class="text-center">
         <h3><u> Jual beli </u></h3>
@@ -119,25 +108,11 @@
             <hr>
         @endif
     </div>
-    @foreach($juals as $jual)
-        <div class="col-md-4">
-            <div class="media">
-                <a href="/{{$jual->user->getName()}}" class="pull-left">
-                    <img src=" {{$jual->user->getAvatar()}} " class="img-circle img-responsive" onerror="this.style.display='none'">
-                    <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="img-circle img-responsive" onerror="this.style.display='none'">
-                </a>
-                <div class="media-body">
-                    <div class="media-heading">
-                        <div class="title_show"><b><a href="/fjb/{{$jual->slug}}">{!!nl2br($jual->title)!!}</a></b></div>
-                        <a href="/kategory/{{$jual->tag->name}}" class="btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$jual->tag->name}}</a>
-                    </div>
-                    <p> <small>{{$jual->created_at->diffForHumans()}}</small> by <a href="/{{$jual->user->getName()}}"> {{$jual->user->getName()}} </a> </p>
-                </div>
-                <div class="panel-footer"><a href="/fjb/{{$jual->slug}} ">{{$jual->countComments()}} comment</a></div>
-            </div>
-            <hr>
-        </div>
-    @endforeach
+    @include('news.fjbnewsphoto')
+</div>
+<div class="row"><div class="text-center"> {{$jualsphotos->links()}} </div></div>
+<div class="row">
+    @include('news.fjbnews')    
 </div>
 <div class="row">
     <div class="text-center">

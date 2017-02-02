@@ -17,7 +17,7 @@ class Jual extends Model
         return 'juals';
     }
 
-    protected $fillable = ['title', 'deskripsi', 'tag_id', 'slug'];
+    protected $fillable = ['title', 'deskripsi', 'tag_id', 'slug','hargaNormal', 'diskon'];
 
     public function user(){
     	return $this->belongsTo(User::class);

@@ -22,9 +22,9 @@ class JCommentController extends Controller
             $file = $request->file('img');
             //dd($file);
                 if (!empty($file)) {
-                    $fileName = $id.'_'.$time.'_'.$file->getClientOriginalName();
+                    $fileName = $id.'_'.$time.'_fidawadotcom_'.$file->getClientOriginalName();
                     $path     = $file->getRealPath();
-                    $img      = Image::make($path)->resize(350, 300);
+                    $img      = Image::make($path)->resize(250, 200);
                     $img->save(public_path("img/jcomments/". $fileName));
                 }else{
                     $fileName = null;
@@ -64,9 +64,9 @@ class JCommentController extends Controller
                     if (File::exists($from)) {
                         File::delete($from);
                     }
-                    $fileName = $id.'_'.$time.'_'.$file->getClientOriginalName();
+                    $fileName = $id.'_'.$time.'_fidawadotcom_'.$file->getClientOriginalName();
                     $path     = $file->getRealPath();
-                    $img      = Image::make($path)->resize(350, 300);
+                    $img      = Image::make($path)->resize(250, 200);
                     $img->save(public_path("img/jcomments/". $fileName));
                 }else if($comment->img != null){
                     $fileName = $comment->img;

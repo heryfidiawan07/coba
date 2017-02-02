@@ -5,7 +5,7 @@
 		@include('layouts.partials.welcomecontent')	
 		<div class="row">
       <div class="col-md-12">
-        @include('news.newthreads')
+        @include('news.newthreadsphoto')
       </div>
     </div>
 
@@ -13,7 +13,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        @include('news.fjbnews')
+        @include('news.fjbnewsphoto')
       </div>
     </div>
 </div>

@@ -27,7 +27,7 @@ class ThreadController extends Controller
         $file = $request->file('img');
         $time = date('Y-m-d_H-i-s');
         if (!empty($file)) {
-            $fileName = $thread->user_id.'_'.$thread->id.'_'.$time.'_fidawadotcom.jpg';
+            $fileName = $thread->user_id.'_'.$thread->id.'_'.$time.'_fidawadotcom_'.$file->getClientOriginalName();
             $path     = $file->getRealPath();
             $img      = Image::make($path)->resize(600, 315);
             $img->save(public_path("img/threads/". $fileName));
@@ -45,8 +45,9 @@ class ThreadController extends Controller
     }
 
     public function index(){
-        $threads = Thread::latest()->paginate(9);
-        return view('threads.index', compact('threads'));
+        $threads      = Thread::where('img', null)->latest()->paginate(3);
+        $threadsphoto = Thread::where('img', '!=', null)->latest()->paginate(6);
+        return view('threads.index', compact('threads', 'threadsphoto'));
     }
 
     public function show($slug){
@@ -86,7 +87,7 @@ class ThreadController extends Controller
                     if (File::exists($from)) {
                         File::delete($from);
                     }
-                    $fileName   = $thread->user_id.'_'.$thread->id.'_'.$time.'_fidawadotcom.jpg';
+                    $fileName   = $thread->user_id.'_'.$thread->id.'_'.$time.'_fidawadotcom_'.$file->getClientOriginalName();
                     $path       = $file->getRealPath();
                     $img        = Image::make($path)->resize(600, 315);
                     $img->save(public_path("img/threads/". $fileName));
@@ -114,14 +115,16 @@ class ThreadController extends Controller
         if (!$tag) {
             return redirect()->to('/threads');
         }
-        $tags     = Tag::all();
-        $threads = $tag->threads()->latest()->paginate(9);
-        return view('threads.index', compact('threads', 'tags'));
+        $tags         = Tag::all();
+        $threads      = $tag->threads()->where('img', null)->latest()->paginate(3);
+        $threadsphoto = $tag->threads()->where('img', '!=', null)->latest()->paginate(6);
+        return view('threads.index', compact('threads', 'tags', 'threadsphoto'));
     }
     
     public function mine(){
-        $threads = Auth::user()->threads()->latest()->paginate(9);
-        return view('threads.index', compact('threads'));
+        $threads      = Auth::user()->threads()->where('img', null)->latest()->paginate(3);
+        $threadsphoto = Auth::user()->threads()->where('img', '!=', null)->latest()->paginate(6);
+        return view('threads.index', compact('threads', 'threadsphoto'));
     }
     
 }

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-7">
     <div class="panel panel-default" style="padding-left: 20px; padding-right: 20px;">
         <div class="panel-heading text-center">
             <h3><small><a href="/fjb/{{$jual->slug}} ">{{$jual->title}}</a></small></h3>
@@ -30,6 +30,20 @@
                     <span class="help-block"> {{$errors->first('tag_id')}} </span>
                 @endif
             </div>
+            <div class="form-group form-inline {{ $errors->has('hargaNormal') ? ' has-error' : '' }} ">
+                <label for="hargaNormal" style="width: 100px;">Harga Normal</label>
+                <input type="number" name="hargaNormal" value="{{$jual->hargaNormal}}" class="form-control bfh-number">
+                @if($errors->has('hargaNormal'))
+                    <span class="help-block"> {{$errors->first('hargaNormal')}} </span>
+                @endif
+            </div>
+            <div class="form-group form-inline {{ $errors->has('diskon') ? ' has-error' : '' }} ">
+                <label for="diskon" style="width: 100px;">Diskon</label>
+                <input type="number" name="diskon" value="{{$jual->diskon}}" class="form-control bfh-number">
+                @if($errors->has('diskon'))
+                    <span class="help-block"> {{$errors->first('diskon')}} </span>
+                @endif
+            </div>
             <div class="form-group {{ $errors->has('deskripsi') ? ' has-error' : '' }} ">
                 <label for="deskripsi">Deskription</label>
                 <textarea name="deskripsi" id="deskripsi" rows="10" class="form-control">{{$jual->deskripsi}}</textarea>
@@ -50,10 +64,10 @@
                     @endforeach
                 </div>
             @endif
-            <div class="media">
-                @include('layouts.partials.uploadfjb')
             </div>
-            </div>
+            
+            @include('layouts.partials.uploadfjb')
+            
             <div class="form-group">
                 <input type="submit" class="btn btn-primary btn-sm" value="update">
             </div>

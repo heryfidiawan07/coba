@@ -144,7 +144,7 @@
                         {{ $user->id }}
                     </td>
                     <td class="info">
-                        <a href="/{{ $user->name }}">{{ $user->name }}</a>
+                        <a href="/{{ $user->slug }}">{{ $user->name }}</a>
                     </td>
                     <td class="info">
                         <details>

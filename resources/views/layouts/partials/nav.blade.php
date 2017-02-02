@@ -59,14 +59,14 @@
                                 </form>
                             </li>
 
-                            <li><a href="/{{ Auth::user()->name }}"><img id="icon" src="/background/profil.svg"> Profil</a></li>
+                            <li><a href="/{{ Auth::user()->slug }}"><img id="icon" src="/background/profil.svg"> Profil</a></li>
                             @if(Auth::user()->isAdmin())
                                 <li><a href="/admin"><img id="icon" src="/background/admin.svg"> Admin</a></li>
                             @endif
                         </ul>
                     </li>
                     <li>
-                        <a href="/{{Auth::user()->name}}" style="margin-top: -10px; margin-bottom: -10px;">
+                        <a href="/{{Auth::user()->slug}}" style="margin-top: -10px; margin-bottom: -10px;">
                             <img src=" {{Auth::user()->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
                             <img src="{{asset('/img/users/'.Auth::user()->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
                         </a>

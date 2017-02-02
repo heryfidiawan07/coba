@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-7">
     <div class="panel panel-default" style="padding-left: 20px; padding-right: 20px;">
         <div class="panel-heading text-center">
             <h3><small><a href="/threads/{{$thread->slug}} ">{{$thread->title}}</a></small></h3>
