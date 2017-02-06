@@ -22,6 +22,6 @@
         </div>
         <br>
         @include('layouts.partials.social')
-        <hr>
+        <br>
 	</div>
 </div>

@@ -73,7 +73,6 @@
         </div>
     </div>
 </div>
-<hr>
 
 <div class="row">
     <div class="text-center">

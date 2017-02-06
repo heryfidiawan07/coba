@@ -70,7 +70,7 @@
         <div class="text-center">
             <div class="fb-like" data-href="https://www.facebook.com/fidawadiskusi/" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
         </div>
-        <hr>
+        <br>
         @include('footer.footer')
     </div>
     <!-- Scripts -->
