@@ -10,7 +10,8 @@
 @if($juals->count())
     <div class="row">@include('news.fjbnews')</div>
     <div class="row"><div class="text-center"> {{$juals->links()}} </div></div>
-@else
+@endif
+@if(!$jualsphotos->count() AND !$juals->count())
     <div class="row">
         <div class="text-center">
             <i style="font-size: 14px;" class="lead">tidak ditemukan</i>

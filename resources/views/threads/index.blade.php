@@ -8,7 +8,8 @@
 @if($threads->count())
     <div class="row">@include('news.newthreads')</div>
     <div class="row"><div class="text-center">{{$threads->links()}}</div></div>
-@else
+@endif
+@if(!$threads->count() AND !$threadsphoto->count())
     <div class="row">
         <div class="text-center">
             <i style="font-size: 14px;" class="lead">Belum ada yang menulis di forum ini.</i>
