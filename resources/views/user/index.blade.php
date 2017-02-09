@@ -89,7 +89,7 @@
 
 @if(!$threads->count() AND !$threadsphoto->count())
     <div class="row">
-        <p class="lead">{{$user->getName()}} belum menulis forum.</p>
+        <div class="text-center"><p class="lead">{{$user->getName()}} belum menulis forum.</p></div>
         <hr>
     </div>
 @endif
@@ -108,7 +108,7 @@
 
 @if(!$jualsphotos->count() AND !$juals->count())
     <div class="row">
-        <p class="lead">{{$user->getName()}} belum menulis di fjb.</p>
+        <div class="text-center"><p class="lead">{{$user->getName()}} belum menulis di fjb.</p></div>
         <hr>
     </div>
 @endif
