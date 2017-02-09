@@ -75,44 +75,42 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="text-center">
-        <h3><u> Forum </u></h3>
-        <br>
-        @if(!$threads->count())
-            <p class="lead">{{$user->getName()}} belum menulis forum.</p>
-            <hr>
-        @endif
-    </div>
-    @include('news.newthreadsphoto')
-</div>
-<div class="row"><div class="text-center">@if($threadsphoto->count()) {{$threadsphoto->links()}} @endif</div></div>
+<div class="row"><div class="text-center"><h3><u> Forum </u></h3></div></div>
+    <br>
+@if($threadsphoto->count())
+    <div class="row">@include('news.newthreadsphoto')</div>
+    <div class="row"><div class="text-center"> {{$threadsphoto->links()}} </div></div>
+@endif
 
-<div class="row">
-    @include('news.newthreads')
-</div>
-<div class="row">
-    <div class="text-center">
-        @if($threads->count()) {{$threads->links()}} @endif
-    </div>
-</div>
+@if($threads->count())
+    <div class="row">@include('news.newthreads')</div>
+    <div class="row"><div class="text-center">{{$threads->links()}} </div></div>
+@endif
 
-<div class="row">
-    <div class="text-center">
-        <h3><u> Jual beli </u></h3>
-        <br>
-        @if(!$juals->count())
-            <p class="lead">{{$user->getName()}} belum menulis di fjb.</p>
-            <hr>
-        @endif
+@if(!$threads->count() AND !$threadsphoto->count())
+    <div class="row">
+        <p class="lead">{{$user->getName()}} belum menulis forum.</p>
+        <hr>
     </div>
-    @include('news.fjbnewsphoto')
-</div>
-<div class="row"><div class="text-center">@if($jualsphotos->count()) {{$jualsphotos->links()}} @endif</div></div>
-<div class="row">
-    @include('news.fjbnews')    
-</div>
-<div class="row">
-    <div class="text-center">@if($juals->count()) {{$juals->links()}} @endif</div>
-</div>
+@endif
+
+<div class="row"><div class="text-center"><h3><u> Jual beli </u></h3></div></div>
+    <br>
+@if($jualsphotos->count())
+    <div class="row">@include('news.fjbnewsphoto')</div>
+    <div class="row"><div class="text-center"> {{$jualsphotos->links()}} </div></div>
+@endif
+
+@if($juals->count())
+    <div class="row">@include('news.fjbnews')</div>
+    <div class="row"><div class="text-center"> {{$juals->links()}} </div></div>
+@endif
+
+@if(!$jualsphotos->count() AND !$juals->count())
+    <div class="row">
+        <p class="lead">{{$user->getName()}} belum menulis di fjb.</p>
+        <hr>
+    </div>
+@endif
+
 @endsection
