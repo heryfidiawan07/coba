@@ -142,7 +142,7 @@ class JualController extends Controller
         if (!$tag) {
             return redirect()->to('/fjb');
         }
-        $juals = Jual::where('tag_id',$tag->id)->latest()->paginate(3);
+        $juals = Jual::where('tag_id',$tag->id)->has('galery',0)->latest()->paginate(3);
         $jualsphotos  = Jual::where('tag_id',$tag->id)->whereHas('galery',
                             function ($query) {
                                 $query->where('jual_id', '!=', null);
@@ -152,7 +152,7 @@ class JualController extends Controller
     }
     
     public function minejual(){
-        $juals = Auth::user()->juals()->latest()->paginate(3);
+        $juals        = Auth::user()->juals()->has('galery',0)->latest()->paginate(3);
         $jualsphotos  = Auth::user()->juals()->whereHas('galery',
                             function ($query) {
                                 $query->where('jual_id', '!=', null);

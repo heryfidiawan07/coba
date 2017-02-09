@@ -121,7 +121,7 @@ class ThreadController extends Controller
         }
         $threads      = $tag->threads()->where('img', null)->latest()->paginate(3);
         $threadsphoto = $tag->threads()->where('img', '!=', null)->latest()->paginate(6);
-        return view('threads.index', compact('threads', 'tags', 'threadsphoto'));
+        return view('threads.index', compact('threads', 'threadsphoto'));
     }
     
     public function mine(){
