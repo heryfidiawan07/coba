@@ -12,6 +12,7 @@ use App\Jcomment;
 use Illuminate\Http\Request;
 use App\Http\Requests\EditJual;
 use App\Http\Requests\JualRequest;
+use DB;
 
 class JualController extends Controller
 {		
@@ -20,7 +21,7 @@ class JualController extends Controller
 	}
 	
 	public function index(){
-        $juals        = Jual::latest()->paginate(3);
+        $juals        = Jual::has('galery',0)->latest()->paginate(3);
         $jualsphotos  = Jual::whereHas('galery',
                             function ($query) {
                                 $query->where('jual_id', '!=', null);
@@ -43,6 +44,10 @@ class JualController extends Controller
     }
     
     public function store(JualRequest $request){
+        $slugvad  = DB::table('juals')->select('slug')->where('slug', str_slug($request->title))->get();
+        if(count($slugvad) > 0 ){
+            return back()->with('ganti', 'judul sudah ada, ganti judul lain');
+        }
         if (count($request->file('img')) <= 4) {
             $slug = str_slug($request->title);
             $jual = Auth::user()->juals()->create([
@@ -137,22 +142,22 @@ class JualController extends Controller
         if (!$tag) {
             return redirect()->to('/fjb');
         }
-        //$juals = Jual::where('tag_id',$tag->id)->latest()->paginate(9); //eroorrrrrr============
+        $juals = Jual::where('tag_id',$tag->id)->latest()->paginate(3);
         $jualsphotos  = Jual::where('tag_id',$tag->id)->whereHas('galery',
                             function ($query) {
                                 $query->where('jual_id', '!=', null);
                             })->latest()->paginate(6);
         //dd($juals);
-        return view('fjb.index', compact('jualsphotos'));
+        return view('fjb.index', compact('jualsphotos','juals'));
     }
     
     public function minejual(){
-        //$juals = Auth::user()->juals()->latest()->paginate(9);
+        $juals = Auth::user()->juals()->latest()->paginate(3);
         $jualsphotos  = Auth::user()->juals()->whereHas('galery',
                             function ($query) {
                                 $query->where('jual_id', '!=', null);
                             })->latest()->paginate(6);
-        return view('fjb.index', compact('jualsphotos'));
+        return view('fjb.index', compact('jualsphotos','juals'));
     }
     
 }

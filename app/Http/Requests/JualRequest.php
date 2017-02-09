@@ -26,7 +26,7 @@ class JualRequest extends FormRequest
         return [
             'title'       => 'required|min:3|max:255',
             'hargaNormal' => 'required|min:4',
-            'diskon'      => 'required|min:4',
+            'diskon'      => 'required|min:1',
             'tag_id'      => 'required',
             'deskripsi'   => 'required|min:3|max:2000',
             'img[]'       => 'image:jpeg|max:2500',

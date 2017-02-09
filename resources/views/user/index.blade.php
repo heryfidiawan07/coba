@@ -31,6 +31,7 @@
             @if(Auth::check())
                 @if(Auth::user()->id == $user->id)
                     <div class="panel-body">
+                        <span class="help-block" style="color: red;"><i>{{ Session::get('ganti') }}</i></span>
                         <details>
                         <summary><img id="icon" src="/background/sunting.svg">Edit name</summary>
                             <form class="form-inline" action="/edit-name/{{$user->id}}" method="post">
@@ -85,18 +86,16 @@
     </div>
     @include('news.newthreadsphoto')
 </div>
-<div class="row"><div class="text-center"> {{$threadsphoto->links()}} </div></div>
-<hr>
+<div class="row"><div class="text-center">@if($threadsphoto->count()) {{$threadsphoto->links()}} @endif</div></div>
+
 <div class="row">
     @include('news.newthreads')
 </div>
 <div class="row">
     <div class="text-center">
-        {{$threads->links()}}
+        @if($threads->count()) {{$threads->links()}} @endif
     </div>
 </div>
-
-<hr>
 
 <div class="row">
     <div class="text-center">
@@ -109,13 +108,11 @@
     </div>
     @include('news.fjbnewsphoto')
 </div>
-<div class="row"><div class="text-center"> {{$jualsphotos->links()}} </div></div>
+<div class="row"><div class="text-center">@if($jualsphotos->count()) {{$jualsphotos->links()}} @endif</div></div>
 <div class="row">
     @include('news.fjbnews')    
 </div>
 <div class="row">
-    <div class="text-center">
-        {{$juals->links()}}
-    </div>
+    <div class="text-center">@if($juals->count()) {{$juals->links()}} @endif</div>
 </div>
 @endsection

@@ -9,6 +9,7 @@ use App\Tag;
 use App\Thread;
 use Illuminate\Http\Request;
 use App\Http\Requests\ThreadRequest;
+use DB;
 
 class ThreadController extends Controller
 {
@@ -22,7 +23,10 @@ class ThreadController extends Controller
     }
 
     public function store(ThreadRequest $request){
-    	 //dd($request->file('img'));
+        $slugvad  = DB::table('threads')->select('slug')->where('slug', str_slug($request->title))->get();
+        if(count($slugvad) > 0 ){
+            return back()->with('ganti', 'judul sudah ada, ganti judul lain');
+        }
         $thread = Auth::user();
         $file = $request->file('img');
         $time = date('Y-m-d_H-i-s');
@@ -115,7 +119,6 @@ class ThreadController extends Controller
         if (!$tag) {
             return redirect()->to('/threads');
         }
-        $tags         = Tag::all();
         $threads      = $tag->threads()->where('img', null)->latest()->paginate(3);
         $threadsphoto = $tag->threads()->where('img', '!=', null)->latest()->paginate(6);
         return view('threads.index', compact('threads', 'tags', 'threadsphoto'));

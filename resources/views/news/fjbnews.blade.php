@@ -9,7 +9,7 @@
               <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
           </a>        
           <a href="/{{$jual->user->slug}}"> {{$jual->user->getName()}} </a><br>
-          <a href="/fjb/kategory/{{$jual->tag->slug}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$jual->tag->name}}</a>
+          <a href="/kategory/{{$jual->tag->slug}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$jual->tag->name}}</a>
           <small class="pull-right">{{$jual->created_at->diffForHumans()}}</small>
         </div>
 

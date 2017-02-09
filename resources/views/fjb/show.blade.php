@@ -46,7 +46,7 @@
                 <h4 class="text-center">
                     <small><strike>Rp {!!number_format($jual->hargaNormal)!!}</strike></small>
                     <small style="background-color: yellow;"> - Rp {!!number_format($jual->diskon)!!}</small>
-                    <br><b> RP {!!number_format($jual->hargaNormal - $jual->diskon)!!} </b>
+                    <br><b style="color: red;"> RP {!!number_format($jual->hargaNormal - $jual->diskon)!!} </b>
                     <small><i>- {!!number_format($jual->diskon / $jual->hargaNormal * 100)!!}%</i></small>
                 </h4>
                 <div class="media">

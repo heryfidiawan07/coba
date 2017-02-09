@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use File;
 use Image;
 use App\User;
@@ -15,11 +16,16 @@ class UserController extends Controller
             $this->validate($request, [
                 'edit_name' => 'required|min:3|max:20',
             ]);
-            $user->update([
-                'name' => $request->edit_name,
-                'slug' => str_slug($request->edit_name).'-'.str_random(5),
-            ]);
-            return redirect()->to("/{$user->slug}");
+            $slugvad  = DB::table('users')->select('slug')->where('slug', str_slug($request->edit_name))->get();
+            if(count($slugvad) > 0 ){
+                return back()->with('ganti', 'nama sudah ada, ganti nama lain');
+            }else{
+                $user->update([
+                    'name' => $request->edit_name,
+                    'slug' => str_slug($request->edit_name),
+                ]);
+                return redirect()->to("/{$user->slug}");
+            }
         }
     }
 

@@ -8,6 +8,7 @@
             <div class="form-group {{ $errors->has('title') ? ' has-error' : '' }} ">
                 <label for="title">Judul</label>
                 <input type="text" name="title" id="title" class="form-control" value="{{old('title')}}">
+                <span class="help-block" style="color: red;"><i>{{ Session::get('ganti') }}</i></span>
                 @if($errors->has('title'))
                     <span class="help-block"> {{$errors->first('title')}} </span>
                 @endif
