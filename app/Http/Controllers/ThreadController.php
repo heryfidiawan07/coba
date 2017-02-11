@@ -27,11 +27,12 @@ class ThreadController extends Controller
         if(count($slugvad) > 0 ){
             return back()->with('ganti', 'judul sudah ada, ganti judul lain');
         }
-        $thread = Auth::user();
-        $file = $request->file('img');
-        $time = date('Y-m-d_H-i-s');
+        $user   = Auth::user();
+        $file   = $request->file('img');
+        $time   = date('Y-m-d_H-i-s');
         if (!empty($file)) {
-            $fileName = $thread->user_id.'_'.$thread->id.'_'.$time.'_fidawadotcom_'.$file->getClientOriginalName();
+            $ex = $file->getClientOriginalExtension();
+            $fileName = $user->id.'_'.$time.'_fidawa.'.$ex;
             $path     = $file->getRealPath();
             $img      = Image::make($path)->resize(600, 315);
             $img->save(public_path("img/threads/". $fileName));
@@ -91,7 +92,8 @@ class ThreadController extends Controller
                     if (File::exists($from)) {
                         File::delete($from);
                     }
-                    $fileName   = $thread->user_id.'_'.$thread->id.'_'.$time.'_fidawadotcom_'.$file->getClientOriginalName();
+                    $ex = $file->getClientOriginalExtension();
+                    $fileName   = $thread->user_id.'_'.$time.'_fidawa.'.$ex;
                     $path       = $file->getRealPath();
                     $img        = Image::make($path)->resize(600, 315);
                     $img->save(public_path("img/threads/". $fileName));

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="News Information and discussion.">
+    <meta name="author" content="News Information and Discussion.">
     <!-- to google -->
     <meta name="robots" content="index,follow" />
     <meta name="googlebot" content="index,follow" />

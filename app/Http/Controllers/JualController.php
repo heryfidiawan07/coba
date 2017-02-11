@@ -61,13 +61,14 @@ class JualController extends Controller
             $time = date('Y-m-d_H-i-s');
             $files   = $request->file('img');
             if (!empty($files)) {
-            	foreach ($files as $file) {
-                    $ex = $file->getClientOriginalExtension();
-                	$fileName = $jual->user_id.'_'.$jual->id.'_'.$time.'_'.pathinfo($file, PATHINFO_FILENAME).'.'.$ex;
-                    $path     = $file->getRealPath();
+                $val = 0;
+            	while ($val < count($files)) {
+                    $ex = $files[$val]->getClientOriginalExtension();
+                	$fileName = $val.'-'.$jual->user_id.'_'.$jual->id.'_'.$time.'_fidawa.'.$ex;
+                    $path     = $files[$val]->getRealPath();
                     $img      = Image::make($path)->resize(600, 315);
                     $img->save(public_path("img/fjb/". $fileName));
-
+                $val++;
                     $galeries = new Galery;
                     $galeries->img     = $fileName;
                     $galeries->jual_id = $jual->id;
@@ -116,13 +117,14 @@ class JualController extends Controller
                 $files = $request->file('img');
                 $id = $jual->user_id;
                 if (!empty($files)) {
-                    foreach ($files as $file) {
-                        $ex = $file->getClientOriginalExtension();
-                        $fileName =  $id.'_'.$jual->id.'_'.$time.'_'.pathinfo($file, PATHINFO_FILENAME).'.'.$ex;
-                        $path     = $file->getRealPath();
+                    $val = 0;
+                    while ($val < count($files)) {
+                        $ex = $files[$val]->getClientOriginalExtension();
+                        $fileName =  $val.'-'.$id.'_'.$jual->id.'_'.$time.'_fidawa.'.$ex;
+                        $path     = $files[$val]->getRealPath();
                         $img      = Image::make($path)->resize(600, 315);
                         $img->save(public_path("img/fjb/". $fileName));
-                        //save to Galery
+                    $val++; //save to Galery
                         $galery = new Galery;
                         $galery->img      = $fileName;
                         $galery->jual_id  = $jual->id;
