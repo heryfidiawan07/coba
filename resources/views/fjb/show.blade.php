@@ -5,8 +5,9 @@
 @section('description') {{ str_limit($jual->deskripsi, 150) }} @stop
 @section('image') 
     @if(count($jual->galery))
-        http://fidawa.com/img/fjb/{{$jual->galery->first()->img}} @stop
+        http://fidawa.com/img/fjb/{{$jual->galery->first()->img}} 
     @endif
+@stop
 @section('css') <link rel="stylesheet" type="text/css" href="/css/slider1.css"> @stop
 @section('content')
 
