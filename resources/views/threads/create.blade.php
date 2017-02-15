@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="col-md-6">
+<div class="col-md-8 col-md-offset-2">
     <div class="panel panel-default" style="padding: 10px 10px;">
         <form id="upload" action="" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
@@ -27,7 +27,7 @@
             </div>
             <div class="form-group {{ $errors->has('body') ? ' has-error' : '' }} ">
                 <label for="body">Deskripsi</label>
-                <textarea name="body" id="body" rows="10" class="form-control">{{old('body')}}</textarea>
+                <textarea name="body" id="body" rows="20" class="form-control">{{old('body')}}</textarea>
                 @if($errors->has('body'))
                     <span class="help-block"> {{$errors->first('body')}} </span>
                 @endif
@@ -44,4 +44,19 @@
     </div>
 </div>
 
+@endsection
+@section('js')
+    <script type="text/javascript" src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+          selector: 'textarea',
+          menubar: false,
+          plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table contextmenu paste code'
+          ],
+          toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
+        });
+    </script>
 @endsection

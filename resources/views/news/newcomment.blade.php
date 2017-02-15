@@ -17,7 +17,7 @@
         <small class="pull-right">{{$newcomment->created_at->diffForHumans()}}</small>
       </div>
       <div class="title_show">
-        <b><a href="/threads/{{$newcomment->slug}} ">{!!nl2br($newcomment->title)!!}</a></b>
+        <b><a href="/threads/{{$newcomment->slug}} ">{{$newcomment->title}}</a></b>
       </div>
       <div class="body_show">
         <p>{!!nl2br($newcomment->body)!!}</p>

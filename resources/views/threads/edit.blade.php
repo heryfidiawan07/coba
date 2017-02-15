@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-8 col-md-offset-2">
     <div class="panel panel-default" style="padding-left: 20px; padding-right: 20px;">
         <div class="panel-heading text-center">
             <h3><small><a href="/threads/{{$thread->slug}} ">{{$thread->title}}</a></small></h3>
@@ -32,7 +32,7 @@
             </div>
             <div class="form-group {{ $errors->has('body') ? ' has-error' : '' }} ">
                 <label for="body">Body</label>
-                <textarea name="body" id="body" rows="10" class="form-control">{{$thread->body}}</textarea>
+                <textarea name="body" id="body" rows="20" class="form-control">{{$thread->body}}</textarea>
                 @if($errors->has('body'))
                     <span class="help-block"> {{$errors->first('body')}} </span>
                 @endif
@@ -55,4 +55,19 @@
     </div>
     </div>
 </div>
+@endsection
+@section('js')
+    <script type="text/javascript" src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+          selector: 'textarea',
+          menubar: false,
+          plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table contextmenu paste code'
+          ],
+          toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
+        });
+    </script>
 @endsection

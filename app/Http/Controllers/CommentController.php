@@ -9,6 +9,7 @@ use App\Thread;
 use App\Comment;
 use Illuminate\Http\Request;
 use App\Http\Requests\CommentRequest;
+use Purifier;
 
 class CommentController extends Controller
 {
@@ -29,7 +30,7 @@ class CommentController extends Controller
                     $fileName = null;
                 }
     	Auth::user()->comments()->create([
-    		'body' 		=> $request->body,
+    		'body' 		=> Purifier::clean($request->body),
             'img'       => $fileName,
     		'thread_id'	=> $thread->id,
     	]);
@@ -73,7 +74,7 @@ class CommentController extends Controller
                     $fileName = null;
                 }
             $comment->update([
-                'body'      => $request->body,
+                'body'      => Purifier::clean($request->body),
                 'img'       => $fileName,
                 'thread_id' => $comment->thread_id,
             ]);
@@ -83,7 +84,5 @@ class CommentController extends Controller
             return redirect('/');
         }
     }
-    
-    
     
 }

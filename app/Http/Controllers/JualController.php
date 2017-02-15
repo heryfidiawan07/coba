@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\EditJual;
 use App\Http\Requests\JualRequest;
 use DB;
+use Purifier;
 
 class JualController extends Controller
 {		
@@ -51,8 +52,8 @@ class JualController extends Controller
         if (count($request->file('img')) <= 4) {
             $slug = str_slug($request->title);
             $jual = Auth::user()->juals()->create([
-                'title'       => $request->title,
-                'deskripsi'   => $request->deskripsi,
+                'title'       => Purifier::clean($request->title),
+                'deskripsi'   => Purifier::clean($request->deskripsi, array('Attr.EnableID' => true)),
                 'slug'        => $slug,
                 'tag_id'      => $request->tag_id,
                 'hargaNormal' => $request->hargaNormal,
@@ -106,10 +107,10 @@ class JualController extends Controller
             $slug = str_slug($request->title);
             if ($request->user()->id == $jual->user_id) {
                 $jual->update([
-                    'title'       => $request->title,
+                    'title'       => Purifier::clean($request->title),
                     'tag_id'      => $request->tag_id,
                     'slug'        => $slug,
-                    'deskripsi'   => $request->deskripsi,
+                    'deskripsi'   => Purifier::clean($request->deskripsi, array('Attr.EnableID' => true)),
                     'hargaNormal' => $request->hargaNormal,
                     'diskon'      => $request->diskon,
                 ]);

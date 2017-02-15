@@ -17,7 +17,7 @@
         <small class="pull-right">{{$jualcomment->created_at->diffForHumans()}}</small>
       </div>
 
-      <div class="title_show"><b><a href="/fjb/{{$jualcomment->slug}} ">{!!nl2br($jualcomment->title)!!}</a></b></div>
+      <div class="title_show"><b><a href="/fjb/{{$jualcomment->slug}} ">{{$jualcomment->title}}</a></b></div>
       <div class="panel-footer"><a href="/fjb/{{$jualcomment->slug}}">
         {{$jualcomment->countComments()}} komentar</a>
       </div>

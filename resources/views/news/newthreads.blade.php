@@ -13,7 +13,7 @@
         <small class="pull-right">{{$thread->created_at->diffForHumans()}}</small>
       </div>
       <div class="title_show">
-        <b><a href="/threads/{{$thread->slug}} ">{!!nl2br($thread->title)!!}</a></b>
+        <b><a href="/threads/{{$thread->slug}} ">{{$thread->title}}</a></b>
       </div>
       <div class="panel-footer"><a href="/threads/{{$thread->slug}} ">{{$thread->countComments()}} komentar</a></div>
     </div>

@@ -33,7 +33,7 @@
         <div class="panel panel-default" style="padding: 10px 10px;">
             <div class="media">
                 <div class="media">
-                    <p><b>{!!nl2br($thread->title)!!}</b></p>
+                    <p><b>{{$thread->title}}</b></p>
                     <a class="btn btn-danger btn-xs" style="color: white !important;" href="/tags/{{$thread->tag->slug}}"><img id="icon" src="/background/tag.svg"> {{$thread->tag->name}}</a>
                     <hr>
                     <div class="fb-like" data-href="http://fidawa.com/threads/{{$thread->slug}}" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
@@ -43,7 +43,7 @@
                     @if($thread->img)
                         <img class="img-responsive" src="{{asset('/img/threads/'.$thread->img )}}" alt="{{$thread->tag->name}}" style="margin: 0 auto; padding: 0px 30px;">
                     @endif
-                    <br><p>{!! nl2br($thread->body) !!}</p>
+                    <div>{!! $thread->body !!}</div>
                     @foreach($comments as $comment)
                     <hr>
                     <div class="media" style="margin-left: 20px;">
@@ -75,7 +75,7 @@
                     <form id="upload" action="/comment/{{$thread->slug}}" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                         <div class="form-group {{$errors->has('body') ? ' has-error' : ''}} ">
-                            <textarea name="body" id="body" rows="5" class="form-control" placeholder="reply-{{Auth::user()->name}}"></textarea>
+                            <textarea name="body" id="body" rows="10" class="form-control" placeholder="reply-{{Auth::user()->name}}"></textarea>
                             @if($errors->has('body'))
                                 <span class="help-block"> {{$errors->first('body')}} </span>
                             @endif

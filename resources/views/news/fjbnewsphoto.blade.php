@@ -45,7 +45,7 @@
               <small><i>- {!!number_format($jualsphoto->diskon / $jualsphoto->hargaNormal * 100)!!}%</i></small>
           </h5>
         </a>
-          <div class="title_show"><b><a href="/fjb/{{$jualsphoto->slug}} ">{!!nl2br($jualsphoto->title)!!}</a></b></div>
+          <div class="title_show"><b><a href="/fjb/{{$jualsphoto->slug}} ">{{$jualsphoto->title}}</a></b></div>
           <div class="panel-footer"><a href="/fjb/{{$jualsphoto->slug}} ">{{$jualsphoto->countComments()}} komentar</a></div>
       </div>
     </div>

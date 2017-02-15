@@ -13,7 +13,7 @@
           <small class="pull-right">{{$jual->created_at->diffForHumans()}}</small>
         </div>
 
-        <div class="title_show"><b><a href="/fjb/{{$jual->slug}} ">{!!nl2br($jual->title)!!}</a></b></div>
+        <div class="title_show"><b><a href="/fjb/{{$jual->slug}} ">{{$jual->title}}</a></b></div>
         <h5 class="text-center">
             <small><strike>Rp {!!number_format($jual->hargaNormal)!!}</strike></small>
             <small style="background-color: yellow;"> - Rp {!!number_format($jual->diskon)!!}</small>

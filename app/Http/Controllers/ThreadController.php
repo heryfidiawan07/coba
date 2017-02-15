@@ -10,6 +10,7 @@ use App\Thread;
 use Illuminate\Http\Request;
 use App\Http\Requests\ThreadRequest;
 use DB;
+use Purifier;
 
 class ThreadController extends Controller
 {
@@ -40,9 +41,9 @@ class ThreadController extends Controller
             $fileName = null;
         }
         Auth::user()->threads()->create([
-            'title'     => $request->title,
+            'title'     => Purifier::clean($request->title),
             'img'       => $fileName,
-            'body'      => $request->body,
+            'body'      => Purifier::clean($request->body, array('Attr.EnableID' => true)),
             'slug'      => $slug = str_slug($request->title),
             'tag_id'    => $request->tag_id,
         ]);
@@ -103,11 +104,11 @@ class ThreadController extends Controller
                     $fileName = null;
                 }
             $thread->update([
-                'title' => $request->title,
+                'title' => Purifier::clean($request->title),
                 'img'   => $fileName,
                 'tag_id'=> $request->tag_id,
                 'slug'  => $slug = str_slug($request->title),
-                'body'  => $request->body,
+                'body'  => Purifier::clean($request->body, array('Attr.EnableID' => true)),
             ]);
             return redirect()->to('/threads/'. $slug);
         }else{

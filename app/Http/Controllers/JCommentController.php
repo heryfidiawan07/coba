@@ -9,6 +9,7 @@ use App\Jual;
 use App\Jcomment;
 use Illuminate\Http\Request;
 use App\Http\Requests\JCommentRequest;
+use Purifier;
 
 class JCommentController extends Controller
 {
@@ -30,7 +31,7 @@ class JCommentController extends Controller
                     $fileName = null;
                 }
     	Auth::user()->jcomments()->create([
-    		'body' 	  => $request->body,
+    		'body' 	  => Purifier::clean($request->body),
             'img'     => $fileName,
     		'jual_id' => $jual->id,
     	]);
@@ -74,7 +75,7 @@ class JCommentController extends Controller
                     $fileName = null;
                 }
             $comment->update([
-                'body'      => $request->body,
+                'body'      => Purifier::clean($request->body),
                 'img'       => $fileName,
                 'jual_id'   => $comment->jual_id,
             ]);

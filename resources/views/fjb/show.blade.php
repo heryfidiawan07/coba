@@ -51,14 +51,14 @@
                     <small><i>- {!!number_format($jual->diskon / $jual->hargaNormal * 100)!!}%</i></small>
                 </h4>
                 <div class="media">
-                    <p><b>{!!nl2br($jual->title)!!}</b></p>
+                    <p><b>{{$jual->title}}</b></p>
                     <a class="btn btn-danger btn-xs" style="color: white !important;" href="/kategory/{{$jual->tag->slug}}"><img id="icon" src="/background/tag.svg"> {{$jual->tag->name}}</a>
                     <hr>
                     <div class="fb-like" data-href="http://fidawa.com/fjb/{{$jual->slug}}" data-width="250" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
                 </div>
                 <hr>
                 <div class="media">
-                    <p>{!!nl2br($jual->deskripsi)!!}</p>
+                    <div>{!! $jual->deskripsi !!}</div>
                     @foreach($jcomments as $jcomment)
                     <hr>
                     <div class="media" style="margin-left: 20px;">
@@ -94,7 +94,7 @@
                     <form action="/commentar/{{$jual->slug}}" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                         <div class="form-group {{$errors->has('body') ? ' has-error' : ''}} ">
-                            <textarea name="body" id="body" rows="5" class="form-control" placeholder="reply-{{Auth::user()->name}}"></textarea>
+                            <textarea name="body" id="body" rows="10" class="form-control" placeholder="reply-{{Auth::user()->name}}"></textarea>
                             @if($errors->has('body'))
                                 <span class="help-block"> {{$errors->first('body')}} </span>
                             @endif
@@ -125,4 +125,4 @@
 @section('js')
     <script src="/js/slider-22.0.6.mini.js" type="text/javascript"></script>
     <script src="/js/slider1.js" type="text/javascript"></script>
-@stop
+@endsection

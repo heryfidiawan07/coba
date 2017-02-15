@@ -11,7 +11,8 @@
         "laravel/scout": "^1.1",
         "algolia/algoliasearch-client-php": "^1.11",
         "laravel/socialite": "^2.0",
-        "anhskohbo/no-captcha": "2.*"
+        "anhskohbo/no-captcha": "2.*",
+        "mews/purifier": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
