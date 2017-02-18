@@ -30,7 +30,7 @@ class CommentController extends Controller
                     $fileName = null;
                 }
     	Auth::user()->comments()->create([
-    		'body' 		=> Purifier::clean($request->body),
+    		'body' 		=> Purifier::clean($request->body, array('Attr.EnableID' => true)),
             'img'       => $fileName,
     		'thread_id'	=> $thread->id,
     	]);
@@ -74,7 +74,7 @@ class CommentController extends Controller
                     $fileName = null;
                 }
             $comment->update([
-                'body'      => Purifier::clean($request->body),
+                'body'      => Purifier::clean($request->body, array('Attr.EnableID' => true)),
                 'img'       => $fileName,
                 'thread_id' => $comment->thread_id,
             ]);

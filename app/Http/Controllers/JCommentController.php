@@ -31,7 +31,7 @@ class JCommentController extends Controller
                     $fileName = null;
                 }
     	Auth::user()->jcomments()->create([
-    		'body' 	  => Purifier::clean($request->body),
+    		'body' 	  => Purifier::clean($request->body, array('Attr.EnableID' => true)),
             'img'     => $fileName,
     		'jual_id' => $jual->id,
     	]);
@@ -75,7 +75,7 @@ class JCommentController extends Controller
                     $fileName = null;
                 }
             $comment->update([
-                'body'      => Purifier::clean($request->body),
+                'body'      => Purifier::clean($request->body, array('Attr.EnableID' => true)),
                 'img'       => $fileName,
                 'jual_id'   => $comment->jual_id,
             ]);

@@ -12,7 +12,7 @@
         "algolia/algoliasearch-client-php": "^1.11",
         "laravel/socialite": "^2.0",
         "anhskohbo/no-captcha": "2.*",
-        "mews/purifier": "^2.0"
+        "mews/purifier": "^2.0.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

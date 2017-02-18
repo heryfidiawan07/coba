@@ -7,6 +7,7 @@ use File;
 use Image;
 use App\User;
 use Illuminate\Http\Request;
+use Purifier;
 
 class UserController extends Controller
 {
@@ -21,7 +22,7 @@ class UserController extends Controller
                 return back()->with('ganti', 'nama sudah ada, ganti nama lain');
             }else{
                 $user->update([
-                    'name' => $request->edit_name,
+                    'name' => Purifier::clean($request->edit_name),
                     'slug' => str_slug($request->edit_name),
                 ]);
                 return redirect()->to("/{$user->slug}");
@@ -36,7 +37,7 @@ class UserController extends Controller
                 'tentang' => 'required|min:3|max:100',
             ]);
             $user->update([
-                'tentang' => $request->tentang,
+                'tentang' => Purifier::clean($request->tentang),
             ]);
             return redirect()->to("/{$user->slug}");
         }

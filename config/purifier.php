@@ -19,18 +19,20 @@
 return [
     'encoding'      => 'UTF-8',
     'finalize'      => true,
+    'preload'       => false,
     'cachePath'     => storage_path('app/purifier'),
     'cacheFileMode' => 0755,
     'settings'      => [
         'default' => [
             'HTML.Doctype'             => 'XHTML 1.0 Strict',
-            'HTML.Allowed'             => 'div,b,strong,i,em,a[href|title],ul,ol,li,p[style],br,span[style],img[width|height|alt|src],h1,h2,h3,h4,h5,h6,p',
+            'HTML.Allowed'             => 'h4[class],h5[class],div[class],b,strong,i,em,a[href|title|class],ul,ol,li,p[style|class],br,span[style|class],img[width|height|alt|src|class]', 
             'CSS.AllowedProperties'    => 'font,font-size,font-weight,font-style,font-family,text-decoration,padding-left,color,background-color,text-align',
             'AutoFormat.AutoParagraph' => false,
             'AutoFormat.RemoveEmpty'   => true,
         ],
         'test'    => [
-            'Attr.EnableID' => true
+            'Attr.EnableID' => true,
+            'Attr.AllowedClasses' => true,
         ],
         "youtube" => [
             "HTML.SafeIframe"      => 'true',

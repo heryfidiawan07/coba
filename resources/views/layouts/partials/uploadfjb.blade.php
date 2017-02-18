@@ -1,5 +1,6 @@
 
 <div class="form-group {{ $errors->has('img') ? ' has-error' : '' }} ">
+    <label>Header Image</label>
     <span>max 4 images.</span>
     <input type="file" name="img[]" class="file" id="media" multiple="multiple">
     <div class="input-group col-sm-9">

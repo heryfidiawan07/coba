@@ -30,14 +30,8 @@
                     <span class="help-block"> {{$errors->first('tag_id')}} </span>
                 @endif
             </div>
-            <div class="form-group {{ $errors->has('body') ? ' has-error' : '' }} ">
-                <label for="body">Body</label>
-                <textarea name="body" id="body" rows="20" class="form-control">{{$thread->body}}</textarea>
-                @if($errors->has('body'))
-                    <span class="help-block"> {{$errors->first('body')}} </span>
-                @endif
-            </div>
             <div class="form-group {{ $errors->has('img') ? ' has-error' : '' }} ">
+                <label for="body">Header Image</label>
                 @if($thread->img)
                 <div class="media">
                     <img id="img" src="{{ asset('/img/threads/'.$thread->img)  }}" style="max-height:100px;max-width:150px;">
@@ -47,6 +41,13 @@
                 <div class="media">
                     @include('layouts.partials.upload')
                 </div>
+            </div>
+            <div class="form-group {{ $errors->has('body') ? ' has-error' : '' }} ">
+                <label for="body">Deskripsi</label>
+                <textarea name="body" id="body" rows="20" class="form-control">{{$thread->body}}</textarea>
+                @if($errors->has('body'))
+                    <span class="help-block"> {{$errors->first('body')}} </span>
+                @endif
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary btn-sm" value="update threads">
@@ -62,12 +63,21 @@
         tinymce.init({
           selector: 'textarea',
           menubar: false,
+          theme: 'modern',
+          image_caption: true,
+          imagetools_cors_hosts: ['tinymce.com', 'codepen.io'],
           plugins: [
             'advlist autolink lists link image charmap print preview anchor',
             'searchreplace visualblocks code fullscreen',
-            'insertdatetime media table contextmenu paste code'
+            'insertdatetime table contextmenu paste code',
+            'image codesample imagetools','table','emoticons',
           ],
-          toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
+          toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | image codesample | link | table | emoticons',
+          content_css: [
+            '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+            '//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.css',
+            '//www.tinymce.com/css/codepen.min.css'    
+          ]
         });
     </script>
 @endsection

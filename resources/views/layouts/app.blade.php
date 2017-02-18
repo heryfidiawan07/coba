@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="utf-8">
     <meta name="author" content="News Information and Discussion.">
@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="/css/welcontent.css">
     <link rel="stylesheet" href="/css/kategoryModal.css">
     <link rel="stylesheet" href="/css/loop.css">
+    <link rel="stylesheet" href="/css/prism.css">
     <!-- Scripts -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script>
@@ -78,6 +79,7 @@
     <script src="/js/fjbajax.js" type="text/javascript"></script>
     <script type="text/javascript" src="/js/get.js"></script>
     <script src="/js/browse.js" type="text/javascript"></script>
+    <script src="/js/prism.js"></script>
     @yield('js')
 </body>
 </html>
