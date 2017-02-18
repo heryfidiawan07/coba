@@ -21,7 +21,6 @@
 
 /*Left*/
 .modal.left.fade .modal-dialog{
-	left: -320px;
 	-webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
 	   -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
 	     -o-transition: opacity 0.3s linear, left 0.3s ease-out;
@@ -43,13 +42,8 @@
 	background-color: #FAFAFA;
 }
 
-.demo {
-	padding-top: 60px;
-	padding-bottom: 15px;
-}
-
 .btn-demo {
-	margin: -2px;
+	margin: -5px;
 	padding: 10px 10px;
 	border-radius: 20;
 	font-size: 16px;

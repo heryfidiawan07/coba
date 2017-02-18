@@ -17,7 +17,7 @@
       </div>
       <div class="media">
         <a href="/threads/{{$thread->slug}} ">
-          <img src="{{asset('/img/threads/'.$thread->img )}}" class="media-object img-responsive">
+          <img src="{{asset('/img/threads/'.$thread->img )}}" class="media-object img-responsive" style="display: block;margin: 0 auto;">
         </a>
       </div>
       <div class="title_show">

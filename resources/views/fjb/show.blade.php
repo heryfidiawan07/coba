@@ -135,7 +135,7 @@
     <script src="/js/slider1.js" type="text/javascript"></script>
     <script type="text/javascript">
         $('.center').css({'display':'block','max-width':'100%','height':'auto'});
-        $('pre').css({'overflow':'scroll','min-height':'50px','max-height':'150px','width':'100%'});
+        $('pre').css({'overflow':'scroll','height':'auto','max-height':'350px','width':'100%'});
         $('table').addClass('table table-bordered');
         $('td').addClass('info');
     </script>

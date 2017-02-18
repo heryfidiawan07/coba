@@ -21,6 +21,9 @@
       </div>
 
       <div class="title_show"><b><a href="/fjb/{{$jualcomment->slug}} ">{{$jualcomment->title}}</a></b></div>
+      <div class="body_show">
+        <p>{!!nl2br($jualcomment->deskripsi)!!}</p>
+      </div>
       <div class="panel-footer"><a href="/fjb/{{$jualcomment->slug}}">
         {{$jualcomment->countComments()}} komentar</a>
       </div>
@@ -28,10 +31,10 @@
       <div class="panel-footer">
         <div class="media">
           <a href="/{{$jualcomment->getComment()->user->slug}}" class="pull-left">
-            @if($jualcomment->user->img)
+            @if($jualcomment->user->img != null)
               <img src="{{asset('/img/users/'.$jualcomment->user->img )}}" class="media-object img-circle">
             @else
-              <img src=" {{$jualcomment->getComment()->user->getAvatar()}}" class="media-object img-circle">
+              <img src=" {{$jualcomment->user->getAvatar()}}" class="media-object img-circle">
             @endif
           </a>        
           <a href="/{{$jualcomment->getComment()->user->slug}}">{{$jualcomment->getComment()->user->getName()}}</a>

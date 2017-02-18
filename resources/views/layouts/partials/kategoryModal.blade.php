@@ -1,4 +1,4 @@
-<div class="container demo">	
+
 	<div>
 		<button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal">
 			Kategory &#62;&#62;
@@ -11,7 +11,7 @@
 
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#60; close</span></button>
-					<h4 class="modal-title" id="myModalLabel">Kategory</h4>
+					<h4 class="modal-title" id="myModalLabel" style="color: white;">Kategory</h4>
 				</div>
 
 				<div class="modal-body">
@@ -23,4 +23,3 @@
 			</div><!-- modal-content -->
 		</div><!-- modal-dialog -->
 	</div><!-- modal -->
-</div><!-- container -->

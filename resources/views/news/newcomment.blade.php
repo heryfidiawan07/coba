@@ -25,15 +25,17 @@
       <div class="body_show">
         <p>{!!nl2br($newcomment->body)!!}</p>
       </div>
-      <div class="panel-footer"><a href="/threads/{{$newcomment->slug}}">{{$newcomment->countComments()}} komentar</a></div>
+      <div class="panel-footer">
+        <a href="/threads/{{$newcomment->slug}}">{{$newcomment->countComments()}} komentar</a>
+      </div>
       
       <div class="panel-footer">
         <div class="media">
           <a href="/{{$newcomment->getComment()->user->slug}}" class="pull-left">
-            @if($newcomment->user->img)
+            @if($newcomment->user->img != null)
               <img src="{{asset('/img/users/'.$newcomment->user->img )}}" class="media-object img-circle">
             @else
-              <img src=" {{$newcomment->getComment()->user->getAvatar()}}" class="media-object img-circle">
+              <img src=" {{$newcomment->user->getAvatar()}}" class="media-object img-circle">
             @endif
           </a>        
           <a href="/{{$newcomment->getComment()->user->slug}}">{{$newcomment->getComment()->user->getName()}}</a>
