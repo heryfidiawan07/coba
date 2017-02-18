@@ -20,8 +20,11 @@
             <div class="panel-body">
                 <div class="media">
                     <a href="/{{$jual->user->slug}}" class="pull-left">
-                      <img src="{{$jual->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
-                      <img src="{{asset('/img/users/'.$jual->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+                    @if($jual->user->img)
+                        <img src="{{asset('/img/users/'.$jual->user->img )}}" class="media-object img-circle">
+                    @else
+                        <img src="{{$jual->user->getAvatar()}}" class="media-object img-circle">
+                    @endif
                     </a>        
                     <a href="/{{$jual->user->slug}}"> {{$jual->user->getName()}} </a>
                     <small class="pull-right"> {{$jual->created_at->diffForHumans()}} </small>
@@ -66,8 +69,11 @@
                     <div class="media" style="margin-left: 20px;">
                         <div class="media">
                             <a href="/{{$jcomment->user->slug}}" class="pull-left">
-                              <img src=" {{$jcomment->user->getAvatar()}} " class="media-object img-circle" onerror="this.style.display='none'">
-                              <img src="{{asset('/img/users/'.$jcomment->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+                            @if($jual->user->img)
+                                <img src="{{asset('/img/users/'.$jcomment->user->img )}}" class="media-object img-circle">
+                            @else
+                                <img src=" {{$jcomment->user->getAvatar()}} " class="media-object img-circle">
+                            @endif
                             </a>
                             <a href="/{{$jcomment->user->name}}">{{$jcomment->user->getName()}}</a>
                             <small> &horbar; {{$jcomment->created_at->diffForHumans()}}</small>

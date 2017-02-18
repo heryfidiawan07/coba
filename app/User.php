@@ -62,15 +62,13 @@ class User extends Authenticatable
         return $this->hasMany(Jual::class);
     }
     
-    public function getImage(){
-        if ($this->img) {
-            return $this->img;
-        }
+    public function getFb(){
+        return $this->fb_avatar;
     }
     
     public function getAvatar(){
-        if($this->getImage()){
-            return $this->getImage();
+        if($this->getFb()){
+            return $this->getFb();
         }else{
             return "https://www.gravatar.com/avatar/" . md5($this->email) . "?d=mm&s=50";
         }

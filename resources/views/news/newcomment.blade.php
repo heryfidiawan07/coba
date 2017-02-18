@@ -9,8 +9,11 @@
     <div class="well">
       <div class="media">
         <a href="/{{$newcomment->user->slug}}" class="pull-left">
-          <img src=" {{$newcomment->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
-          <img src="{{asset('/img/users/'.$newcomment->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+        @if($newcomment->user->img)
+          <img src="{{asset('/img/users/'.$newcomment->user->img )}}" class="media-object img-circle">
+        @else
+          <img src=" {{$newcomment->user->getAvatar()}}" class="media-object img-circle">
+        @endif
         </a>        
         <a href="/{{$newcomment->user->slug}}"> {{$newcomment->user->getName()}} </a> <br>
         <a href="/tags/{{$newcomment->tag->slug}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$newcomment->tag->name}}</a>
@@ -27,8 +30,11 @@
       <div class="panel-footer">
         <div class="media">
           <a href="/{{$newcomment->getComment()->user->slug}}" class="pull-left">
-            <img src=" {{$newcomment->getComment()->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
-            <img src="{{asset('/img/users/'.$newcomment->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+            @if($newcomment->user->img)
+              <img src="{{asset('/img/users/'.$newcomment->user->img )}}" class="media-object img-circle">
+            @else
+              <img src=" {{$newcomment->getComment()->user->getAvatar()}}" class="media-object img-circle">
+            @endif
           </a>        
           <a href="/{{$newcomment->getComment()->user->slug}}">{{$newcomment->getComment()->user->getName()}}</a>
           <small class="pull-right">{{$newcomment->getComment()->created_at->diffForHumans()}}</small>

@@ -14,8 +14,11 @@
             <div class="panel-body">
                 <div class="media">
                     <a href="/{{$thread->user->slug}}" class="pull-left">
-                      <img src="{{$thread->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
-                      <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+                    @if($thread->user->img)
+                        <img src="{{asset('/img/users/'.$thread->user->img )}}" class="media-object img-circle">
+                    @else
+                        <img src="{{$thread->user->getAvatar()}}" class="media-object img-circle">
+                    @endif
                     </a>        
                     <a href="/{{$thread->user->slug}}"> {{$thread->user->getName()}} </a>
                     <small class="pull-right"> {{$thread->created_at->diffForHumans()}} </small>
@@ -49,8 +52,11 @@
                     <div class="media" style="margin-left: 20px;">
                         <div class="media">
                             <a href="/{{$comment->user->slug}}" class="pull-left">
-                              <img src=" {{$comment->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
-                              <img src="{{asset('/img/users/'.$comment->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+                            @if($comment->user->img)
+                                <img src="{{asset('/img/users/'.$comment->user->img )}}" class="media-object img-circle">
+                            @else
+                                <img src=" {{$comment->user->getAvatar()}}" class="media-object img-circle">
+                            @endif
                             </a>
                             <a href="/{{$comment->user->slug}}">{{$comment->user->getName()}}</a>
                             <small> &horbar; {{$comment->created_at->diffForHumans()}}</small>

@@ -67,8 +67,11 @@
                     </li>
                     <li>
                         <a href="/{{Auth::user()->slug}}" style="margin-top: -10px; margin-bottom: -10px;">
-                            <img src=" {{Auth::user()->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
-                            <img src="{{asset('/img/users/'.Auth::user()->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+                        @if(Auth::user()->img)
+                            <img src="{{asset('/img/users/'.Auth::user()->img )}}" class="media-object img-circle">
+                        @else
+                            <img src=" {{Auth::user()->getAvatar()}}" class="media-object img-circle">
+                        @endif
                         </a>
                     </li>
                 @endif

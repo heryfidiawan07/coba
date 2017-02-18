@@ -7,8 +7,11 @@
 	    <div class="col-md-4">
 	    		<div class="media">
               <a href="/{{$member->slug}}" class="pull-left">
-                <img src=" {{$member->getAvatar() }}" class="img-responsive img-circle" onerror="this.style.display='none'">
-                <img src="{{asset('/img/users/'.$member->getAvatar() )}}" class="img-responsive img-circle" onerror="this.style.display='none'">
+              @if($member->img)
+                <img src="{{asset('/img/users/'.$member->img )}}" class="img-responsive img-circle">
+              @else
+                <img src=" {{$member->getAvatar() }}" class="img-responsive img-circle">
+              @endif
               </a>
               <a href="/{{$member->slug}}">
                 <p>{{$member->name}}</p>

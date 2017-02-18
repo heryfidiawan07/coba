@@ -62,7 +62,7 @@ class FacebookController extends Controller
         return User::create([
             'name'        => $facebookUser->name,
             'email'       => $facebookUser->email,
-            'img'         => $facebookUser->avatar,
+            'fb_avatar'   => $facebookUser->avatar,
             'facebook_id' => $facebookUser->id,
             'status'      => 1,
             'token'       => str_random(20),

@@ -5,8 +5,11 @@
     <div class="well">
       <div class="media">
         <a href="/{{$thread->user->slug}}" class="pull-left">
-            <img src=" {{$thread->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
-            <img src="{{asset('/img/users/'.$thread->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+          @if($thread->user->img)
+            <img src="{{asset('/img/users/'.$thread->user->img )}}" class="media-object img-circle">
+          @else
+            <img src=" {{$thread->user->getAvatar()}}" class="media-object img-circle">
+          @endif
         </a>        
         <a href="/{{$thread->user->slug}}"> {{$thread->user->getName()}} </a><br>
         <a href="/tags/{{$thread->tag->slug}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$thread->tag->name}}</a>

@@ -9,8 +9,11 @@
     <div class="well">
       <div class="media">
         <a href="/{{$jualcomment->user->slug}}" class="pull-left">
-            <img src=" {{$jualcomment->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
-            <img src="{{asset('/img/users/'.$jualcomment->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+          @if($jualcomment->user->img)
+            <img src="{{asset('/img/users/'.$jualcomment->user->img )}}" class="media-object img-circle">
+          @else
+            <img src=" {{$jualcomment->user->getAvatar()}}" class="media-object img-circle">
+          @endif
         </a>        
         <a href="/{{$jualcomment->user->slug}}"> {{$jualcomment->user->getName()}} </a> <br>
         <a href="/kategory/{{$jualcomment->tag->slug}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$jualcomment->tag->name}}</a>
@@ -25,8 +28,11 @@
       <div class="panel-footer">
         <div class="media">
           <a href="/{{$jualcomment->getComment()->user->slug}}" class="pull-left">
-              <img src=" {{$jualcomment->getComment()->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
-              <img src="{{asset('/img/users/'.$jualcomment->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+            @if($jualcomment->user->img)
+              <img src="{{asset('/img/users/'.$jualcomment->user->img )}}" class="media-object img-circle">
+            @else
+              <img src=" {{$jualcomment->getComment()->user->getAvatar()}}" class="media-object img-circle">
+            @endif
           </a>        
           <a href="/{{$jualcomment->getComment()->user->slug}}">{{$jualcomment->getComment()->user->getName()}}</a>
           <small class="pull-right">{{$jualcomment->getComment()->created_at->diffForHumans()}}</small>

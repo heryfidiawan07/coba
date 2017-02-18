@@ -5,8 +5,11 @@
       <div class="well">
         <div class="media">
           <a href="/{{$jualsphoto->user->slug}}" class="pull-left">
-              <img src=" {{$jualsphoto->user->getAvatar()}}" class="media-object img-circle" onerror="this.style.display='none'">
-              <img src="{{asset('/img/users/'.$jualsphoto->user->getAvatar() )}}" class="media-object img-circle" onerror="this.style.display='none'">
+            @if($jualsphoto->user->img)
+              <img src="{{asset('/img/users/'.$jualsphoto->user->img )}}" class="media-object img-circle">
+            @else
+              <img src=" {{$jualsphoto->user->getAvatar()}}" class="media-object img-circle">
+            @endif
           </a>        
           <a href="/{{$jualsphoto->user->slug}}"> {{$jualsphoto->user->getName()}} </a><br>
           <a href="/kategory/{{$jualsphoto->tag->slug}}" class="pull-left btn btn-danger btn-xs" style="color: white !important;"><img id="icon" src="/background/tag.svg">{{$jualsphoto->tag->name}}</a>

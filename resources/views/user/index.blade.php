@@ -11,8 +11,11 @@
         <div class="col-md-6">
             <div class="media" style="padding-top: 10px; padding-left: 10px; padding-bottom: 10px;">
                 <span class="pull-left">
-                    <img width="150px" src="{{$user->getAvatar()}}" class="img-responsive" onerror="this.style.display='none'">
-                    <img width="150px" src="{{asset('/img/users/'.$user->getAvatar() )}}" class="img-responsive" onerror="this.style.display='none'">
+                @if($user->img)
+                    <img width="150px" src="{{asset('/img/users/'.$user->img )}}" class="img-responsive">
+                @else
+                    <img width="150px" src="{{$user->getAvatar()}}" class="img-responsive">
+                @endif
                 </span>
                 <div class="media-body">
                     <h4 class="media-heading"><b>{{$user->getName()}}</b></h4>
