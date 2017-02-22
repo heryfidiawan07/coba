@@ -67,12 +67,9 @@
           image_caption: true,
           imagetools_cors_hosts: ['tinymce.com', 'codepen.io'],
           plugins: [
-            'advlist autolink lists link image charmap print preview anchor',
-            'searchreplace visualblocks code fullscreen',
-            'insertdatetime table contextmenu paste code',
-            'image codesample imagetools','table','emoticons',
+            'table paste code','image codesample imagetools','emoticons',
           ],
-          toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | image codesample | link | table | emoticons',
+          toolbar: 'undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | image codesample | link | table | emoticons',
           content_css: [
             '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
             '//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.css',
