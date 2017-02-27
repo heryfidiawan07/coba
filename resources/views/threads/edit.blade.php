@@ -21,7 +21,7 @@
                 <label for="tag_id">Tag</label>
                 <select name="tag_id" id="tag_id" class="form-control">
                     <option value="{{$thread->tag->id}}"> {{$thread->tag->name}} </option>
-                    <option value="">Pilih tags anda</option>
+                    <option value="">Pilih Kategori</option>
                     @foreach($tags as $tag)
                         <option value=" {{$tag->id}} "> {{$tag->name}} </option>
                     @endforeach
@@ -44,6 +44,9 @@
             </div>
             <div class="form-group {{ $errors->has('body') ? ' has-error' : '' }} ">
                 <label for="body">Deskripsi</label>
+                <label class="pull-right">
+                    Url gambar ? Upload gambar <a href="http://fidiupload.esy.es/"><u>disini</u></a>
+                </label>
                 <textarea name="body" id="body" rows="20" class="form-control">{{$thread->body}}</textarea>
                 @if($errors->has('body'))
                     <span class="help-block"> {{$errors->first('body')}} </span>
@@ -59,30 +62,5 @@
 @endsection
 @section('js')
     <script type="text/javascript" src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-    <script>
-        tinymce.init({
-          selector: 'textarea',
-          menubar: false,
-          theme: 'modern',
-          image_caption: true,
-          imagetools_cors_hosts: ['tinymce.com', 'codepen.io'],
-          plugins: [
-            'table paste code','image codesample imagetools','emoticons',
-          ],
-          toolbar: 'undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | image codesample | link | table | emoticons',
-          content_css: [
-            '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-            '//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.css',
-            '//www.tinymce.com/css/codepen.min.css'    
-          ],
-          style_formats: [
-            {title: "Headers", items: [
-                {title: "Header 3", format: "h3"},
-                {title: "Header 4", format: "h4"},
-                {title: "Header 5", format: "h5"},
-                {title: "Header 6", format: "h6"}
-            ]},
-          ]
-        });
-    </script>
+    <script type="text/javascript" src="/js/comtiny.js"></script>
 @endsection

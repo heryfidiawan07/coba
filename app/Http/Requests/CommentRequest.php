@@ -24,7 +24,7 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'body'   => 'required|min:3|max:500',
+            'body'   => 'required|min:3|max:2000',
             'img'    => 'image:jpeg|max:2500',
         ];
     }
