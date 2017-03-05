@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-        <div class="panel panel-default">
+        <div class="panel panel-default" style="padding: 5px 5px; margin-left: -10px; margin-right: -10px;">
             <div class="panel-heading"><a href="/threads/{{$comment->thread->slug}}">{{$comment->thread->title}}</a> </div>
             <div class="panel-body">
                 <form id="upload" action="/comment/{{$comment->id}}/edit" method="post" enctype="multipart/form-data">

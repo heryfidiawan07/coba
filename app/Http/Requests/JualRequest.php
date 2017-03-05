@@ -28,7 +28,7 @@ class JualRequest extends FormRequest
             'hargaNormal' => 'required|min:4',
             'diskon'      => 'required|min:1',
             'tag_id'      => 'required',
-            'deskripsi'   => 'required|min:3|max:3000',
+            'deskripsi'   => 'required|min:3|max:10000',
             'img[]'       => 'image:jpeg|max:2500',
         ];
     }

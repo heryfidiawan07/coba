@@ -29,14 +29,14 @@ class HomeController extends Controller
     public function index()
     {
         $threads      = Thread::where('img', null)->latest()->paginate(3);
-        $threadsphoto = Thread::where('img', '!=', null)->latest()->paginate(6);
+        $threadsphoto = Thread::where('img', '!=', null)->latest()->paginate(3);
         $newcomments  = Thread::has('comments', '>', 0)->paginate(3);
 
         $juals        = Jual::has('galery',0)->latest()->paginate(3);
         $jualsphotos  = Jual::whereHas('galery',
                             function ($query) {
                                 $query->where('jual_id', '!=', null);
-                            })->latest()->paginate(6);
+                            })->latest()->paginate(3);
         $jualcomments = Jual::has('jcomments', '>', 0)->paginate(3);
 
         if (Auth::check()) {

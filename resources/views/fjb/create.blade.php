@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="col-md-8 col-md-offset-2">
-    <div class="panel panel-default" style="padding: 10px 10px;">
+    <div class="panel panel-default" style="padding: 5px 5px; margin-left: -20px; margin-right: -20px;">
         <form action="" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
             <div class="form-group {{ $errors->has('title') ? ' has-error' : '' }} ">
@@ -45,7 +45,7 @@
             <div class="form-group {{ $errors->has('deskripsi') ? ' has-error' : '' }} ">
                 <label for="deskripsi">Deskripsi</label>
                 <label class="pull-right">
-                    Url gambar ? Upload gambar <a href="http://fidiupload.esy.es/"><u>disini</u></a>
+                    url gambar ? upload <a href="http://fidiupload.esy.es/"><u>disini</u></a>
                 </label>
                 <textarea name="deskripsi" id="deskripsi" rows="20" class="form-control">{{old('deskripsi')}}</textarea>
                 @if($errors->has('deskripsi'))

@@ -1,6 +1,6 @@
 <div class="marketing">
   @if($jualcomments->count())
-    <h4 class="text-center">Kommentar Terbaru di Jual Beli</h4>
+    <h4 class="text-center">Komentar Terbaru di Jual Beli</h4>
     <hr>
   @endif
 

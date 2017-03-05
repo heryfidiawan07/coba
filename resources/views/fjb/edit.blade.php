@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-    <div class="panel panel-default" style="padding-left: 20px; padding-right: 20px;">
+    <div class="panel panel-default" style="padding: 5px 5px; margin-left: -10px; margin-right: -10px;">
         <div class="panel-heading text-center">
             <h3><small><a href="/fjb/{{$jual->slug}} ">{{$jual->title}}</a></small></h3>
         </div>
@@ -64,7 +64,7 @@
             <div class="form-group {{ $errors->has('deskripsi') ? ' has-error' : '' }} ">
                 <label for="deskripsi">Deskripsi</label>
                 <label class="pull-right">
-                    Url gambar ? Upload gambar <a href="http://fidiupload.esy.es/"><u>disini</u></a>
+                    url gambar ? upload <a href="http://fidiupload.esy.es/"><u>disini</u></a>
                 </label>
                 <textarea name="deskripsi" id="deskripsi" rows="20" class="form-control">{{$jual->deskripsi}}</textarea>
                 @if($errors->has('deskripsi'))

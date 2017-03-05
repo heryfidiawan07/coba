@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-        <div class="panel panel-default">
+        <div class="panel panel-default" style="padding: 5px 5px; margin-left: -10px; margin-right: -10px;">
             <div class="panel-heading">
                 <a href="/fjb/{{$comment->jual->slug}}">{{$comment->jual->title}}</a>
             </div>

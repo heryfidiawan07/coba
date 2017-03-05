@@ -16,7 +16,7 @@
 <div class="row">
     
     <div class="col-md-4">
-        <div class="panel panel-default">
+        <div class="panel panel-default" style="padding: 5px 5px; margin-left: -10px; margin-right: -10px;">
             <div class="panel-body">
                 <div class="media">
                     <a href="/{{$jual->user->slug}}" class="pull-left">
@@ -40,7 +40,7 @@
     </div>
 
     <div class="col-md-8">
-        <div class="panel panel-default" style="padding: 10px 10px;">
+        <div class="panel panel-default" style="padding: 5px 5px; margin-left: -10px; margin-right: -10px;">
             <div class="media">
             @if(count($jual->galery()->first()) > 0)
                 <div class="panel-body">
@@ -109,7 +109,7 @@
                         </div>
                         <div class="form-group {{ $errors->has('imgcomment') ? ' has-error' : '' }} ">
                         <label>
-                            Url gambar ? Upload gambar <a href="http://fidiupload.esy.es/"><u>disini</u></a>
+                            url gambar ? upload <a href="http://fidiupload.esy.es/"><u>disini</u></a>
                         </label>
                             <div class="media">
                                 @include('layouts.partials.upload')

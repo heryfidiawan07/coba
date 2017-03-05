@@ -1,6 +1,6 @@
 <div class="marketing">
   @if($newcomments->count())
-    <h4 class="text-center">Kommentar Terbaru di Forum</h4>
+    <h4 class="text-center">Komentar Terbaru di Forum</h4>
     <hr>
   @endif
 

@@ -1,7 +1,7 @@
 
 	<div>
 		<button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal">
-			Kategory &#62;&#62;
+			Kategori&#62;&#62;
 		</button>
 	</div>
 	<!-- Modal -->
