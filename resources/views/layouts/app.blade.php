@@ -7,8 +7,11 @@
     <meta name="robots" content="index,follow" />
     <meta name="googlebot" content="index,follow" />
     <meta content='Indonesia' name='geo.placename'/>
-    <meta name="language" content="id" />
+    <meta name="language"    content="id" />
+    <meta name="url"         content="@yield('url')" />
+    <meta name="title"       content="@yield('title')" />
     <meta name="description" content="@yield('description')" />
+    <meta name="image"       content="@yield('image')" />
     <!-- to google -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
